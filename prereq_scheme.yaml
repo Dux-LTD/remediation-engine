@@ -1,0 +1,96 @@
+cve_id: CVE-YYYY-NNNNN
+summary: '...'          # stage 1 only; not on GET /prerequisites
+cvss_vector: CVSS:3.1/...
+cvss_score: 8.8
+
+prerequisites:
+
+  # --- required: exactly one affected software unit ---
+  - id: <uuid>                          # specified-row id; expression refers here
+    cve_id: CVE-YYYY-NNNNN
+    type: software_component
+    catalog_record_id: <uuid>
+    catalog_record_display_id: <kebab-id>   # product/module, not the parent
+    title: <catalog display name>
+    description: <catalog description>
+    parameters:
+      type: software_component
+      version:                          # null = unconstrained
+        ranges:
+          - min: { version: "x", inclusive: true }   # either bound may be null
+            max: { version: "y", inclusive: false }
+        exact_versions: []
+      version_format: null              # semver | maven | windows_ubr | dotted
+    evidences:
+      - title: <source>
+        url: <url>
+        quote: <verbatim>
+    verifiable: null                    # schema field; generator leaves null
+
+  # --- optional host platform (same type, known OS ids only) ---
+  # Only when the product runs on several OSes AND the flaw is specific to one.
+  # Single-OS products (GDI32, linux-algif, firefox-for-ios) omit this.
+  - id: <uuid>
+    type: software_component
+    catalog_record_display_id: microsoft-windows-operating-system
+    # linux-operating-system | apple-macos | apple-ios | android-operating-system
+    parameters:
+      type: software_component
+      version: null
+      version_format: null
+
+  # --- 0..n settings (container/plugin/role state, not a second software row) ---
+  - id: <uuid>
+    type: configuration
+    catalog_record_display_id: <setting-id>
+    parameters:
+      type: configuration
+      value: enabled                    # required state
+      default_value: ...
+      vulnerable_by_default: true
+
+  # --- 0..n network hops; direction = who dials, not who receives ---
+  - id: <uuid>
+    type: network_service
+    catalog_record_display_id: http-https   # or smb, generic-tcp-service, ...
+    parameters:
+      type: network_service
+      direction: outbound               # inbound | outbound  (required)
+
+  # --- closed types: bind existing records, never draft ---
+  - id: <uuid>
+    type: human_interaction
+    catalog_record_display_id: user-interaction-required
+    parameters:
+      type: human_interaction
+      actor: victim_user                # victim_user | victim_admin
+      action: visit                     # open|click|visit|execute|install|attach|approve|other
+      object: a crafted HTML page
+
+  - id: <uuid>
+    type: privilege
+    catalog_record_display_id: valid-user   # or admin; omit if PR:N
+    parameters:
+      type: privilege
+      privilege_level: user             # unauthenticated | user | admin
+      explanation: null
+
+  - id: <uuid>
+    type: vantage
+    catalog_record_display_id: local-host   # adjacent | local-host | ...
+    parameters:
+      type: vantage
+      vantage: local_host               # remote|adjacent|local_host|vm_guest|container|sandboxed_process|physical
+      explanation: null
+
+expression:                             # evaluation uses this, not row order
+  all:                                  # every non-network row ANDed
+    - prerequisite_id: <software uuid>
+    - prerequisite_id: <os uuid>        # if present
+    - prerequisite_id: <config uuid>    # if present
+    - prerequisite_id: <human/priv/vantage uuid>
+    - all:                              # distinct hops of one chain
+        - prerequisite_id: <net hop 1>
+        - any:                          # interchangeable transports for ONE hop
+            - prerequisite_id: <ldap>
+            - prerequisite_id: <rmi>
