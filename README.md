@@ -31,6 +31,7 @@ poetry run remediate --ui --port 9000
 
 Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. **Show JSON** expands the plan.
 
+---
 
 ## Current Rules & Gaps
 
