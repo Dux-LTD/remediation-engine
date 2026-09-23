@@ -1,0 +1,19 @@
+[project]
+name = "remediation-engine"
+version = "0.1.0"
+description = "Suggests remediation plans for a CVE from its prerequisite file"
+requires-python = ">=3.10"
+dependencies = ["pyyaml>=6.0"]
+
+[project.scripts]
+remediate = "engine.__main__:main"
+
+[tool.poetry]
+packages = [
+    { include = "engine" },
+    { include = "defs" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
