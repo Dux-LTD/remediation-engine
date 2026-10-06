@@ -1,0 +1,940 @@
+component,group,expected,orig,orig_pct,prev,prev_pct,new,new_pct,status,prev_correct
+.NET System.IO.Packaging library,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,97.0,correct both,True
+7-Zip,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ABRT (Automatic Bug Reporting Tool),D1,OS,Non-OS,54.0,OS,92.0,OS,94.0,fixed,True
+AIDE file-integrity checker,D1,OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,still wrong,False
+ANGLE Graphics Library,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+ARM CPU with Scalable Matrix Extension (SME) support,E,OS,Non-OS,98.0,OS,100.0,OS,100.0,fixed,True
+ARM64 CPU architecture,E,OS,Non-OS,91.0,OS,100.0,OS,100.0,fixed,True
+ARMv7-A (ARM32) CPU without hardware integer divide,E,OS,Non-OS,96.0,OS,100.0,OS,100.0,fixed,True
+ASP.NET Core,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+AVideo (YouPHPTube),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Active Directory Certificate Services (AD CS),unflagged,OS,OS,99.0,OS,98.0,OS,98.0,correct both,True
+Active Directory Domain Services (AD DS),unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Active Directory Federation Services (AD FS),unflagged,OS,OS,96.0,OS,93.0,OS,95.0,correct both,True
+Adobe Acrobat / Reader,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe ColdFusion,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe Flash Player,G(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe Graphics Manager Library (AGM),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe InDesign Desktop,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe Magento,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe PDF Browser Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe Photoshop Desktop,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Adobe Shockwave Player,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Advanced Custom Fields (ACF) for WordPress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Affected AMD Zen-based processor,E,OS,Non-OS,100.0,OS,99.0,OS,99.0,fixed,True
+Affected Intel processor microarchitecture,E,OS,Non-OS,100.0,OS,99.0,OS,99.0,fixed,True
+Amelia Booking Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Android Mobile Operating System,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Android System WebView,H,Non-OS,OS,53.0,OS,81.0,OS,79.0,still wrong,False
+AnythingLLM,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache ActiveMQ,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Axis2,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Camel,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Cassandra,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Chainsaw GUI log viewer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons BeanUtils,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons Collections,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons Configuration,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons FileUpload,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons Lang,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Commons Text,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Derby (Java DB),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache HTTP Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Kafka,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Log4j 1.x,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Log4j Core,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache OFBiz,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache POI,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Solr,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Struts,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Superset,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Tomcat,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Tomcat JsonAccessLogValve,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Tomcat Native library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Tomcat Windows installer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache Xerces,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_authnz_ldap,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_cache_socache,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_cgi / mod_cgid,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_dav,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_dav_fs,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_dav_lock,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_http2,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_ldap,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_lua,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_macro,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_mime,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_ajp,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_ftp,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_html,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_http,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_http2,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_uwsgi,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_proxy_wstunnel,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_remoteip,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_rewrite,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_sed,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_session,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_session_crypto,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_setenvif,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_ssl,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_status,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apache mod_xml2enc,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+AppX Deployment Service (AppXSVC),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple AFP client (afpfs) kernel component,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple APFS filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple AuthKit framework,unflagged,OS,OS,93.0,OS,100.0,OS,100.0,correct both,True
+Apple Calendar,B,OS,Non-OS,92.0,OS,91.0,OS,85.0,fixed,True
+Apple Contacts framework,unflagged,OS,OS,60.0,OS,98.0,OS,99.0,correct both,True
+Apple Core Services,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Apple CoreMedia,unflagged,OS,OS,53.0,OS,97.0,OS,97.0,correct both,True
+Apple DCERPC framework,unflagged,OS,OS,80.0,OS,98.0,OS,99.0,correct both,True
+Apple Disk Images (DiskImages) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple DriverKit framework,unflagged,OS,OS,95.0,OS,95.0,OS,95.0,correct both,True
+Apple Game Center,B,OS,Non-OS,65.0,OS,94.0,OS,94.0,fixed,True
+Apple GarageBand,unflagged,Non-OS,Non-OS,100.0,Non-OS,87.0,Non-OS,89.0,correct both,True
+Apple HFS filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple IOKit framework,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple IOMobileFrameBuffer,unflagged,OS,OS,99.0,OS,99.0,OS,99.0,correct both,True
+Apple ISO 9660 (cd9660) filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple ImageIO,unflagged,OS,OS,60.0,OS,97.0,OS,98.0,correct both,True
+Apple Libinfo,unflagged,OS,OS,77.0,OS,97.0,OS,99.0,correct both,True
+Apple LogicPro,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Apple Maps,B,OS,Non-OS,84.0,OS,96.0,OS,95.0,fixed,True
+Apple Model I/O,unflagged,OS,OS,75.0,OS,99.0,OS,98.0,correct both,True
+Apple Neural Engine,B,OS,Non-OS,81.0,OS,95.0,OS,96.0,fixed,True
+Apple ProRes component,unflagged,OS,OS,91.0,OS,97.0,OS,98.0,correct both,True
+Apple Remote Events (AEServer),unflagged,OS,OS,100.0,OS,99.0,OS,100.0,correct both,True
+Apple Safari,G(keep),Non-OS,Non-OS,100.0,Non-OS,78.0,Non-OS,88.0,correct both,True
+Apple Silicon (M-series) processor,E,OS,Non-OS,99.0,OS,100.0,OS,99.0,fixed,True
+Apple XNU kernel,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple iOS,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple libresolv,unflagged,OS,OS,58.0,OS,93.0,OS,97.0,correct both,True
+Apple macOS,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Apple macOS GPU Driver,unflagged,OS,OS,92.0,OS,99.0,OS,99.0,correct both,True
+Apple macOS Wi-Fi Driver,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Application processing tar archives,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Application running as an SSH server (server-role library usage),F(keep),Non-OS,Non-OS,96.0,Non-OS,94.0,Non-OS,93.0,correct both,True
+Application using an SSH protocol library,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Aqua Security Trivy,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Arm CPU affected by a hardware erratum,E,OS,Non-OS,99.0,OS,100.0,OS,100.0,fixed,True
+AssertJ Core library on classpath,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Atlassian Confluence,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Atlassian Jira,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Betheme,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Bouncy Castle Crypto,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Browser extension using native messaging,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Browser extension using the identity API,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Burst Statistics,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+CIRCL ecc/p384,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+CUPS Printing System,D1,OS,Non-OS,82.0,OS,95.0,OS,96.0,fixed,True
+Cairo Graphics Library,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Canon GUARDIANWALL MailSuite,unflagged,Non-OS,Non-OS,76.0,Non-OS,67.0,Non-OS,71.0,correct both,True
+ChatBot for WordPress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chrome OS Shell (ash),unflagged,OS,OS,71.0,OS,98.0,OS,97.0,correct both,True
+Chrome/ChromeOS Image Burner Component,unflagged,OS,OS,50.0,OS,91.0,OS,94.0,correct both,True
+ChromeOS Audio Server,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+ChromeOS cryptohome,unflagged,OS,OS,96.0,OS,98.0,OS,99.0,correct both,True
+Chromium Blink Rendering Engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chromium Cast/Chromecast Component,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chromium Mojo IPC,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chromium V8 JavaScript Engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chromium-based Browser,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Chromium-based Browser Updater,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Cisco ASA / Firepower,unflagged,OS,OS,59.0,OS,99.0,OS,99.0,correct both,True
+Cisco Discovery Protocol,C,OS,Non-OS,85.0,OS,94.0,OS,95.0,fixed,True
+Cisco IP Phone,C,OS,Non-OS,51.0,OS,100.0,OS,100.0,fixed,True
+Cisco Identity Services Engine,C(keep),Non-OS,Non-OS,77.0,Non-OS,65.0,Non-OS,72.0,correct both,True
+Cisco Jabber,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Cisco NX-OS CLI,unflagged,OS,OS,72.0,OS,99.0,OS,99.0,correct both,True
+Cisco RV Series Routers,unflagged,OS,OS,58.0,OS,100.0,OS,99.0,correct both,True
+Cisco Unified Communications Manager (CUCM),unflagged,Non-OS,Non-OS,98.0,Non-OS,97.0,Non-OS,98.0,correct both,True
+Cisco Unified IP Interactive Voice Response (Unified IP-IVR),unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Citrix ADC / NetScaler,C,OS,Non-OS,73.0,OS,91.0,OS,92.0,fixed,True
+Cloudways Breeze Cache,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Color Enhancer browser extension,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ConnectWise ScreenConnect,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ConnectWise ScreenConnect Client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ctrlpanel.gg Hosting Panel,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Custom Product Designer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+D-Bus System Daemon,unflagged,OS,OS,91.0,OS,98.0,OS,99.0,correct both,True
+DNSSEC-validating DNS resolver,F(keep),Non-OS,Non-OS,98.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Daemon Tools,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Database server JDBC component,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Dell EMC RecoverPoint for VMs,unflagged,Non-OS,Non-OS,96.0,Non-OS,97.0,Non-OS,97.0,correct both,True
+Dell SupportAssist,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Dell dbutil_2_3.sys driver,unflagged,Non-OS,Non-OS,95.0,Non-OS,88.0,Non-OS,89.0,correct both,True
+Dolby Audio Decoder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Dovecot IMAP/POP3 Server,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Drag and Drop Multiple File Upload (Contact Form 7),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Drupal,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ECPG (PostgreSQL Embedded SQL C Preprocessor/Library),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Eclipse GlassFish,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Eclipse Jetty,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Eclipse OpenJ9,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Elasticsearch,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Elementor Website Builder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Erlang Runtime (BEAM VM) Process,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Erlang/OTP SSH application,unflagged,Non-OS,Non-OS,100.0,Non-OS,98.0,Non-OS,98.0,correct both,True
+Erlang/OTP inets,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Escargot JavaScript engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Everest Forms,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ExifTool,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Exim Mail Transfer Agent,D2(keep),Non-OS,Non-OS,99.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Expat XML Parser,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+F5 BIG-IP,C,OS,Non-OS,76.0,OS,97.0,OS,97.0,fixed,True
+FFmpeg,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+FactoryTalk Service Platform,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Filesystem Using the Kernel iomap Layer,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Flash ActiveX Control,G(keep),Non-OS,Non-OS,100.0,Non-OS,98.0,Non-OS,96.0,correct both,True
+Flowise,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+FortiOS,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Fortinet FortiClient EMS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Fortinet FortiGate / FortiOS,unflagged,OS,OS,95.0,OS,99.0,OS,100.0,correct both,True
+FreeRDP,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+FreeType Font Library,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+FunnelKit Funnel Builder for WooCommerce,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GLib,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+GNU Bash,D1,OS,Non-OS,75.0,OS,99.0,OS,99.0,fixed,True
+GNU C Library,I,OS,OS,52.0,OS,100.0,OS,100.0,correct both,True
+GNU C Library (glibc),D1,OS,Non-OS,59.0,OS,99.0,OS,99.0,fixed,True
+GNU InetUtils,D1,OS,Non-OS,96.0,Non-OS,76.0,Non-OS,81.0,still wrong,False
+GNU Wget,D2(keep),Non-OS,Non-OS,100.0,Non-OS,95.0,Non-OS,97.0,correct both,True
+GNU gzip,D1,OS,Non-OS,95.0,Non-OS,65.0,Non-OS,76.0,still wrong,False
+GPU Graphics Driver Stack,E,OS,Non-OS,95.0,Non-OS,60.0,Non-OS,60.0,still wrong,False
+GStreamer,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer DTLS plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer GdkPixbuf plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer RTP SBC depayloader element,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer VMnc decoder plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer gst-plugins-bad media plugins,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer gst-plugins-base,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer gst-plugins-good WAV parser plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer gst-plugins-good WavPack audio decoder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer gst-plugins-good plugin set,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer isomp4 plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer isomp4 qtmoovrecover element,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GStreamer librfb rfbsrc plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GTK library,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Ghost CMS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ghostscript,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Gift Cards for WooCommerce,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Git,unflagged,Non-OS,Non-OS,100.0,Non-OS,91.0,Non-OS,90.0,correct both,True
+Git or Mercurial client,F(keep),Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+GitHub Copilot for Visual Studio Code,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GitHub plugin for IDE,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GitLab,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GiveWP,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+GnuTLS,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go HTTP/2 client transport,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go net/http server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go protobuf library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go runtime / standard library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go standard library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go standard library encoding/asn1 package,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go standard library net/url package,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Go toolchain (cmd/go),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Google Chrome CredentialProvider,unflagged,Non-OS,Non-OS,95.0,Non-OS,94.0,Non-OS,88.0,correct both,True
+Google Chrome Updater,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Google Chrome Web Browser,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Google Chrome Web Browser for Android,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Google Chrome for iOS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Google ChromeOS Operating System,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Google Dawn (WebGPU implementation),unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Google Tint (WebGPU Shading Language compiler),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Grafana,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Graphite2,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Gravity SMTP,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Gson library on classpath,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+HTTP/2 protocol implementation,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+HarfBuzz,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+HashiCorp Vagrant,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+HashiCorp Vault,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Hippoo Mobile App for WooCommerce WordPress Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Hotspot,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Hutool,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+IBM Planning Analytics,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+IBM SDK ORB,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+"IBM SDK, Java Technology Edition",unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+IBM WebSphere Application Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ICU (International Components for Unicode) library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ISC BIND,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ImageMagick,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+InstaWP Connect,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Intel oneAPI Math Kernel Library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ivanti Connect Secure,C,OS,Non-OS,89.0,OS,73.0,OS,63.0,fixed,True
+Ivanti Endpoint Manager Mobile (EPMM),C(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ivanti Policy Secure,C,OS,Non-OS,89.0,Non-OS,76.0,Non-OS,74.0,still wrong,False
+JBoss / WildFly,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+JUnit 4,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Jackson Databind,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java 2D,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Browser Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Cryptography Extension (JCE),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Deployment Toolkit,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java JGSS with native GSS library wrapper,unflagged,Non-OS,Non-OS,99.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+Java JNDI component,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Keytool,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Runtime Environment (Java SE / JRE / JVM / JDK),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Java Web Start launcher,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,98.0,correct both,True
+JavaFX,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Javadoc,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Jenkins,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+JetBrains IntelliJ IDEA,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Jinja2,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+JoomSport for Sports,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Joomla,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Kali Forms,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Kaltura HTML5 video player,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Kirki Customizer Framework,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Kubernetes,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+LMDeploy,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+LearnPress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+LibTIFF,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Linux Hyper-V netvsc guest network driver,unflagged,OS,OS,87.0,OS,95.0,OS,93.0,correct both,True
+Linux Kernel,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux Kernel F2FS Filesystem Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux MOTU FireWire audio driver,unflagged,OS,OS,68.0,OS,61.0,OS,57.0,correct both,True
+Linux Operating System,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux fsl-mc bus driver for NXP DPAA2 hardware,unflagged,OS,OS,95.0,OS,100.0,OS,99.0,correct both,True
+Linux kTLS,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel AF_ALG,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel AF_ALG hash interface (algif_hash),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ALSA 6fire USB audio driver,unflagged,OS,OS,97.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel ALSA USB-audio driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ALSA aloop loopback driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ALSA sound subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel AMD CCP crypto driver,unflagged,OS,OS,97.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel AMD GPU DRM driver (amdgpu),unflagged,OS,OS,91.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel ARM SCPI firmware driver,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ATM Classical IP (CLIP) module,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ATM LAN Emulation (lec) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ATM networking subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel BPF subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Bluetooth subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Btrfs filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel CALIPSO IPv6 security labeling,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel CAN BCM (Broadcast Manager) module,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel CAN bus subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel CIFS/SMB client module,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel DCCP protocol,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel DRM GPU scheduler,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Direct Rendering Manager core,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ETS packet scheduler (sch_ets),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Emulex LightPulse Fibre Channel (lpfc) driver,unflagged,OS,OS,70.0,OS,76.0,OS,68.0,correct both,True
+Linux kernel Ethernet bridge,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel GENEVE tunnel driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel GFS2 clustered filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel HFSC queuing discipline (sch_hfsc),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel HID input subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel I2C subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel IEEE 802.15.4 networking subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel IOMMU Shared Virtual Addressing (SVA) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel IOMMU subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel IPv6 neighbour discovery,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel IPv6 tunnel drivers,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Industrial I/O (IIO) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel InfiniBand userspace MAD interface (ib_umad),unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel InfiniBand/RDMA core subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Integrity Measurement Architecture (IMA),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Intel IDPF network driver,unflagged,OS,OS,92.0,OS,95.0,OS,96.0,correct both,True
+Linux kernel Intel ISH HID driver,unflagged,OS,OS,96.0,OS,100.0,OS,99.0,correct both,True
+Linux kernel Intel Omni-Path HFI1 driver,unflagged,OS,OS,87.0,OS,92.0,OS,89.0,correct both,True
+Linux kernel Intel i40e network driver,unflagged,OS,OS,89.0,OS,97.0,OS,97.0,correct both,True
+Linux kernel Intel i915 GPU driver,unflagged,OS,OS,95.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel Intel ice network driver,unflagged,OS,OS,84.0,OS,98.0,OS,97.0,correct both,True
+Linux kernel Intel iwlwifi Wi-Fi driver,unflagged,OS,OS,93.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel Intel ixgbevf network driver,unflagged,OS,OS,94.0,OS,98.0,OS,97.0,correct both,True
+Linux kernel KVM virtualization subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel LIO iSCSI target subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Marvell mwifiex Wi-Fi driver,unflagged,OS,OS,92.0,OS,98.0,OS,99.0,correct both,True
+Linux kernel Mellanox mlx4 network/RDMA driver,unflagged,OS,OS,90.0,OS,93.0,OS,92.0,correct both,True
+Linux kernel Mellanox mlx5 network driver,unflagged,OS,OS,86.0,OS,93.0,OS,93.0,correct both,True
+Linux kernel Mellanox switch driver (mlxsw),unflagged,OS,OS,92.0,OS,98.0,OS,98.0,correct both,True
+Linux kernel Memory Stick subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Microsoft Azure Network Adapter RDMA driver (mana_ib),unflagged,OS,OS,87.0,OS,96.0,OS,96.0,correct both,True
+Linux kernel NFS client,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel NFS server (nfsd),unflagged,OS,OS,99.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel NILFS2 filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel NVMe storage subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel NVMe-oF RDMA target (nvmet-rdma),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel NVMe-oF TCP target (nvmet-tcp),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel NVMe-over-Fibre-Channel target (nvmet-fc),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Nouveau NVIDIA GPU driver,unflagged,OS,OS,71.0,OS,98.0,OS,98.0,correct both,True
+Linux kernel PCI endpoint (configfs) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel RDMA iWARP connection manager (iw_cm),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel RDMA soft-RoCE driver (rxe),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel RDS / AF_RDS networking support,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel SCSI storage subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel SCTP protocol implementation,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel SELinux security module,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel SMC (Shared Memory Communications) protocol,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel SMC91x Ethernet driver,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Soft-iWARP RDMA driver (siw),unflagged,OS,OS,99.0,OS,99.0,OS,99.0,correct both,True
+Linux kernel SquashFS filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Synaptics RMI4 input driver,unflagged,OS,OS,93.0,OS,100.0,OS,99.0,correct both,True
+Linux kernel SysV IPC subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel TIPC protocol,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel UDF filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel USB Ethernet driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel USB core subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel USB mass storage (usb-storage) driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel USB-audio driver (snd-usb-audio),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel User Mode Linux (UML) subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel VKMS virtual KMS driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel VMware Paravirtual RDMA driver (vmw_pvrdma),unflagged,OS,OS,84.0,OS,82.0,OS,82.0,correct both,True
+Linux kernel VMware SVGA DRM driver (vmwgfx),unflagged,OS,OS,86.0,OS,91.0,OS,89.0,correct both,True
+Linux kernel VMware VMCI driver,unflagged,OS,OS,67.0,OS,66.0,OS,64.0,correct both,True
+Linux kernel VXCAN driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Wacom HID driver,unflagged,OS,OS,95.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel XFRM IPsec framework,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel XFS filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel Xen guest support,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel asymmetric keys subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel brcmfmac Broadcom FullMAC WiFi driver,unflagged,OS,OS,94.0,OS,98.0,OS,99.0,correct both,True
+Linux kernel ch9200 USB-to-Ethernet driver,unflagged,OS,OS,93.0,OS,87.0,OS,90.0,correct both,True
+Linux kernel coretemp hwmon driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel device-mapper subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel distributed lock manager (DLM),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel efivarfs filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ext4 filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel framebuffer device subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel ftrace subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel hardware monitoring subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel iMON media/rc USB driver,unflagged,OS,OS,93.0,OS,99.0,OS,98.0,correct both,True
+Linux kernel input core subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel kernel crypto API,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel keys/keyring subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel libceph module,unflagged,OS,OS,75.0,OS,95.0,OS,97.0,correct both,True
+Linux kernel macvlan network driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel media/V4L2 subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel memory cgroup kmem accounting,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel net/sched checksum action (act_csum),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel net/sched connection tracking action (act_ct),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel net/sched pedit action (act_pedit),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel net/sched teql queueing discipline (sch_teql),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel net/sched u32 classifier (cls_u32),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netdevsim driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter H.323 connection-tracking helper,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter SIP connection-tracking helper,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter bridge ebtables subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter connection tracking (nf_conntrack),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter ip6t_eui64 match module,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter ipset framework,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter nfnetlink_cthelper,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel netfilter packet filtering framework,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel network block device (nbd),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel network bonding driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel network packet scheduler (tc/qdisc),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel networking stack,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel page_pool subsystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel procfs,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel romfs filesystem,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel rtsx_usb_ms Memory Stick driver,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel rtw89 WiFi driver,unflagged,OS,OS,93.0,OS,99.0,OS,98.0,correct both,True
+Linux kernel rxrpc / AF_RXRPC networking support,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel uvcvideo (USB Video Class) driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel virtio-crypto driver,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel virtio/VMCI vsock transport,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel wireless networking stack (cfg80211/mac80211),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel xen privcmd subsystem,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Linux kernel zram compressed block device,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux nvme-fc driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Linux qla2xxx Fibre Channel HBA driver,unflagged,OS,OS,65.0,OS,84.0,OS,75.0,correct both,True
+Linux-PAM,unflagged,OS,OS,79.0,OS,98.0,OS,98.0,correct both,True
+Linux/ChromeOS operating system,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+LiteSpeed Cache,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+LiteSpeed cPanel Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Little CMS (lcms2),D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+LogonTracer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MCP Java SDK core library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MCPJam MCP Inspector,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MSSQL Extension for Visual Studio Code,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mail Mint Email Marketing,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Majordomo Mailing List Manager,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Malicious browser extension installed,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+ManageEngine ADSelfService Plus,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MariaDB / MySQL,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Marimo Notebook,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mesa 3D Graphics Library,D1,OS,Non-OS,100.0,Non-OS,77.0,Non-OS,75.0,still wrong,False
+MessagePack for Python,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MetInfo CMS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Micronaut JSON binding library (micronaut-json-core),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft .NET / .NET Framework,G(keep),Non-OS,Non-OS,100.0,Non-OS,97.0,Non-OS,96.0,correct both,True
+Microsoft ActiveX Data Objects (ADO),A,OS,Non-OS,100.0,Non-OS,76.0,Non-OS,65.0,still wrong,False
+Microsoft COM for Windows,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Chakra Scripting Engine,A,OS,Non-OS,100.0,Non-OS,78.0,Non-OS,81.0,still wrong,False
+Microsoft Compiled HTML Help Viewer (hh.exe),unflagged,OS,OS,64.0,OS,94.0,OS,95.0,correct both,True
+Microsoft Defender,H,OS,Non-OS,85.0,OS,60.0,OS,70.0,fixed,True
+Microsoft Defender Antimalware Platform,H,OS,Non-OS,61.0,OS,94.0,OS,94.0,fixed,True
+Microsoft Edge (Chromium-based),unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,100.0,correct both,True
+Microsoft Edge Legacy (EdgeHTML),A,OS,Non-OS,99.0,OS,68.0,OS,51.0,fixed,True
+Microsoft Edge WebView2,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Microsoft Equation Editor (EQNEDT32),unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+Microsoft Excel,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Exchange Server,unflagged,Non-OS,Non-OS,98.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Microsoft Hyper-V,unflagged,OS,OS,100.0,OS,97.0,OS,98.0,correct both,True
+Microsoft IIS,A,OS,Non-OS,67.0,Non-OS,56.0,OS,64.0,fixed,False
+Microsoft Input Method Editor (IME),unflagged,OS,OS,80.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Internet Explorer,A,OS,Non-OS,99.0,OS,56.0,Non-OS,67.0,still wrong,True
+Microsoft MSHTML (Trident),A,OS,Non-OS,77.0,OS,76.0,OS,72.0,fixed,True
+Microsoft Malware Protection Engine,H,OS,Non-OS,97.0,Non-OS,69.0,Non-OS,64.0,still wrong,False
+Microsoft Management Console,unflagged,OS,OS,76.0,OS,99.0,OS,99.0,correct both,True
+Microsoft Message Queuing (MSMQ),unflagged,OS,OS,65.0,OS,84.0,OS,90.0,correct both,True
+Microsoft Network Device Enrollment Service (NDES/SCEP),unflagged,OS,OS,89.0,OS,93.0,OS,96.0,correct both,True
+Microsoft ODBC Driver for SQL Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft OLE DB Driver for SQL Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,97.0,correct both,True
+Microsoft Office,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Office Graphics Component,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Microsoft Outlook,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Paint,G,OS,Non-OS,89.0,OS,97.0,OS,95.0,fixed,True
+Microsoft PowerPoint,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft PowerShell,G(keep),Non-OS,Non-OS,96.0,Non-OS,61.0,Non-OS,63.0,correct both,True
+Microsoft QUIC (msquic) Library,G(keep),Non-OS,Non-OS,97.0,Non-OS,95.0,Non-OS,92.0,correct both,True
+Microsoft SMBv1 Server,unflagged,OS,OS,98.0,OS,93.0,OS,98.0,correct both,True
+Microsoft SQL Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft SharePoint,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Skype for Business,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft SqlClient Data Provider,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Teams,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft Visual Studio,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft WDAC OLE DB Provider for SQL Server,unflagged,OS,OS,56.0,OS,96.0,OS,99.0,correct both,True
+Microsoft Win32k,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Adobe Type Manager Library,unflagged,OS,OS,95.0,OS,99.0,OS,100.0,correct both,True
+Microsoft Windows Ancillary Function Driver for WinSock,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows CIFS Browser Protocol Driver (Bowser.sys),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Certificate Dialog (UAC),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows DHCP Client Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows DHCP Server,unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Microsoft Windows DNS Client,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows DNS Server,unflagged,OS,OS,99.0,OS,94.0,OS,99.0,correct both,True
+Microsoft Windows Desktop and Server Operating System,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Distributed File System (DFS) Service,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Microsoft Windows Jet Database Engine,unflagged,OS,OS,68.0,OS,91.0,OS,95.0,correct both,True
+Microsoft Windows Kernel Graphics Component (splWOW64),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Layer-2 Bridge Network Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows NFS ONCRPC XDR Driver,unflagged,OS,OS,97.0,OS,98.0,OS,99.0,correct both,True
+Microsoft Windows NFS Portmapper,unflagged,OS,OS,89.0,OS,95.0,OS,98.0,correct both,True
+Microsoft Windows NFS Server,unflagged,OS,OS,99.0,OS,97.0,OS,99.0,correct both,True
+Microsoft Windows NetBT (NetBIOS over TCP/IP) Component,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Network Policy Server (NPS),unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Microsoft Windows Online Certificate Status Protocol (OCSP) SnapIn,unflagged,OS,OS,83.0,OS,92.0,OS,95.0,correct both,True
+Microsoft Windows PGM,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows PostScript and PCL6 Class Printer Driver,unflagged,OS,OS,86.0,OS,99.0,OS,99.0,correct both,True
+Microsoft Windows Recall,unflagged,OS,OS,96.0,OS,99.0,OS,99.0,correct both,True
+Microsoft Windows SMB Client,unflagged,OS,OS,98.0,OS,99.0,OS,99.0,correct both,True
+Microsoft Windows SMB Server,unflagged,OS,OS,98.0,OS,97.0,OS,99.0,correct both,True
+Microsoft Windows SMB Witness Service,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Microsoft Windows Script Runtime,unflagged,OS,OS,73.0,OS,99.0,OS,99.0,correct both,True
+Microsoft Windows Scripting Engine,unflagged,OS,OS,62.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Server Network Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Shell,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows StructuredQuery Component,unflagged,OS,OS,83.0,OS,99.0,OS,100.0,correct both,True
+Microsoft Windows Support Diagnostic Tool (MSDT),unflagged,OS,OS,93.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows TCP/IP Stack,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Telnet Client,unflagged,OS,OS,62.0,OS,90.0,OS,90.0,correct both,True
+Microsoft Windows Themes,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Windows Winsock IFS Layer Driver (ws2ifsl.sys),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Microsoft Word,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Microsoft XML Core Services (MSXML),A,OS,Non-OS,83.0,OS,86.0,OS,92.0,fixed,True
+Microsoft.DiaSymReader.Native (msdia PDB reader),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Mirasvit Full Page Cache Warmer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MongoDB,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MongoDB Go Driver GridFS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+MongoDB PHP Library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Moodle LMS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Motorola SM56 Modem WDM Driver,A,OS,Non-OS,98.0,Non-OS,97.0,Non-OS,97.0,still wrong,False
+Mozilla Firefox,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mozilla Firefox / Thunderbird Updater,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mozilla Firefox Focus (Android),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mozilla Firefox for Android,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mozilla Gecko-based Application (Firefox / Thunderbird),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Mozilla Thunderbird,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+My Sticky Bar,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+N-able N-central,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+NLnet Labs Unbound,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+NTP Daemon (ntpd / chronyd),D1,OS,Non-OS,84.0,OS,60.0,OS,67.0,fixed,True
+NVIDIA GPU Display Driver,unflagged,Non-OS,Non-OS,98.0,Non-OS,97.0,Non-OS,98.0,correct both,True
+Nagios,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Native messaging host,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Netty HTTP codec,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Network Security Services (NSS),D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Newtonsoft.Json (Json.NET),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Next.js,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Nextcloud,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ninja Forms,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Node.js,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Node.js built-in HTTP/HTTPS proxy tunnel client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Node.js runtime,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Nokogiri,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Notepad++,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Nx Console,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OSGeo GeoServer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OpenMetadata,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OpenSSH Server,D1,OS,Non-OS,93.0,Non-OS,63.0,Non-OS,52.0,still wrong,False
+OpenSSH for Windows,G(keep),Non-OS,Non-OS,97.0,Non-OS,85.0,Non-OS,80.0,correct both,True
+OpenSSH ssh-agent,D1,OS,Non-OS,99.0,Non-OS,51.0,Non-OS,51.0,still wrong,False
+OpenSSL,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OpenSSL QUIC implementation (libssl),D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OpenSymphony XWork,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+OpenVPN,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Clusterware,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Coherence,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Cost Management,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Database Java VM (OJVM),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Database Server (RDBMS),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Database XML Database (XDB),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle E-Business Suite,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Essbase,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Fusion Middleware,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle GraalVM,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Identity Manager,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Java Advanced Management Console,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Java Mission Control,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Java SE / JRockit runtime,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Java SE Installer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Nashorn JavaScript Engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Net Connection Manager,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Oracle Solaris operating system,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Oracle WebLogic Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PAN-OS operating system,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+PCRE,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PCRE2,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PDF.js JavaScript PDF Renderer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PDFium PDF Rendering Engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PHP / PHP-FPM,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PHPMailer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PL/Java procedural language extension,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PLC Controller Firmware,C,OS,Non-OS,74.0,OS,100.0,OS,100.0,fixed,True
+POSIX ACL utilities (acl package),D1,OS,Non-OS,74.0,Non-OS,53.0,OS,64.0,fixed,False
+Paid Memberships Pro WordPress Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Palo Alto Networks GlobalProtect,G(keep),Non-OS,Non-OS,85.0,OS,74.0,OS,82.0,regression,False
+PaperCut NG / MF,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Paramiko (SSH library),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Password Protect WordPress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Paytium Mollie Payment Forms,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Perl,D2(keep),Non-OS,Non-OS,100.0,Non-OS,98.0,Non-OS,98.0,correct both,True
+Perl Archive::Tar,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Perl DBI,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Perl IO::Compress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Pillow (Python Imaging Library),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Podman,D2(keep),Non-OS,Non-OS,99.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+Poppler PDF Library,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Postfix Mail Server,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PostgreSQL,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PostgreSQL Windows Installer,unflagged,Non-OS,Non-OS,99.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PostgreSQL client utilities (pg_basebackup / pg_rewind),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PostgreSQL pg_dump/pg_upgrade utilities,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PostgreSQL psql interactive terminal client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Postorius / GNU Mailman,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PraisonAI,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Product Slider for WooCommerce,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Profile Builder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Progress MOVEit Transfer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PuTTY SSH Client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+PyYAML,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Python,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Python html.parser,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Python http.client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Python http.cookies,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Python interpreter runtime,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Python requests library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+QEMU Hardware Emulator,D2(keep),Non-OS,Non-OS,95.0,Non-OS,95.0,Non-OS,96.0,correct both,True
+"QMI-based cellular modem interface (raw IP, no MAC header)",E,OS,Non-OS,81.0,Non-OS,61.0,Non-OS,60.0,still wrong,False
+QNAP Photo Station,unflagged,Non-OS,Non-OS,100.0,Non-OS,83.0,Non-OS,82.0,correct both,True
+QNAP QTS,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Qinglong Panel,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Qlik Sense,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Qwik,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+RADIUS Protocol Implementation,F(keep),Non-OS,Non-OS,98.0,Non-OS,92.0,Non-OS,91.0,correct both,True
+RabbitMQ,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Redis,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Remote Desktop Client,G,OS,Non-OS,84.0,Non-OS,65.0,Non-OS,67.0,still wrong,False
+Roundcube Webmail,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Royal Elementor Addons,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Rsync,D2(keep),Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+Ruby Runtime,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Rust openssl crate,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Rust shlex crate,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SAP Internet Graphics Server (IGS),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SAP NetWeaver,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SELinux seunshare,unflagged,OS,OS,87.0,OS,85.0,OS,93.0,correct both,True
+SQL Server Integration Services Visual Studio Extension,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SQL Server Native Client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SQLCMD Utility for SQL Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SQLite,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SSSD,unflagged,OS,OS,66.0,OS,84.0,OS,87.0,correct both,True
+Samba (SMB/CIFS for Linux/Unix),D2(keep),Non-OS,Non-OS,95.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Samba samba-dcerpcd RPC service,D2(keep),Non-OS,Non-OS,97.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+Sendmail,D2(keep),Non-OS,Non-OS,100.0,Non-OS,98.0,Non-OS,96.0,correct both,True
+Skia Graphics Library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Slider Revolution,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Smart Slider 3,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SmarterMail,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SolarWinds Orion,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Soliton FileZen,C,OS,Non-OS,60.0,OS,74.0,OS,77.0,fixed,True
+Spectra – WordPress Gutenberg Blocks,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SpiderMonkey JavaScript Engine,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Splunk CLI,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Splunk Enterprise,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Spring Framework,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Sudo,D1,OS,Non-OS,87.0,OS,92.0,OS,92.0,fixed,True
+Super Store Finder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+SwiftShader,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,99.0,correct both,True
+Symfony,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+System.Text.Encodings.Web,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TLS-capable process,F(keep),Non-OS,Non-OS,99.0,Non-OS,93.0,Non-OS,92.0,correct both,True
+TPM 2.0 reference implementation,E,OS,Non-OS,95.0,OS,63.0,OS,67.0,fixed,True
+TYPO3,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TanStack Router / Query,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TeamViewer Remote Client/Host,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Telerik UI for ASP.NET AJAX,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TightVNC Server,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TightVNC Viewer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Trend Micro Apex One,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+TrueConf Client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Tutor LMS,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Ubiquiti UniFi Network Application,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+UltraVNC,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+UserPro,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+VLC Media Player,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+VMware Aria Operations,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+VMware ESXi Hypervisor,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+VMware Horizon,unflagged,Non-OS,Non-OS,99.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+VMware Tools / open-vm-tools,G(keep),Non-OS,Non-OS,99.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+VMware vCenter Server,unflagged,Non-OS,Non-OS,95.0,Non-OS,98.0,Non-OS,98.0,correct both,True
+VMware vRealize Log Insight,unflagged,Non-OS,Non-OS,99.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Veeam Backup & Replication,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Veeam ONE,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Veritas Backup Exec Agent,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Vim text editor,D2(keep),Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,100.0,correct both,True
+Visual Studio Code,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Visual Studio Installer,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Vite,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WIM Archive Format Handler,unflagged,OS,OS,59.0,Non-OS,73.0,OS,77.0,correct both,False
+WP Fastest Cache,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WP Maps Pro,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WP Statistics,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WP User Frontend WordPress Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Web Browser with JavaScript Engine,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WebKit,G(keep),Non-OS,Non-OS,99.0,Non-OS,86.0,Non-OS,92.0,correct both,True
+WebKitGTK / WPE WebKit,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+WebRTC (libwebrtc),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WebRTC GMP H.264 video decoder,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Wholesale Suite for WooCommerce,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Wicked Folders,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WinGUp (Generic Updater),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WinRAR,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WinSCP,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Windows Advanced Local Procedure Call (ALPC),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Advanced Rasterization Platform (WARP),unflagged,OS,OS,85.0,OS,98.0,OS,99.0,correct both,True
+Windows AllJoyn API,unflagged,OS,OS,56.0,OS,75.0,OS,83.0,correct both,True
+Windows App Store,H,Non-OS,OS,68.0,OS,87.0,Non-OS,66.0,fixed,False
+Windows AppLocker Driver (appid.sys),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Background Intelligent Transfer Service (BITS),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Base API Library (kernel32.dll),unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Windows BitLocker,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Bluetooth A2DP Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Bluetooth Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows BranchCache,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows CNG Key Isolation Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows COM+ Event System Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Cabinet (CAB) Handler,unflagged,OS,OS,90.0,OS,84.0,OS,99.0,correct both,True
+Windows Cloud Files Mini Filter Driver (cldflt.sys),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Codecs Library,G(keep),OS,OS,85.0,OS,91.0,OS,96.0,correct both,True
+Windows Common Controls (comctl32),unflagged,OS,OS,84.0,OS,98.0,OS,99.0,correct both,True
+Windows Common Log File System Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Core Messaging,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Cryptographic Services,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows DNS Server Management Snap-in,unflagged,OS,OS,88.0,OS,93.0,OS,98.0,correct both,True
+Windows Data.dll Component,A,OS,Non-OS,58.0,OS,93.0,OS,98.0,fixed,True
+Windows Defender Signature Update Stub (MpSigStub),H,OS,OS,53.0,OS,97.0,OS,96.0,correct both,True
+Windows Deployment Services,unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Windows Device Health Attestation Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Digest Authentication,unflagged,OS,OS,88.0,OS,91.0,OS,95.0,correct both,True
+Windows DirectShow,unflagged,OS,OS,92.0,OS,98.0,OS,99.0,correct both,True
+Windows DirectX,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Windows Distributed Transaction Coordinator (MSDTC),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Encrypting File System (EFS),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Enterprise App Management Service,unflagged,OS,OS,98.0,OS,98.0,OS,98.0,correct both,True
+Windows Error Reporting,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Event Log Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Failover Cluster,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Windows Fax Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows File History Service,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Filtering Platform (WFP),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Font Driver Host,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Font Library,unflagged,OS,OS,93.0,OS,98.0,OS,99.0,correct both,True
+Windows GDI Graphics Component,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Group Policy service,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows HTTP.sys,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows IKE Extension,unflagged,OS,OS,96.0,OS,99.0,OS,100.0,correct both,True
+Windows IP Helper Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows IP Routing Management Snap-in,unflagged,OS,OS,90.0,OS,98.0,OS,99.0,correct both,True
+Windows Imaging Component,unflagged,OS,OS,96.0,OS,99.0,OS,99.0,correct both,True
+Windows Imaging Component (Mscms color management),unflagged,OS,OS,96.0,OS,99.0,OS,100.0,correct both,True
+Windows Installer Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Internet Connection Sharing (ICS) Service,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows KDC Proxy Service (KPSSVC),unflagged,OS,OS,95.0,OS,99.0,OS,100.0,correct both,True
+Windows Kerberos,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Windows Kernel,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Kernel Cryptography Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Kernel Streaming WOW Thunk Service Driver (ks.sys),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows LDAP Client,unflagged,OS,OS,88.0,OS,96.0,OS,99.0,correct both,True
+Windows LDAP Server,unflagged,OS,OS,97.0,OS,97.0,OS,99.0,correct both,True
+Windows LSASS (Local Security Authority),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Line Printer Daemon (LPD) Service,unflagged,OS,OS,97.0,OS,99.0,OS,100.0,correct both,True
+Windows Media,unflagged,OS,OS,74.0,OS,94.0,OS,94.0,correct both,True
+Windows Miracast,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Windows MultiPoint Services,unflagged,OS,OS,99.0,OS,90.0,OS,96.0,correct both,True
+Windows NTFS Filesystem Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows NTLM Authentication Component,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Windows Native WiFi Miniport Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Netlogon Service,unflagged,OS,OS,100.0,OS,99.0,OS,100.0,correct both,True
+Windows Network Address Translation (NAT) Component,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Network Load Balancing,unflagged,OS,OS,98.0,OS,99.0,OS,99.0,correct both,True
+Windows Network Virtualization,unflagged,OS,OS,100.0,OS,99.0,OS,100.0,correct both,True
+Windows OLE,unflagged,OS,OS,96.0,OS,98.0,OS,99.0,correct both,True
+Windows PDF Library,unflagged,OS,OS,93.0,OS,99.0,OS,100.0,correct both,True
+Windows Partition Management Driver,unflagged,OS,OS,100.0,OS,98.0,OS,98.0,correct both,True
+Windows Performance Data Helper Library,unflagged,OS,OS,90.0,OS,99.0,OS,100.0,correct both,True
+Windows Presentation Foundation (WPF),G(keep),Non-OS,Non-OS,98.0,Non-OS,82.0,Non-OS,82.0,correct both,True
+Windows Print Spooler,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Protected Extensible Authentication Protocol (PEAP) Component,unflagged,OS,OS,96.0,OS,99.0,OS,100.0,correct both,True
+Windows RDP Clipboard Virtual Channel Extension,unflagged,OS,OS,79.0,OS,87.0,OS,93.0,correct both,True
+Windows RPC Runtime,unflagged,OS,OS,98.0,OS,99.0,OS,100.0,correct both,True
+Windows RPCSS (RPC Endpoint Mapper / RPC service),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows ReFS Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Remote Access Connection Manager (RASMAN) Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Remote Access Management Service,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Remote Assistance,unflagged,OS,OS,97.0,OS,100.0,OS,100.0,correct both,True
+Windows Remote Desktop Licensing Service,unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Windows Remote Desktop Services,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Remote Desktop Web Access,unflagged,OS,OS,99.0,OS,98.0,OS,99.0,correct both,True
+Windows Remote Registry Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Rich Text Edit Component,unflagged,OS,OS,81.0,OS,96.0,OS,96.0,correct both,True
+Windows Routing and Remote Access Service (RRAS),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Runtime,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows SPNEGO Extended Negotiation (NEGOEX) Security Mechanism,unflagged,OS,OS,96.0,OS,99.0,OS,99.0,correct both,True
+Windows Search,unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Secure Channel (SChannel),unflagged,OS,OS,99.0,OS,100.0,OS,100.0,correct both,True
+Windows Security Account Manager (SAM),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Security Center,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Server Remote Desktop Gateway,unflagged,OS,OS,99.0,OS,99.0,OS,99.0,correct both,True
+Windows Server Update Services (WSUS),unflagged,OS,OS,99.0,OS,93.0,OS,96.0,correct both,True
+Windows Service Tracing,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows SmartScreen,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Windows Speech Application Programming Interface (SAPI),unflagged,OS,OS,84.0,OS,97.0,OS,98.0,correct both,True
+Windows Standards-Based Storage Management Service,unflagged,OS,OS,96.0,OS,98.0,OS,99.0,correct both,True
+Windows Storage Stack,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows SyncController Component,A,OS,Non-OS,76.0,Non-OS,51.0,OS,69.0,fixed,False
+Windows Task Host Process (taskhostw),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Task Scheduler Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Telephony Service (TapiSrv),unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Terminal,unflagged,Non-OS,Non-OS,99.0,Non-OS,95.0,Non-OS,94.0,correct both,True
+Windows Text Service Module,unflagged,OS,OS,97.0,OS,100.0,OS,100.0,correct both,True
+Windows UPnP Device Host,unflagged,OS,OS,89.0,OS,99.0,OS,100.0,correct both,True
+Windows USB Audio Class System Driver,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Uniscribe,unflagged,OS,OS,89.0,OS,98.0,OS,99.0,correct both,True
+Windows Update Stack,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows UrlMon Component,unflagged,OS,OS,90.0,OS,99.0,OS,99.0,correct both,True
+Windows User Profile Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Volume Manager Extension Driver,unflagged,OS,OS,100.0,OS,99.0,OS,100.0,correct both,True
+Windows WLAN AutoConfig Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows WS-Discovery Service,unflagged,OS,OS,97.0,OS,99.0,OS,100.0,correct both,True
+Windows WebBrowser Control,unflagged,OS,OS,52.0,OS,86.0,OS,84.0,correct both,True
+Windows WebClient Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows Workstation Service,unflagged,OS,OS,100.0,OS,100.0,OS,100.0,correct both,True
+Windows iSCSI Discovery Service,unflagged,OS,OS,98.0,OS,100.0,OS,100.0,correct both,True
+Windows iSCSI Target,unflagged,OS,OS,100.0,OS,98.0,OS,99.0,correct both,True
+Windows iSNS Server,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+Wireshark,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WooCommerce Custom Product Addons Pro,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WordPress,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+WordPress Modular DS Plugin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+X.Org X server,D1,OS,Non-OS,83.0,OS,66.0,OS,64.0,fixed,True
+XML-RPC for C/C++ (XMLRPC-C) library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+XSLT processing engine,F(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+XStore Core,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+XStream,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+XWiki,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+XenForo,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Zabbix,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Zimbra Collaboration Suite,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Zoom-client,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+Zyxel Firewall,unflagged,OS,OS,76.0,OS,99.0,OS,99.0,correct both,True
+attr extended-attribute utilities (getfattr/setfattr),D1,OS,Non-OS,83.0,Non-OS,70.0,Non-OS,56.0,still wrong,False
+batman-adv (B.A.T.M.A.N. Advanced) kernel module,unflagged,OS,OS,94.0,OS,93.0,OS,97.0,correct both,True
+bzip2 / libbz2,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+cPanel & WHM,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+containerd,unflagged,Non-OS,Non-OS,99.0,Non-OS,96.0,Non-OS,95.0,correct both,True
+cros-disks daemon,unflagged,OS,OS,97.0,OS,99.0,OS,99.0,correct both,True
+cups-browsed Service,D1,OS,Non-OS,81.0,OS,67.0,OS,73.0,fixed,True
+curl / libcurl,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+dnsmasq,D2(keep),Non-OS,Non-OS,100.0,Non-OS,97.0,Non-OS,95.0,correct both,True
+dracut,unflagged,OS,OS,94.0,OS,85.0,OS,90.0,correct both,True
+foomatic-rip Print Filter,D1,OS,Non-OS,98.0,OS,89.0,OS,84.0,fixed,True
+gRPC-Go server library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+giflib,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+github.com/shamaton/msgpack,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+gix-date library (gitoxide),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+go-git library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+golang.org/x/crypto/ssh library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+golang.org/x/text,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+gvim GUI edition of Vim,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+image-size,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+jQuery library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+js-yaml,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libXfont2,D1,OS,Non-OS,99.0,Non-OS,74.0,Non-OS,67.0,still wrong,False
+libacl (POSIX ACL library),D1,OS,Non-OS,98.0,Non-OS,85.0,Non-OS,82.0,still wrong,False
+libarchive,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libcupsfilters,D1,OS,Non-OS,100.0,Non-OS,60.0,OS,60.0,fixed,False
+libjpeg / libjpeg-turbo,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libpng,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libppd PPD-from-IPP Library,D1,OS,Non-OS,99.0,Non-OS,59.0,OS,55.0,fixed,False
+libpq (PostgreSQL C Client Library),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libsolv,D1,OS,Non-OS,100.0,Non-OS,94.0,Non-OS,92.0,still wrong,False
+libssh,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libssh2,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libtasn1,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libvorbis,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libvpx (VP8/VP9),D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libvterm terminal emulation library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libwebp,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libxml2,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+libyuv,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+lodash,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+lz4 / liblz4,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+macOS SMB Client,unflagged,OS,OS,99.0,OS,99.0,OS,100.0,correct both,True
+macOS Screen Sharing Server,unflagged,OS,OS,96.0,OS,99.0,OS,100.0,correct both,True
+mod_auth_digest (Apache HTTP Server module),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+mod_md (Apache HTTP Server module),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+nginx,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+nginx UI (nginx Web Dashboard),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+node-tar (npm tar package),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+open-iscsi,D1,OS,Non-OS,82.0,Non-OS,83.0,Non-OS,79.0,still wrong,False
+openDCIM,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+pgAdmin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+pgjdbc (PostgreSQL JDBC Driver),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+phpMyAdmin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+polkit (PolicyKit),unflagged,OS,OS,60.0,OS,94.0,OS,92.0,correct both,True
+pyca/cryptography library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+rclone,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+rpcbind / portmapper,D1,OS,Non-OS,59.0,Non-OS,74.0,Non-OS,71.0,still wrong,False
+runc Container Runtime,D2(keep),Non-OS,Non-OS,96.0,Non-OS,93.0,Non-OS,92.0,correct both,True
+sg3_utils,D1,OS,Non-OS,98.0,Non-OS,98.0,Non-OS,93.0,still wrong,False
+snapd,D1,OS,Non-OS,57.0,OS,73.0,OS,67.0,fixed,True
+ssri library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+tar-rs Rust crate,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+udev device manager,unflagged,OS,OS,96.0,OS,99.0,OS,99.0,correct both,True
+urllib3 HTTP client library,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+usrsctp,unflagged,Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+vBulletin,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+vm2 (Node.js sandbox),unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+vsftpd / ProFTPD,unflagged,Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
+x86 CPU with AMX/XFD support,E,OS,Non-OS,100.0,OS,100.0,OS,100.0,fixed,True
+xmllint,D2(keep),Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,99.0,correct both,True
+xxd hex dump utility,D2(keep),Non-OS,Non-OS,100.0,Non-OS,99.0,Non-OS,98.0,correct both,True
+zlib,D2(keep),Non-OS,Non-OS,100.0,Non-OS,100.0,Non-OS,100.0,correct both,True
