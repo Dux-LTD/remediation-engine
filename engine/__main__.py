@@ -24,7 +24,7 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
             {
                 "display_id": item.display_id,
                 "label": item.label,
-                "is_appliance": item.is_appliance,
+                "is_firmware": item.is_firmware,
             }
             for item in plan.platform_context
         ],

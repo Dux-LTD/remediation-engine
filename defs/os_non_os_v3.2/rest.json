@@ -1,0 +1,132 @@
+[
+  {
+    "component": "attr extended-attribute utilities (getfattr/setfattr)",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "GPU Graphics Driver Stack",
+    "answer": "Ignore",
+    "percentage": 60.0
+  },
+  {
+    "component": "Ivanti Connect Secure",
+    "answer": "OS",
+    "percentage": 63.0
+  },
+  {
+    "component": "libcupsfilters",
+    "answer": "OS",
+    "percentage": 60.0
+  },
+  {
+    "component": "libXfont2",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "libppd PPD-from-IPP Library",
+    "answer": "OS",
+    "percentage": 55.0
+  },
+  {
+    "component": "Linux kernel Emulex LightPulse Fibre Channel (lpfc) driver",
+    "answer": "OS",
+    "percentage": 68.0
+  },
+  {
+    "component": "Linux kernel VMware VMCI driver",
+    "answer": "OS",
+    "percentage": 64.0
+  },
+  {
+    "component": "Linux MOTU FireWire audio driver",
+    "answer": "OS",
+    "percentage": 57.0
+  },
+  {
+    "component": "Microsoft ActiveX Data Objects (ADO)",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Microsoft Edge Legacy (EdgeHTML)",
+    "answer": "OS",
+    "percentage": 51.0
+  },
+  {
+    "component": "Microsoft IIS",
+    "answer": "OS",
+    "percentage": 64.0
+  },
+  {
+    "component": "Microsoft Internet Explorer",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Microsoft Malware Protection Engine",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Microsoft PowerShell",
+    "answer": "Non-OS",
+    "percentage": 63.0
+  },
+  {
+    "component": "NTP Daemon (ntpd / chronyd)",
+    "answer": "OS",
+    "percentage": 67.0
+  },
+  {
+    "component": "OpenSSH Server",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "OpenSSH ssh-agent",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "POSIX ACL utilities (acl package)",
+    "answer": "OS",
+    "percentage": 64.0
+  },
+  {
+    "component": "QMI-based cellular modem interface (raw IP, no MAC header)",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Remote Desktop Client",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "snapd",
+    "answer": "OS",
+    "percentage": 67.0
+  },
+  {
+    "component": "TPM 2.0 reference implementation",
+    "answer": "OS",
+    "percentage": 67.0
+  },
+  {
+    "component": "Windows App Store",
+    "answer": "Non-OS",
+    "percentage": 66.0
+  },
+  {
+    "component": "Windows SyncController Component",
+    "answer": "OS",
+    "percentage": 69.0
+  },
+  {
+    "component": "X.Org X server",
+    "answer": "OS",
+    "percentage": 64.0
+  }
+]

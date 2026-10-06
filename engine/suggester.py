@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from defs.def_components import Kind, OsSubtype, SOFTWARE_COMPONENTS, SoftwareComponent
+from defs.def_components import Kind, Role, SOFTWARE_COMPONENTS, SoftwareComponent
 from defs.def_remediation_plans import (
     ActionCategory,
     CONFIGURATION_ACTIONS,
@@ -21,9 +21,15 @@ from defs.def_remediation_plans import (
 
 from .prerequisites import CvePrerequisites, Prerequisite, PrerequisiteType
 
-COMPONENTS_BY_ID: dict[str, SoftwareComponent] = {
-    component.name: component for component in SOFTWARE_COMPONENTS
-}
+def _catalog_key(text: str) -> str:
+    """Normalize a display name or kebab id for catalog lookup."""
+    return re.sub(r"[^a-z0-9]+", "-", text.casefold()).strip("-")
+
+
+COMPONENTS_BY_ID: dict[str, SoftwareComponent] = dict(SOFTWARE_COMPONENTS)  # by display_id
+for _component in SOFTWARE_COMPONENTS.values():
+    COMPONENTS_BY_ID.setdefault(_component.display_name, _component)
+    COMPONENTS_BY_ID.setdefault(_catalog_key(_component.display_name), _component)
 ACTIONS_BY_ID: dict[str, RemediationAction] = {
     action.id: action for action in REMEDIATION_ACTIONS
 }
@@ -106,7 +112,7 @@ class PlatformContext:
 
     display_id: str
     label: str
-    is_appliance: bool
+    is_firmware: bool
 
 
 @dataclass(frozen=True, slots=True)
@@ -177,7 +183,7 @@ def _platform_context(row: Prerequisite) -> PlatformContext:
     return PlatformContext(
         display_id=row.display_id,
         label=row.label,
-        is_appliance=component is not None and component.os_subtype is OsSubtype.OTITOS,
+        is_firmware=component is not None and component.role is Role.FIRMWARE,
     )
 
 
@@ -216,7 +222,7 @@ def _software_path(
     platform = _platform_sentence(platform_context)
 
     if component is not None and component.kind is Kind.OS:
-        if component.os_subtype is OsSubtype.OTITOS:
+        if component.role is Role.FIRMWARE:
             action_id = "firmware-update"
             detail = (
                 f"Install the firmware release the vendor published for {name}. "
@@ -229,12 +235,6 @@ def _software_path(
                 f"Install the operating system security update for {name} on every "
                 f"affected system. {version}"
             )
-    elif component is not None and component.kind is Kind.LIBRARY:
-        action_id = "dependency-update"
-        detail = (
-            f"Upgrade {name} everywhere it is bundled or installed. {version} "
-            f"The applications that load it do not need to be replaced.{platform}"
-        )
     else:
         action_id = "software-update"
         detail = f"Install the security update the vendor published for {name}. {version}{platform}"
@@ -266,9 +266,9 @@ def _configuration_path(row: Prerequisite) -> RemediationPath:
     options = []
     for action in CONFIGURATION_ACTIONS:
         if action.id == "configuration-hardening":
-            detail = f"Change {name} to a supported setting that is not affected.{state}"
+            detail = f"Change {name} configuration to a supported setting that is not affected.{state}"
         else:
-            detail = f"Turn off or remove {name} on systems that do not need it.{state}"
+            detail = f"Turn off or remove {name} configuration on systems that do not need it.{state}"
         options.append(RemediationOption(action, detail))
 
     return RemediationPath(
@@ -311,7 +311,7 @@ def _notes(
         )
 
     for item in platform_context:
-        if item.is_appliance:
+        if item.is_firmware:
             notes.append(
                 f"{_mark(item.label)} is appliance software. Its firmware is updated separately "
                 f"from the product fix above, on the vendor's own schedule."

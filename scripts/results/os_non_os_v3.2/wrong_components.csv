@@ -1,0 +1,40 @@
+component,file,current_label,confidence,correct_label,group,reason
+AIDE file-integrity checker,confident,Non-OS,99.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+GNU InetUtils,confident,Non-OS,81.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+GNU gzip,confident,Non-OS,76.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+attr extended-attribute utilities (getfattr/setfattr),rest,Non-OS,56.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+libacl (POSIX ACL library),confident,Non-OS,82.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+open-iscsi,confident,Non-OS,79.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+rpcbind / portmapper,confident,Non-OS,71.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+sg3_utils,confident,Non-OS,93.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+OpenSSH Server,rest,Non-OS,52.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+OpenSSH ssh-agent,rest,Non-OS,51.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+libXfont2,rest,Non-OS,67.0,OS,Linux base system,"Linux base-system tool that also exists as an upstream project; the model reads it as a standalone utility/library, not as part of the distribution base system"
+libsolv,confident,Non-OS,92.0,OS,Linux base system,"Description frames it as a library consumed by an application, so the model applies the general-library rule"
+Mesa 3D Graphics Library,confident,Non-OS,75.0,OS,Linux base system,"Description frames it as a library consumed by an application, so the model applies the general-library rule"
+Microsoft Internet Explorer,rest,Non-OS,67.0,OS,Windows built-in,"Model knowledge gap: it is shipped and serviced inside Windows, but the model treats it as a separate product"
+Microsoft ActiveX Data Objects (ADO),rest,Non-OS,65.0,OS,Windows built-in,"Model knowledge gap: it is shipped and serviced inside Windows, but the model treats it as a separate product"
+Motorola SM56 Modem WDM Driver,confident,Non-OS,97.0,OS,Windows built-in,Model knowledge gap: in-box third-party driver; nothing in the description says it ships with Windows
+Microsoft Chakra Scripting Engine,confident,Non-OS,81.0,OS,Windows built-in,"Description mixes the built-in Chakra engine with standalone, open-source ChakraCore, so Non-OS is defensible"
+Remote Desktop Client,rest,Non-OS,67.0,OS,Windows built-in,"Description covers both mstsc (built-in) and other RDP clients ('e.g.'), so it is ambiguous"
+Microsoft Malware Protection Engine,rest,Non-OS,64.0,OS,Defender / app store,"Description lists several antimalware products, including separately installed ones (Security Essentials), so the built-in rule doesn't clearly apply"
+Android System WebView,confident,OS,79.0,Non-OS,Defender / app store,Model treats it as a built-in system component; it is updated through Google Play
+GPU Graphics Driver Stack,rest,Non-OS,60.0,Remove (not a product),F. Not a product,"Generic stack (Vulkan, Mesa or any vendor graphics driver); duplicates Mesa, the kernel DRM drivers and the vendor GPU drivers"
+"QMI-based cellular modem interface (raw IP, no MAC header)",rest,Non-OS,60.0,OS,Hardware,Described as a modem/interface condition; the model doesn't map it to the kernel driver that handles it
+Ivanti Policy Secure,confident,Non-OS,74.0,OS,Appliance,Short description ('access control gateway') doesn't say it is a device image; its sibling Connect Secure was fixed
+Application processing tar archives,confident,Non-OS,99.0,Remove (not a product),F. Not a product,"Role, not a product; its description says the vulnerable library is represented separately"
+Application running as an SSH server (server-role library usage),confident,Non-OS,93.0,Remove (not a product),F. Not a product,Role/usage condition of an SSH library; the library itself is the component to patch
+Application using an SSH protocol library,confident,Non-OS,100.0,Remove (not a product),F. Not a product,"Role, not a product; its description says the library is represented separately"
+Browser extension using native messaging,confident,Non-OS,100.0,Remove (not a product),F. Not a product,Condition on any extension; the fix belongs to the browser or the extension
+Browser extension using the identity API,confident,Non-OS,100.0,Remove (not a product),F. Not a product,Condition on any extension; the fix belongs to the browser or the extension
+Malicious browser extension installed,confident,Non-OS,100.0,Remove (not a product),F. Not a product,"Attacker precondition; the remediation is removal, not a patch"
+Native messaging host,confident,Non-OS,100.0,Remove (not a product),F. Not a product,Any local app registered for native messaging; no single product
+TLS-capable process,confident,Non-OS,92.0,Remove (not a product),F. Not a product,Protocol-level gate (any TLS/SSH process); the description calls it a runtime-presence gate
+Web Browser with JavaScript Engine,confident,Non-OS,100.0,Remove (not a product),F. Not a product,Generic browser condition; duplicates the specific browser components
+Chromium-based Browser,confident,Non-OS,100.0,Remove (not a product),F. Not a product,"Described as a 'broad application prerequisite'; duplicates Chrome, Edge and the Chromium engines"
+DNSSEC-validating DNS resolver,confident,Non-OS,99.0,Remove (not a product),F. Not a product,"Any resolver with DNSSEC validation; duplicates BIND, Unbound, dnsmasq and the Windows DNS components"
+HTTP/2 protocol implementation,confident,Non-OS,100.0,Remove (not a product),F. Not a product,"Any HTTP/2 server, proxy or framework; duplicates the specific servers and libraries"
+RADIUS Protocol Implementation,confident,Non-OS,91.0,Remove (not a product),F. Not a product,Any RADIUS client or server; no single product
+Database server JDBC component,confident,Non-OS,100.0,Remove (not a product),F. Not a product,JDBC part of an unnamed database product; duplicates the specific JDBC drivers
+XSLT processing engine,confident,Non-OS,100.0,Remove (not a product),F. Not a product,"Any XSLT engine; duplicates libxslt, Xalan and the browser engines"
+Git or Mercurial client,confident,Non-OS,99.0,Remove (not a product),F. Not a product,Either of two products; Git exists as its own component

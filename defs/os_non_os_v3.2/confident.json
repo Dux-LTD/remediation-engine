@@ -1,0 +1,4567 @@
+[
+  {
+    "component": "ABRT (Automatic Bug Reporting Tool)",
+    "answer": "OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "Adobe Flash Player",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Active Directory Certificate Services (AD CS)",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Adobe ColdFusion",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Active Directory Domain Services (AD DS)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "7-Zip",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Adobe Acrobat / Reader",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Active Directory Federation Services (AD FS)",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Adobe InDesign Desktop",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Adobe Graphics Manager Library (AGM)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Adobe Photoshop Desktop",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Adobe Magento",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Affected AMD Zen-based processor",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Adobe Shockwave Player",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Advanced Custom Fields (ACF) for WordPress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Adobe PDF Browser Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Affected Intel processor microarchitecture",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "AIDE file-integrity checker",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Amelia Booking Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ANGLE Graphics Library",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "AnythingLLM",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Android Mobile Operating System",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Android System WebView",
+    "answer": "Non-OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Apache ActiveMQ",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Axis2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Cassandra",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons BeanUtils",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons Configuration",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons Collections",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Chainsaw GUI log viewer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Camel",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons FileUpload",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons Lang",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache HTTP Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Log4j 1.x",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Commons Text",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Derby (Java DB)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Kafka",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Log4j Core",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_authnz_ldap",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_cache_socache",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_dav_fs",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_dav",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_cgi / mod_cgid",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_http2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_dav_lock",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_ldap",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_lua",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_macro",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_mime",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_ftp",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_html",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_ajp",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_http",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_http2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_remoteip",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_rewrite",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_session",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_wstunnel",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_sed",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_session_crypto",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_proxy_uwsgi",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_setenvif",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache POI",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache OFBiz",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_status",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_ssl",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Solr",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache mod_xml2enc",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Struts",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Superset",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Tomcat JsonAccessLogValve",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Tomcat Native library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Tomcat Windows installer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Tomcat",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apache Xerces",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple APFS filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple AFP client (afpfs) kernel component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple AuthKit framework",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple Calendar",
+    "answer": "OS",
+    "percentage": 85.0
+  },
+  {
+    "component": "Apple Contacts framework",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple Core Services",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple CoreMedia",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Apple Disk Images (DiskImages) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple DCERPC framework",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple DriverKit framework",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Apple Game Center",
+    "answer": "OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "Apple GarageBand",
+    "answer": "Non-OS",
+    "percentage": 89.0
+  },
+  {
+    "component": "Apple HFS filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple ImageIO",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Apple IOKit framework",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple IOMobileFrameBuffer",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple iOS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple Libinfo",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple ISO 9660 (cd9660) filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple libresolv",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Apple LogicPro",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple macOS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple macOS GPU Driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple Maps",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Apple macOS Wi-Fi Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple Neural Engine",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Apple Model I/O",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Apple ProRes component",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Apple Remote Events (AEServer)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Apple Safari",
+    "answer": "Non-OS",
+    "percentage": 88.0
+  },
+  {
+    "component": "Apple Silicon (M-series) processor",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Apple XNU kernel",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Application using an SSH protocol library",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Application processing tar archives",
+    "answer": "Ignore",
+    "percentage": 99.0
+  },
+  {
+    "component": "Application running as an SSH server (server-role library usage)",
+    "answer": "Ignore",
+    "percentage": 93.0
+  },
+  {
+    "component": "AppX Deployment Service (AppXSVC)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Aqua Security Trivy",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ARM64 CPU architecture",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Arm CPU affected by a hardware erratum",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ARMv7-A (ARM32) CPU without hardware integer divide",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ASP.NET Core",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ARM CPU with Scalable Matrix Extension (SME) support",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "AssertJ Core library on classpath",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Atlassian Confluence",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "AVideo (YouPHPTube)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Atlassian Jira",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "batman-adv (B.A.T.M.A.N. Advanced) kernel module",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Betheme",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Bouncy Castle Crypto",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Browser extension using native messaging",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Browser extension using the identity API",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "bzip2 / libbz2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Burst Statistics",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Cairo Graphics Library",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "ChromeOS Audio Server",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chrome/ChromeOS Image Burner Component",
+    "answer": "OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "ChatBot for WordPress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Canon GUARDIANWALL MailSuite",
+    "answer": "Non-OS",
+    "percentage": 71.0
+  },
+  {
+    "component": "ChromeOS cryptohome",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Chromium Cast/Chromecast Component",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chromium-based Browser",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chromium Mojo IPC",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chromium-based Browser Updater",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chromium Blink Rendering Engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chromium V8 JavaScript Engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Chrome OS Shell (ash)",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "CIRCL ecc/p384",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Cisco ASA / Firepower",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Cisco Discovery Protocol",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Cisco IP Phone",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Cisco RV Series Routers",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Cisco Jabber",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Cisco NX-OS CLI",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Cisco Identity Services Engine",
+    "answer": "Non-OS",
+    "percentage": 72.0
+  },
+  {
+    "component": "Cisco Unified Communications Manager (CUCM)",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Cisco Unified IP Interactive Voice Response (Unified IP-IVR)",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Citrix ADC / NetScaler",
+    "answer": "OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Color Enhancer browser extension",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ConnectWise ScreenConnect Client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "containerd",
+    "answer": "Non-OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "ConnectWise ScreenConnect",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Cloudways Breeze Cache",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "cPanel & WHM",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "cros-disks daemon",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Ctrlpanel.gg Hosting Panel",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "CUPS Printing System",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "cups-browsed Service",
+    "answer": "OS",
+    "percentage": 73.0
+  },
+  {
+    "component": "curl / libcurl",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Daemon Tools",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Custom Product Designer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Database server JDBC component",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Dell dbutil_2_3.sys driver",
+    "answer": "Non-OS",
+    "percentage": 89.0
+  },
+  {
+    "component": "D-Bus System Daemon",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Dell SupportAssist",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Dell EMC RecoverPoint for VMs",
+    "answer": "Non-OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "DNSSEC-validating DNS resolver",
+    "answer": "Ignore",
+    "percentage": 99.0
+  },
+  {
+    "component": "dnsmasq",
+    "answer": "Non-OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Dolby Audio Decoder",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Dovecot IMAP/POP3 Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Eclipse GlassFish",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Drupal",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "dracut",
+    "answer": "OS",
+    "percentage": 90.0
+  },
+  {
+    "component": "Drag and Drop Multiple File Upload (Contact Form 7)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Eclipse Jetty",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ECPG (PostgreSQL Embedded SQL C Preprocessor/Library)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Eclipse OpenJ9",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Elasticsearch",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Elementor Website Builder",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Erlang Runtime (BEAM VM) Process",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Erlang/OTP inets",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Erlang/OTP SSH application",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Escargot JavaScript engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Everest Forms",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ExifTool",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Exim Mail Transfer Agent",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "F5 BIG-IP",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "FactoryTalk Service Platform",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "FFmpeg",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Expat XML Parser",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Filesystem Using the Kernel iomap Layer",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Flowise",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Flash ActiveX Control",
+    "answer": "Non-OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "foomatic-rip Print Filter",
+    "answer": "OS",
+    "percentage": 84.0
+  },
+  {
+    "component": "Fortinet FortiClient EMS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Fortinet FortiGate / FortiOS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "FreeRDP",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "FreeType Font Library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "FortiOS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "FunnelKit Funnel Builder for WooCommerce",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ghost CMS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ghostscript",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "giflib",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Git",
+    "answer": "Non-OS",
+    "percentage": 90.0
+  },
+  {
+    "component": "github.com/shamaton/msgpack",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GitHub Copilot for Visual Studio Code",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Gift Cards for WooCommerce",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GitHub plugin for IDE",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GitLab",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Git or Mercurial client",
+    "answer": "Ignore",
+    "percentage": 99.0
+  },
+  {
+    "component": "GiveWP",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GNU Bash",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "GLib",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "GNU C Library",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "gix-date library (gitoxide)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GNU C Library (glibc)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "GNU InetUtils",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "GNU gzip",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "GnuTLS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GNU Wget",
+    "answer": "Non-OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "golang.org/x/crypto/ssh library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "go-git library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go HTTP/2 client transport",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go net/http server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "golang.org/x/text",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Google Chrome CredentialProvider",
+    "answer": "Non-OS",
+    "percentage": 88.0
+  },
+  {
+    "component": "Google Chrome for iOS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Google Chrome Updater",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Google Chrome Web Browser",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Google ChromeOS Operating System",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Google Chrome Web Browser for Android",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Google Dawn (WebGPU implementation)",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Google Tint (WebGPU Shading Language compiler)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go protobuf library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go runtime / standard library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go standard library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go standard library encoding/asn1 package",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go standard library net/url package",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Go toolchain (cmd/go)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Graphite2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Grafana",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Gravity SMTP",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Gson library on classpath",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer DTLS plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "gRPC-Go server library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer gst-plugins-base",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer GdkPixbuf plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer gst-plugins-bad media plugins",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer gst-plugins-good plugin set",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer gst-plugins-good WavPack audio decoder",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer gst-plugins-good WAV parser plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer isomp4 qtmoovrecover element",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer isomp4 plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer librfb rfbsrc plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer RTP SBC depayloader element",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GStreamer VMnc decoder plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "GTK library",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "gvim GUI edition of Vim",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "HashiCorp Vault",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "HashiCorp Vagrant",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Hippoo Mobile App for WooCommerce WordPress Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "HarfBuzz",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Hotspot",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "HTTP/2 protocol implementation",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Hutool",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "IBM Planning Analytics",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "IBM SDK ORB",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ICU (International Components for Unicode) library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "IBM SDK, Java Technology Edition",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "IBM WebSphere Application Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ImageMagick",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "image-size",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "InstaWP Connect",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Intel oneAPI Math Kernel Library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ISC BIND",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ivanti Endpoint Manager Mobile (EPMM)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ivanti Policy Secure",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Java 2D",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Jackson Databind",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java Cryptography Extension (JCE)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java Browser Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java Deployment Toolkit",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java JGSS with native GSS library wrapper",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Javadoc",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "JavaFX",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Java Keytool",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java JNDI component",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java Runtime Environment (Java SE / JRE / JVM / JDK)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Java Web Start launcher",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "JBoss / WildFly",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Jinja2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "JetBrains IntelliJ IDEA",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "JoomSport for Sports",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Joomla",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Jenkins",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "jQuery library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "js-yaml",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Kaltura HTML5 video player",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Kali Forms",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Kirki Customizer Framework",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libacl (POSIX ACL library)",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Kubernetes",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libarchive",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "JUnit 4",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LearnPress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libjpeg / libjpeg-turbo",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libpng",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libssh",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libpq (PostgreSQL C Client Library)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libssh2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libsolv",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "libtasn1",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LibTIFF",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libvorbis",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libvpx (VP8/VP9)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libvterm terminal emulation library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libwebp",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libyuv",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "libxml2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux/ChromeOS operating system",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux Hyper-V netvsc guest network driver",
+    "answer": "OS",
+    "percentage": 93.0
+  },
+  {
+    "component": "Linux fsl-mc bus driver for NXP DPAA2 hardware",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux Kernel",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel AF_ALG",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel AF_ALG hash interface (algif_hash)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ALSA 6fire USB audio driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel ALSA aloop loopback driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ALSA sound subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel AMD CCP crypto driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel ALSA USB-audio driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel AMD GPU DRM driver (amdgpu)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel ARM SCPI firmware driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ATM Classical IP (CLIP) module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel asymmetric keys subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ATM LAN Emulation (lec) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ATM networking subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Bluetooth subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Btrfs filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel BPF subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel brcmfmac Broadcom FullMAC WiFi driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel CAN BCM (Broadcast Manager) module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel CAN bus subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel CALIPSO IPv6 security labeling",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ch9200 USB-to-Ethernet driver",
+    "answer": "OS",
+    "percentage": 90.0
+  },
+  {
+    "component": "Linux kernel CIFS/SMB client module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel distributed lock manager (DLM)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Direct Rendering Manager core",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel coretemp hwmon driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel device-mapper subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel DCCP protocol",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel DRM GPU scheduler",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel efivarfs filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel framebuffer device subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ext4 filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ETS packet scheduler (sch_ets)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux Kernel F2FS Filesystem Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Ethernet bridge",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel ftrace subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel GENEVE tunnel driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel GFS2 clustered filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel hardware monitoring subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel HID input subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel HFSC queuing discipline (sch_hfsc)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel IEEE 802.15.4 networking subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel iMON media/rc USB driver",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Linux kernel I2C subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Industrial I/O (IIO) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel InfiniBand/RDMA core subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel input core subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel InfiniBand userspace MAD interface (ib_umad)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Intel i40e network driver",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Linux kernel Intel i915 GPU driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel Integrity Measurement Architecture (IMA)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Intel IDPF network driver",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Linux kernel Intel ice network driver",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Linux kernel Intel ISH HID driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel Intel ixgbevf network driver",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Linux kernel Intel iwlwifi Wi-Fi driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel IOMMU Shared Virtual Addressing (SVA) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Intel Omni-Path HFI1 driver",
+    "answer": "OS",
+    "percentage": 89.0
+  },
+  {
+    "component": "Linux kernel IOMMU subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel IPv6 neighbour discovery",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel IPv6 tunnel drivers",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel kernel crypto API",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel keys/keyring subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel libceph module",
+    "answer": "OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Linux kernel KVM virtualization subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel LIO iSCSI target subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel macvlan network driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Marvell mwifiex Wi-Fi driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel media/V4L2 subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Mellanox mlx4 network/RDMA driver",
+    "answer": "OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Linux kernel Mellanox mlx5 network driver",
+    "answer": "OS",
+    "percentage": 93.0
+  },
+  {
+    "component": "Linux kernel memory cgroup kmem accounting",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Mellanox switch driver (mlxsw)",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Linux kernel Memory Stick subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Microsoft Azure Network Adapter RDMA driver (mana_ib)",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Linux kernel netdevsim driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter bridge ebtables subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter H.323 connection-tracking helper",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter nfnetlink_cthelper",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter ip6t_eui64 match module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter connection tracking (nf_conntrack)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter ipset framework",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter packet filtering framework",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel net/sched checksum action (act_csum)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel netfilter SIP connection-tracking helper",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel net/sched connection tracking action (act_ct)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel net/sched teql queueing discipline (sch_teql)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel net/sched pedit action (act_pedit)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel network block device (nbd)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel net/sched u32 classifier (cls_u32)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel network bonding driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel network packet scheduler (tc/qdisc)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel networking stack",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel NFS client",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Nouveau NVIDIA GPU driver",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Linux kernel NILFS2 filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel NFS server (nfsd)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel NVMe-oF RDMA target (nvmet-rdma)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel NVMe-oF TCP target (nvmet-tcp)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel NVMe-over-Fibre-Channel target (nvmet-fc)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel NVMe storage subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel page_pool subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel PCI endpoint (configfs) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel RDMA iWARP connection manager (iw_cm)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel procfs",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel RDS / AF_RDS networking support",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel RDMA soft-RoCE driver (rxe)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel romfs filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel rtsx_usb_ms Memory Stick driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel rtw89 WiFi driver",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Linux kernel rxrpc / AF_RXRPC networking support",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SCSI storage subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SCTP protocol implementation",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SELinux security module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SMC91x Ethernet driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SMC (Shared Memory Communications) protocol",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Soft-iWARP RDMA driver (siw)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel SquashFS filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel SysV IPC subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Synaptics RMI4 input driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Linux kernel TIPC protocol",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel UDF filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel USB-audio driver (snd-usb-audio)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel USB Ethernet driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel USB core subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel USB mass storage (usb-storage) driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel User Mode Linux (UML) subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel virtio-crypto driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel uvcvideo (USB Video Class) driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel virtio/VMCI vsock transport",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel VKMS virtual KMS driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel VMware SVGA DRM driver (vmwgfx)",
+    "answer": "OS",
+    "percentage": 89.0
+  },
+  {
+    "component": "Linux kernel VMware Paravirtual RDMA driver (vmw_pvrdma)",
+    "answer": "OS",
+    "percentage": 82.0
+  },
+  {
+    "component": "Linux kernel VXCAN driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel wireless networking stack (cfg80211/mac80211)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Wacom HID driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel Xen guest support",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel xen privcmd subsystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel XFRM IPsec framework",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel zram compressed block device",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kTLS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux kernel XFS filesystem",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux nvme-fc driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux Operating System",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Linux-PAM",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Linux qla2xxx Fibre Channel HBA driver",
+    "answer": "OS",
+    "percentage": 75.0
+  },
+  {
+    "component": "Little CMS (lcms2)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LiteSpeed cPanel Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LMDeploy",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "lodash",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LiteSpeed Cache",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "LogonTracer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "macOS Screen Sharing Server",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "lz4 / liblz4",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "macOS SMB Client",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mail Mint Email Marketing",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Majordomo Mailing List Manager",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Malicious browser extension installed",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "ManageEngine ADSelfService Plus",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MariaDB / MySQL",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Marimo Notebook",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MCPJam MCP Inspector",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MessagePack for Python",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MCP Java SDK core library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mesa 3D Graphics Library",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "MetInfo CMS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Micronaut JSON binding library (micronaut-json-core)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Chakra Scripting Engine",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Microsoft COM for Windows",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Defender",
+    "answer": "OS",
+    "percentage": 70.0
+  },
+  {
+    "component": "Microsoft.DiaSymReader.Native (msdia PDB reader)",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Defender Antimalware Platform",
+    "answer": "OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "Microsoft Compiled HTML Help Viewer (hh.exe)",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Microsoft Edge (Chromium-based)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Equation Editor (EQNEDT32)",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Microsoft Edge WebView2",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Exchange Server",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Excel",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Hyper-V",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Microsoft Input Method Editor (IME)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Management Console",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Message Queuing (MSMQ)",
+    "answer": "OS",
+    "percentage": 90.0
+  },
+  {
+    "component": "Microsoft MSHTML (Trident)",
+    "answer": "OS",
+    "percentage": 72.0
+  },
+  {
+    "component": "Microsoft .NET / .NET Framework",
+    "answer": "Non-OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Microsoft Network Device Enrollment Service (NDES/SCEP)",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Microsoft Office",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft ODBC Driver for SQL Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft OLE DB Driver for SQL Server",
+    "answer": "Non-OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Microsoft Outlook",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Office Graphics Component",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Paint",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Microsoft PowerPoint",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft SharePoint",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft QUIC (msquic) Library",
+    "answer": "Non-OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Microsoft Skype for Business",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft SMBv1 Server",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Microsoft SqlClient Data Provider",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft SQL Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Teams",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Visual Studio",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Win32k",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft WDAC OLE DB Provider for SQL Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Certificate Dialog (UAC)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows CIFS Browser Protocol Driver (Bowser.sys)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Adobe Type Manager Library",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Ancillary Function Driver for WinSock",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Desktop and Server Operating System",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows DHCP Client Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Distributed File System (DFS) Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows DHCP Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows DNS Client",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Jet Database Engine",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Microsoft Windows Kernel Graphics Component (splWOW64)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows DNS Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Layer-2 Bridge Network Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows NetBT (NetBIOS over TCP/IP) Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Network Policy Server (NPS)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows NFS ONCRPC XDR Driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Online Certificate Status Protocol (OCSP) SnapIn",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Microsoft Windows NFS Portmapper",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Microsoft Windows NFS Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows PGM",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Recall",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows PostScript and PCL6 Class Printer Driver",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Scripting Engine",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Script Runtime",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Shell",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows SMB Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows Server Network Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows SMB Client",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Microsoft Windows SMB Witness Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows StructuredQuery Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Support Diagnostic Tool (MSDT)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows TCP/IP Stack",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Telnet Client",
+    "answer": "OS",
+    "percentage": 90.0
+  },
+  {
+    "component": "Microsoft Word",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft Windows Winsock IFS Layer Driver (ws2ifsl.sys)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Microsoft XML Core Services (MSXML)",
+    "answer": "OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Microsoft Windows Themes",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mirasvit Full Page Cache Warmer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "mod_auth_digest (Apache HTTP Server module)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "mod_md (Apache HTTP Server module)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MongoDB",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Motorola SM56 Modem WDM Driver",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "MongoDB PHP Library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MongoDB Go Driver GridFS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Moodle LMS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Firefox Focus (Android)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Firefox for Android",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Firefox",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Firefox / Thunderbird Updater",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Thunderbird",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "MSSQL Extension for Visual Studio Code",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Mozilla Gecko-based Application (Firefox / Thunderbird)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "My Sticky Bar",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "N-able N-central",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Nagios",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Native messaging host",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "Netty HTTP codec",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Network Security Services (NSS)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Nextcloud",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Newtonsoft.Json (Json.NET)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": ".NET System.IO.Packaging library",
+    "answer": "Non-OS",
+    "percentage": 97.0
+  },
+  {
+    "component": "Next.js",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "NLnet Labs Unbound",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Node.js",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "nginx UI (nginx Web Dashboard)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ninja Forms",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Node.js built-in HTTP/HTTPS proxy tunnel client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "nginx",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Node.js runtime",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "node-tar (npm tar package)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Nokogiri",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Nx Console",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Notepad++",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "openDCIM",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "open-iscsi",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "NVIDIA GPU Display Driver",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "OpenMetadata",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "OpenSSH for Windows",
+    "answer": "Non-OS",
+    "percentage": 80.0
+  },
+  {
+    "component": "OpenSSL",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "OpenSymphony XWork",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "OpenSSL QUIC implementation (libssl)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "OpenVPN",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Clusterware",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Coherence",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Cost Management",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle E-Business Suite",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Database Java VM (OJVM)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Essbase",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Database XML Database (XDB)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Fusion Middleware",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Database Server (RDBMS)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle GraalVM",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Java Mission Control",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Java Advanced Management Console",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Identity Manager",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Java SE / JRockit runtime",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Java SE Installer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Nashorn JavaScript Engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Net Connection Manager",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle WebLogic Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Palo Alto Networks GlobalProtect",
+    "answer": "OS",
+    "percentage": 82.0
+  },
+  {
+    "component": "Paid Memberships Pro WordPress Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Oracle Solaris operating system",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PAN-OS operating system",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "OSGeo GeoServer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PaperCut NG / MF",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Paramiko (SSH library)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PCRE",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Password Protect WordPress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PCRE2",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PDFium PDF Rendering Engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PDF.js JavaScript PDF Renderer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Paytium Mollie Payment Forms",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Perl",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Perl DBI",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Perl Archive::Tar",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "pgAdmin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PHPMailer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "pgjdbc (PostgreSQL JDBC Driver)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PHP / PHP-FPM",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "phpMyAdmin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Perl IO::Compress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PLC Controller Firmware",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Pillow (Python Imaging Library)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PL/Java procedural language extension",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Podman",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Poppler PDF Library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "polkit (PolicyKit)",
+    "answer": "OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Postfix Mail Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PostgreSQL client utilities (pg_basebackup / pg_rewind)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PostgreSQL",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PostgreSQL pg_dump/pg_upgrade utilities",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PostgreSQL psql interactive terminal client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Postorius / GNU Mailman",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PraisonAI",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PostgreSQL Windows Installer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Product Slider for WooCommerce",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Progress MOVEit Transfer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PuTTY SSH Client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Python",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Python html.parser",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Profile Builder",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "pyca/cryptography library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Python http.client",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Python http.cookies",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Python interpreter runtime",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "PyYAML",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Qlik Sense",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "QEMU Hardware Emulator",
+    "answer": "Non-OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Qinglong Panel",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "QNAP Photo Station",
+    "answer": "Non-OS",
+    "percentage": 82.0
+  },
+  {
+    "component": "Python requests library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "QNAP QTS",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Qwik",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "RADIUS Protocol Implementation",
+    "answer": "Ignore",
+    "percentage": 91.0
+  },
+  {
+    "component": "rclone",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "RabbitMQ",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Redis",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Roundcube Webmail",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Royal Elementor Addons",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "rpcbind / portmapper",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Ruby Runtime",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Rsync",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "runc Container Runtime",
+    "answer": "Non-OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Rust openssl crate",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Rust shlex crate",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Samba samba-dcerpcd RPC service",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Samba (SMB/CIFS for Linux/Unix)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SAP NetWeaver",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Sendmail",
+    "answer": "Non-OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "SELinux seunshare",
+    "answer": "OS",
+    "percentage": 93.0
+  },
+  {
+    "component": "sg3_utils",
+    "answer": "OS",
+    "percentage": "human_review"
+  },
+  {
+    "component": "Skia Graphics Library",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Slider Revolution",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SAP Internet Graphics Server (IGS)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SmarterMail",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Smart Slider 3",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Soliton FileZen",
+    "answer": "OS",
+    "percentage": 77.0
+  },
+  {
+    "component": "SolarWinds Orion",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Spectra \u2013 WordPress Gutenberg Blocks",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SpiderMonkey JavaScript Engine",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Splunk CLI",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Splunk Enterprise",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Spring Framework",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SQLite",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SQLCMD Utility for SQL Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SQL Server Integration Services Visual Studio Extension",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "ssri library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SQL Server Native Client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SSSD",
+    "answer": "OS",
+    "percentage": 87.0
+  },
+  {
+    "component": "Sudo",
+    "answer": "OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "Super Store Finder",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "SwiftShader",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "tar-rs Rust crate",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "System.Text.Encodings.Web",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Symfony",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TanStack Router / Query",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TeamViewer Remote Client/Host",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Telerik UI for ASP.NET AJAX",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TightVNC Server",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TightVNC Viewer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TLS-capable process",
+    "answer": "Ignore",
+    "percentage": 92.0
+  },
+  {
+    "component": "Trend Micro Apex One",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TrueConf Client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Tutor LMS",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "TYPO3",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Ubiquiti UniFi Network Application",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "udev device manager",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "UltraVNC",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "urllib3 HTTP client library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "UserPro",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "usrsctp",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "vBulletin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Veeam Backup & Replication",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Veeam ONE",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Veritas Backup Exec Agent",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Vim text editor",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Visual Studio Code",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Visual Studio Installer",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VLC Media Player",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Vite",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "vm2 (Node.js sandbox)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware Aria Operations",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware Tools / open-vm-tools",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware ESXi Hypervisor",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware Horizon",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "vsftpd / ProFTPD",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware vRealize Log Insight",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "VMware vCenter Server",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Web Browser with JavaScript Engine",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "WebRTC GMP H.264 video decoder",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WebKitGTK / WPE WebKit",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "WebKit",
+    "answer": "Non-OS",
+    "percentage": 92.0
+  },
+  {
+    "component": "WebRTC (libwebrtc)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Wholesale Suite for WooCommerce",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WIM Archive Format Handler",
+    "answer": "OS",
+    "percentage": 77.0
+  },
+  {
+    "component": "Wicked Folders",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Advanced Local Procedure Call (ALPC)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Advanced Rasterization Platform (WARP)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows AppLocker Driver (appid.sys)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows AllJoyn API",
+    "answer": "OS",
+    "percentage": 83.0
+  },
+  {
+    "component": "Windows Background Intelligent Transfer Service (BITS)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Base API Library (kernel32.dll)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows BitLocker",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Bluetooth A2DP Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Bluetooth Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows BranchCache",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows CNG Key Isolation Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Cloud Files Mini Filter Driver (cldflt.sys)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Cabinet (CAB) Handler",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows COM+ Event System Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Codecs Library",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Windows Common Controls (comctl32)",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Core Messaging",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Cryptographic Services",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Common Log File System Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Data.dll Component",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Windows Defender Signature Update Stub (MpSigStub)",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Windows Deployment Services",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Device Health Attestation Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Digest Authentication",
+    "answer": "OS",
+    "percentage": 95.0
+  },
+  {
+    "component": "Windows DirectX",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Distributed Transaction Coordinator (MSDTC)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows DirectShow",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows DNS Server Management Snap-in",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Windows Encrypting File System (EFS)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Enterprise App Management Service",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Windows Error Reporting",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Event Log Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Failover Cluster",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Fax Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Filtering Platform (WFP)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows File History Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Font Library",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Font Driver Host",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows GDI Graphics Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Group Policy service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows IKE Extension",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows HTTP.sys",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Imaging Component",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Imaging Component (Mscms color management)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Installer Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows IP Helper Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows IP Routing Management Snap-in",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Internet Connection Sharing (ICS) Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows iSCSI Discovery Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows iSCSI Target",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows iSNS Server",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows KDC Proxy Service (KPSSVC)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Kerberos",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Kernel",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Kernel Streaming WOW Thunk Service Driver (ks.sys)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Kernel Cryptography Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows LDAP Client",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows LDAP Server",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Line Printer Daemon (LPD) Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows LSASS (Local Security Authority)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Media",
+    "answer": "OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "Windows Miracast",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows MultiPoint Services",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Windows Native WiFi Miniport Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Netlogon Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Network Load Balancing",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Network Address Translation (NAT) Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Network Virtualization",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows NTLM Authentication Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows NTFS Filesystem Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows OLE",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Partition Management Driver",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Windows PDF Library",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Performance Data Helper Library",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Presentation Foundation (WPF)",
+    "answer": "Non-OS",
+    "percentage": 82.0
+  },
+  {
+    "component": "Windows Print Spooler",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Protected Extensible Authentication Protocol (PEAP) Component",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows RDP Clipboard Virtual Channel Extension",
+    "answer": "OS",
+    "percentage": 93.0
+  },
+  {
+    "component": "Windows ReFS Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Remote Access Connection Manager (RASMAN) Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Remote Access Management Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Remote Assistance",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Remote Desktop Licensing Service",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Remote Desktop Services",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Remote Desktop Web Access",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Remote Registry Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Rich Text Edit Component",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Windows Routing and Remote Access Service (RRAS)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows RPC Runtime",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows RPCSS (RPC Endpoint Mapper / RPC service)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Runtime",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Search",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Security Account Manager (SAM)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Secure Channel (SChannel)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Security Center",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Server Remote Desktop Gateway",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Server Update Services (WSUS)",
+    "answer": "OS",
+    "percentage": 96.0
+  },
+  {
+    "component": "Windows Service Tracing",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows SmartScreen",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows SPNEGO Extended Negotiation (NEGOEX) Security Mechanism",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Storage Stack",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Standards-Based Storage Management Service",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Speech Application Programming Interface (SAPI)",
+    "answer": "OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "Windows Task Host Process (taskhostw)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Telephony Service (TapiSrv)",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Task Scheduler Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Terminal",
+    "answer": "Non-OS",
+    "percentage": 94.0
+  },
+  {
+    "component": "Windows Text Service Module",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Uniscribe",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows Update Stack",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows UPnP Device Host",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows UrlMon Component",
+    "answer": "OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "Windows USB Audio Class System Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Volume Manager Extension Driver",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows WebBrowser Control",
+    "answer": "OS",
+    "percentage": 84.0
+  },
+  {
+    "component": "Windows User Profile Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows WLAN AutoConfig Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows WebClient Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows Workstation Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Windows WS-Discovery Service",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WinGUp (Generic Updater)",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WinSCP",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Wireshark",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WinRAR",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WooCommerce Custom Product Addons Pro",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WordPress",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WordPress Modular DS Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WP Fastest Cache",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WP Statistics",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WP User Frontend WordPress Plugin",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "x86 CPU with AMX/XFD support",
+    "answer": "OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "XenForo",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "xmllint",
+    "answer": "Non-OS",
+    "percentage": 99.0
+  },
+  {
+    "component": "XML-RPC for C/C++ (XMLRPC-C) library",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "WP Maps Pro",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "XSLT processing engine",
+    "answer": "Ignore",
+    "percentage": 100.0
+  },
+  {
+    "component": "XStore Core",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "XStream",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "xxd hex dump utility",
+    "answer": "Non-OS",
+    "percentage": 98.0
+  },
+  {
+    "component": "XWiki",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Zabbix",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Zimbra Collaboration Suite",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "zlib",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Zoom-client",
+    "answer": "Non-OS",
+    "percentage": 100.0
+  },
+  {
+    "component": "Zyxel Firewall",
+    "answer": "OS",
+    "percentage": 99.0
+  }
+]
