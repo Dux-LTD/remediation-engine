@@ -16,21 +16,6 @@ from dataclasses import dataclass
 from enum import Enum
 
 
-class Kind(Enum):
-    """Whether a software component is the operating system or not.
-
-    Non-OS covers applications, libraries, runtime hosts, and vendor drivers
-    that are not part of the OS. OS covers the operating system, its
-    subsystems, and OS-related kernel drivers.
-
-    Derived from the remediation tag: OS -> OS, Non-OS -> NON_OS.
-    Ignore-tagged and untagged components have no kind (None).
-    """
-
-    NON_OS = "non_os"
-    OS = "os"
-
-
 class Role(Enum):
     """Catalog role, reduced to what the engine decides on.
 
@@ -81,14 +66,6 @@ class SoftwareComponent:
     def name(self) -> str:
         """Catalog display name (same as display_name)."""
         return self.display_name
-
-    @property
-    def kind(self) -> Kind | None:
-        if self.remediation_tag is RemediationTag.OS:
-            return Kind.OS
-        if self.remediation_tag is RemediationTag.NON_OS:
-            return Kind.NON_OS
-        return None
 
 
 SOFTWARE_COMPONENTS: dict[str, SoftwareComponent] = {
