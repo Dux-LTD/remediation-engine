@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from defs.def_components import Kind, RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
+from defs.def_components import RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
 from defs.def_remediation_plans import (
     ActionCategory,
     CONFIGURATION_ACTIONS,
