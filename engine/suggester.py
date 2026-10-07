@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from defs.def_components import Kind, Role, SOFTWARE_COMPONENTS, SoftwareComponent
+from defs.def_components import Kind, RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
 from defs.def_remediation_plans import (
     ActionCategory,
     CONFIGURATION_ACTIONS,
@@ -221,7 +221,9 @@ def _software_path(
     version = _version_sentence(row)
     platform = _platform_sentence(platform_context)
 
-    if component is not None and component.kind is Kind.OS:
+    # Logic v2 routing: the remediation tag decides OS/firmware update vs vendor
+    # patch; the role decides firmware vs OS update.
+    if component is not None and component.remediation_tag is RemediationTag.OS:
         if component.role is Role.FIRMWARE:
             action_id = "firmware-update"
             detail = (
