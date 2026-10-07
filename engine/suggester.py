@@ -34,21 +34,8 @@ ACTIONS_BY_ID: dict[str, RemediationAction] = {
     action.id: action for action in REMEDIATION_ACTIONS
 }
 
-# Whole-platform rows. A more specific operating system row is remediated
-# before one of these.
-PLATFORM_OS_IDS = frozenset(
-    {
-        "microsoft-windows-operating-system",
-        "linux-operating-system",
-        "linux-kernel",
-        "apple-macos",
-        "apple-ios",
-        "android-operating-system",
-        "chromeos",
-        "linux-chromeos-operating-system",
-        "oracle-solaris",
-    }
-)
+# Roles that mean "the whole OS or firmware itself" (logic v2, rule 5).
+WHOLE_OS_ROLES = frozenset({Role.OS, Role.FIRMWARE})
 
 # One line per network action, per direction of the connection.
 NETWORK_DETAILS: dict[str, tuple[str, str]] = {
@@ -130,7 +117,7 @@ class RemediationPlan:
 def suggest(cve: CvePrerequisites) -> RemediationPlan:
     """Suggest remediation paths for one CVE."""
     software_rows = cve.of_type(PrerequisiteType.SOFTWARE_COMPONENT)
-    targets, platform_rows = _split_software_rows(software_rows)
+    targets, platform_rows, ignored_rows = _split_software_rows(software_rows)
     platform_context = tuple(_platform_context(row) for row in platform_rows)
 
     paths: list[RemediationPath] = []
@@ -145,7 +132,7 @@ def suggest(cve: CvePrerequisites) -> RemediationPlan:
         cve_id=cve.cve_id,
         paths=tuple(paths),
         platform_context=platform_context,
-        notes=_notes(cve, targets, platform_context),
+        notes=_notes(cve, targets, platform_context, ignored_rows),
         cvss_score=cve.cvss_score,
         cvss_vector=cve.cvss_vector,
     )
@@ -155,27 +142,35 @@ def _component_of(row: Prerequisite) -> SoftwareComponent | None:
     return COMPONENTS_BY_ID.get(row.display_id)
 
 
-def _is_os(row: Prerequisite) -> bool:
+def _is_ignored(row: Prerequisite) -> bool:
     component = _component_of(row)
-    return component is not None and component.kind is Kind.OS
+    return component is not None and component.remediation_tag is RemediationTag.IGNORE
+
+
+def _is_whole_os(row: Prerequisite) -> bool:
+    """True when the row is the whole OS or firmware itself (role os / firmware)."""
+    component = _component_of(row)
+    return component is not None and component.role in WHOLE_OS_ROLES
 
 
 def _split_software_rows(
     rows: tuple[Prerequisite, ...],
-) -> tuple[tuple[Prerequisite, ...], tuple[Prerequisite, ...]]:
-    """Choose what to remediate and what is only the platform it runs on.
+) -> tuple[tuple[Prerequisite, ...], tuple[Prerequisite, ...], tuple[Prerequisite, ...]]:
+    """Choose what to remediate, what is only platform context, and what is ignored.
 
-    An operating system next to another software component is context only:
-    the product is what gets fixed. Operating system rows on their own are
-    remediated as an operating system or firmware update, most specific first.
+    Returns (targets, platform_rows, ignored_rows):
+    - Ignore-tagged rows are set aside first; no remediation is generated for them.
+    - A whole OS or firmware (role os / firmware) next to any other remaining
+      component is context only: the other components are what gets fixed.
+    - When only whole-OS / firmware rows remain, every one of them is a target.
     """
-    os_rows = tuple(row for row in rows if _is_os(row))
-    product_rows = tuple(row for row in rows if not _is_os(row))
-    if product_rows:
-        return product_rows, os_rows
-
-    ordered = sorted(os_rows, key=lambda row: row.display_id in PLATFORM_OS_IDS)
-    return ordered[:1], tuple(ordered[1:])
+    ignored_rows = tuple(row for row in rows if _is_ignored(row))
+    remaining = tuple(row for row in rows if not _is_ignored(row))
+    whole_os_rows = tuple(row for row in remaining if _is_whole_os(row))
+    other_rows = tuple(row for row in remaining if not _is_whole_os(row))
+    if other_rows:
+        return other_rows, whole_os_rows, ignored_rows
+    return whole_os_rows, (), ignored_rows
 
 
 def _platform_context(row: Prerequisite) -> PlatformContext:
@@ -299,14 +294,56 @@ def _network_path(row: Prerequisite) -> RemediationPath:
     )
 
 
+def _ignored_note(ignored_rows: tuple[Prerequisite, ...], all_ignored: bool) -> str:
+    """Explain Ignore-tagged components.
+
+    Ignore-tagged catalog records name a kind of software (for example any
+    Chromium-based browser, any HTTP/2 implementation) or a condition, not one
+    installed product, so no product-specific fix can be named for them.
+    """
+    labels = []
+    for row in ignored_rows:
+        component = _component_of(row)
+        labels.append(_mark(component.display_name if component else row.label))
+    names = ", ".join(labels)
+    if len(labels) > 1:
+        note = (
+            f"{names} are generic catalog entries: each stands for a kind of software or "
+            f"a condition, not one product installed on the system, so no fix can be named "
+            f"for them. Find the products on the affected systems that they refer to (the "
+            f"scanner's detection usually names them) and install those products' security "
+            f"updates."
+        )
+    else:
+        chrome_example = (
+            ", for example Google Chrome or Microsoft Edge for a Chromium-based browser"
+            if "Chromium" in names
+            else ""
+        )
+        note = (
+            f"{names} is a generic catalog entry: it stands for a kind of software or a "
+            f"condition, not one product installed on the system, so no fix can be named for "
+            f"it. Find the product on the affected systems that it refers to (the scanner's "
+            f"detection usually names it{chrome_example}) and install that product's security "
+            f"update."
+        )
+    if all_ignored:
+        what = "those products are" if len(labels) > 1 else "that product is"
+        note += f" Until {what} identified, use the compensating controls below."
+    return note
+
+
 def _notes(
     cve: CvePrerequisites,
     targets: tuple[Prerequisite, ...],
     platform_context: tuple[PlatformContext, ...],
+    ignored_rows: tuple[Prerequisite, ...] = (),
 ) -> tuple[str, ...]:
     notes: list[str] = []
 
-    if not targets:
+    if ignored_rows:
+        notes.append(_ignored_note(ignored_rows, all_ignored=not targets))
+    elif not targets:
         notes.append(
             "No affected software was named in this record, so only the compensating "
             "controls below are suggested."
