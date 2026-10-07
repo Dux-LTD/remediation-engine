@@ -12,11 +12,12 @@ from dataclasses import dataclass
 
 from defs.def_components import RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
 from defs.def_remediation_plans import (
+    ACTIONS_BY_ID,
     ActionCategory,
     CONFIGURATION_ACTIONS,
     NETWORK_ACTIONS,
-    REMEDIATION_ACTIONS,
     RemediationAction,
+    render_detail,
 )
 
 from .prerequisites import CvePrerequisites, Prerequisite, PrerequisiteType
@@ -30,44 +31,10 @@ COMPONENTS_BY_ID: dict[str, SoftwareComponent] = dict(SOFTWARE_COMPONENTS)  # by
 for _component in SOFTWARE_COMPONENTS.values():
     COMPONENTS_BY_ID.setdefault(_component.display_name, _component)
     COMPONENTS_BY_ID.setdefault(_catalog_key(_component.display_name), _component)
-ACTIONS_BY_ID: dict[str, RemediationAction] = {
-    action.id: action for action in REMEDIATION_ACTIONS
-}
 
 # Roles that mean "the whole OS or firmware itself" (logic v2, rule 5).
 WHOLE_OS_ROLES = frozenset({Role.OS, Role.FIRMWARE})
 
-# One line per network action, per direction of the connection.
-NETWORK_DETAILS: dict[str, tuple[str, str]] = {
-    "firewall-allow-restricted": (
-        "Keep `{service}` reachable only from the systems that need it, and close it to everything else.",
-        "Allow `{service}` out only to the destinations you trust, and close it to everything else.",
-    ),
-    "firewall-block": (
-        "Block incoming `{service}` traffic to the affected systems at the network firewall.",
-        "Block outgoing `{service}` traffic from the affected systems at the network firewall.",
-    ),
-    "host-firewall-rule": (
-        "Add a rule on the affected systems themselves that refuses incoming `{service}` traffic from anyone who does not need it.",
-        "Add a rule on the affected systems themselves that stops them from opening `{service}` connections you have not approved.",
-    ),
-    "firewall-identity": (
-        "Allow incoming `{service}` only for named administrators or the specific users who need it.",
-        "Allow outgoing `{service}` only for the named accounts or services that need it.",
-    ),
-    "acl-rule": (
-        "Add an access rule on the router or switch so only approved networks can reach `{service}`.",
-        "Add an access rule on the router or switch so the affected systems can reach `{service}` only where needed.",
-    ),
-    "network-segmentation": (
-        "Move the affected systems to their own network segment or VLAN, so `{service}` is reachable only from approved systems.",
-        "Move the affected systems to their own network segment or VLAN, so their `{service}` traffic stays inside a controlled path.",
-    ),
-    "reduce-network-exposure": (
-        "Take `{service}` off the Internet and any other untrusted network, so it is reachable only internally.",
-        "Send `{service}` traffic through an approved proxy or gateway instead of letting the systems reach the Internet directly.",
-    ),
-}
 
 # Words dropped from a configuration name inside a description only.
 _SETTING_STATE_WORDS = re.compile(r"\b(?:enabled|disabled)\b", re.IGNORECASE)
@@ -194,13 +161,6 @@ def _configuration_name(label: str) -> str:
     return name or label
 
 
-def _version_sentence(row: Prerequisite) -> str:
-    fixed = row.fixed_version
-    if fixed:
-        return f"Move to version {_mark(fixed)} or later."
-    return "Use the fixed version named in the vendor advisory."
-
-
 def _platform_sentence(platform_context: tuple[PlatformContext, ...]) -> str:
     if not platform_context:
         return ""
@@ -213,42 +173,29 @@ def _software_path(
 ) -> RemediationPath:
     component = _component_of(row)
     name = _mark(row.label)
-    version = _version_sentence(row)
     platform = _platform_sentence(platform_context)
 
-    # Logic v2 routing: the remediation tag decides OS/firmware update vs vendor
-    # patch; the role decides firmware vs OS update.
-    if component is not None and component.remediation_tag is RemediationTag.OS:
-        if component.role is Role.FIRMWARE:
-            action_id = "firmware-update"
-            detail = (
-                f"Install the firmware release the vendor published for {name}. "
-                f"Appliance and operational technology firmware is released on its own "
-                f"schedule, so it is not covered by regular server and desktop patching. {version}"
-            )
-        else:
-            action_id = "os-update"
-            detail = (
-                f"Install the operating system security update for {name} on every "
-                f"affected system. {version}"
-            )
+    if component is not None and component.discontinued:
+        # End of life with no successor: removing it is the only fix.
+        action_ids = ["remove-component"]
     else:
-        action_id = "software-update"
-        detail = f"Install the security update the vendor published for {name}. {version}{platform}"
+        # Logic v2 routing: the remediation tag decides OS/firmware update vs
+        # vendor patch; the role decides firmware vs OS update.
+        if component is not None and component.remediation_tag is RemediationTag.OS:
+            update_id = "firmware-update" if component.role is Role.FIRMWARE else "os-update"
+        else:
+            update_id = "software-update"
+        action_ids = [update_id, "replace-component"]
 
-    options = [RemediationOption(ACTIONS_BY_ID[action_id], detail)]
-    options.append(
-        RemediationOption(
-            ACTIONS_BY_ID["replace-component"],
-            f"Move to a supported version of {name}, or to a product that replaces it.",
-            condition="if this version is no longer supported and the vendor has published no fix",
-        )
+    options = tuple(
+        _option(ACTIONS_BY_ID[action_id], name=name, platform=platform)
+        for action_id in action_ids
     )
     return RemediationPath(
         target_display_id=row.display_id,
         target_label=row.label,
-        layer=ActionCategory.SOFTWARE,
-        options=tuple(options),
+        layer=options[0].action.category,
+        options=options,
         recommended=True,
     )
 
@@ -260,37 +207,35 @@ def _configuration_path(row: Prerequisite) -> RemediationPath:
     if row.vulnerable_by_default:
         state += " This is the default setting, so it is likely in place."
 
-    options = []
-    for action in CONFIGURATION_ACTIONS:
-        if action.id == "configuration-hardening":
-            detail = f"Change {name} configuration to a supported setting that is not affected.{state}"
-        else:
-            detail = f"Turn off or remove {name} configuration on systems that do not need it.{state}"
-        options.append(RemediationOption(action, detail))
-
+    options = tuple(_option(action, name=name, state=state) for action in CONFIGURATION_ACTIONS)
     return RemediationPath(
         target_display_id=row.display_id,
         target_label=row.label,
         layer=ActionCategory.CONFIGURATION,
-        options=tuple(options),
+        options=options,
     )
 
 
 def _network_path(row: Prerequisite) -> RemediationPath:
     service = row.label
     outbound = row.direction == "outbound"
-    index = 1 if outbound else 0
-
     options = tuple(
-        RemediationOption(action, NETWORK_DETAILS[action.id][index].format(service=service))
-        for action in NETWORK_ACTIONS
-        if action.id in NETWORK_DETAILS
+        _option(action, outbound=outbound, service=_mark(service)) for action in NETWORK_ACTIONS
     )
     return RemediationPath(
         target_display_id=row.display_id,
         target_label=service,
         layer=ActionCategory.NETWORK,
         options=options,
+    )
+
+
+def _option(action: RemediationAction, outbound: bool = False, **values: str) -> RemediationOption:
+    """One option: the action, its filled detail, and its condition, all from defs."""
+    return RemediationOption(
+        action=action,
+        detail=render_detail(action, outbound=outbound, **values),
+        condition=action.condition,
     )
 
 
