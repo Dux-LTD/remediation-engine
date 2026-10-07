@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+
+.agents/
+db/
+outs/
+research/
+scripts/__init__.py
+scripts/results/
+engine/__pycache__/
+
+remediation-benchmark.html
+remediation_benchmark_per_cve.csv
+skills-lock.json
