@@ -19,6 +19,7 @@ from defs.def_remediation_plans import (
     CONFIGURATION_ACTIONS,
     EOL_CONDITION,
     EOL_LATEST_KIND,
+    EOL_MIXED_GROUPS,
     EOL_SENTENCES,
     EOL_UNTIL,
     NETWORK_ACTIONS,
@@ -102,6 +103,8 @@ class EolCoverage:
     latest_supported: Release | None
     fetched_at: str
     live: bool
+    # Each placed exact version or range with the release lines it falls on.
+    placements: tuple[tuple["str | VersionRange", tuple[Release, ...]], ...] = ()
 
     @property
     def eol_lines(self) -> tuple[Release, ...]:
@@ -274,6 +277,7 @@ def _eol_status(
     # no numeric line likely sits on one of those, so it is skipped without a note.
     has_edition_lines = len(product.version_lines) < len(product.releases)
     lines: list[Release] = []
+    placements: list[tuple[str | VersionRange, tuple[Release, ...]]] = []
 
     def add(release: Release | None) -> bool:
         if release is None:
@@ -284,8 +288,11 @@ def _eol_status(
 
     unmatched = []
     for version in versions.exact_versions:
-        if not add(product.release_for(version) or product.infer_line(version)):
+        release = product.release_for(version) or product.infer_line(version)
+        if not add(release):
             unmatched.append(version)
+        else:
+            placements.append((version, (release,)))
     unmatched_ranges = []
     kept_ranges = []
     for span in versions.ranges:
@@ -323,6 +330,7 @@ def _eol_status(
             unmatched_ranges.append(span)
             continue
         kept_ranges.append(span)
+        placements.append((span, tuple(placed)))
         for release in placed:
             add(release)
 
@@ -350,6 +358,7 @@ def _eol_status(
             latest_supported=product.latest_supported,
             fetched_at=product.fetched_at,
             live=product.live,
+            placements=tuple(placements),
         ),
         retired,
     )
@@ -519,13 +528,42 @@ def _eol_parts(
             key = "supported"
         else:
             key = "mixed"
-    return tuple(sentence.format(**values) for sentence in EOL_SENTENCES[key])
+    status: tuple[str, ...] = ()
+    if key == "mixed":
+        # One sentence per group, so supported versions are not called end of life.
+        status = _mixed_status(eol, name)
+    return status + tuple(sentence.format(**values) for sentence in EOL_SENTENCES[key])
+
+
+def _mixed_status(eol: EolCoverage, name: str) -> tuple[str, ...]:
+    """Affected versions grouped by the status of the lines they fall on."""
+    groups: dict[str, list] = {"eol": [], "supported": [], "both": []}
+    for item, item_lines in eol.placements:
+        if all(line.is_eol for line in item_lines):
+            groups["eol"].append(item)
+        elif not any(line.is_eol for line in item_lines):
+            groups["supported"].append(item)
+        else:
+            groups["both"].append(item)
+    sentences = []
+    for group, items in groups.items():
+        if items:
+            exact = [item for item in items if isinstance(item, str)]
+            spans = [item for item in items if not isinstance(item, str)]
+            subject = _subject_for(name, exact, spans)
+            sentences.append(EOL_MIXED_GROUPS[group].format(subject=subject))
+    return tuple(sentences)
 
 
 def _version_subject(eol: EolCoverage, name: str = "") -> str:
     """Name every affected version the sentence is about."""
     known = [version for version in eol.exact_versions if version not in eol.unmatched_exact]
-    items = [_mark(version) for version in known] + [_range_phrase(span) for span in eol.ranges]
+    return _subject_for(name, known, list(eol.ranges))
+
+
+def _subject_for(name: str, known: list[str], spans: list[VersionRange]) -> str:
+    """Affected <name> version(s) <list> is/are."""
+    items = [_mark(version) for version in known] + [_range_phrase(span) for span in spans]
     single = len(items) == 1 and len(known) == 1
     noun = "version" if single else "versions"
     product = f"{name} " if name else ""
