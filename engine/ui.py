@@ -105,7 +105,7 @@ function highlight(json) {
 function eolSummary(eol) {
   if (!eol) return "";
   const lines = eol.lines.map((line) => line.is_eol
-    ? `<span class="line is-eol">${escape(line.name)} · end of life${line.eol_from ? " " + escape(line.eol_from) : ""}</span>`
+    ? `<span class="line is-eol">${escape(line.name)} · end of life${line.eol_from ? " " + escape(line.eol_from) : ""}${line.inferred ? " (not listed, inferred)" : ""}</span>`
     : `<span class="line">${escape(line.name)} · supported</span>`).join("");
   const latest = eol.latest_supported ? ` Latest supported: <code>${escape(eol.latest_supported)}</code>.` : " No supported line left.";
   const when = escape(String(eol.fetched_at).slice(0, 10));
