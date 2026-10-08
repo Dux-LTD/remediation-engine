@@ -50,6 +50,8 @@ class Release:
     latest: str | None
     is_lts: bool
     label: str | None = None
+    # Not listed on endoflife.date; end of life inferred from the nearest newer line.
+    inferred: bool = False
 
     def display(self, *, beside_lts_word: bool = False) -> str:
         """Version to show a customer: the line's latest version (11.0.27),
@@ -87,6 +89,38 @@ class ProductReleases:
     @property
     def has_version_lines(self) -> bool:
         return bool(self.version_lines)
+
+    @property
+    def retired(self) -> bool:
+        """True when every release line, edition-named ones included, is end of life."""
+        return bool(self.releases) and all(release.is_eol for release in self.releases)
+
+    def infer_line(self, version: str) -> Release | None:
+        """The unlisted release line of a version, inferred end of life.
+
+        endoflife.date lists every supported line, so a line it does not list is
+        long retired or never existed (FortiOS 5.4, FortiOS 6.1). When the
+        nearest listed line newer than the version is end of life, the version's
+        line is too. Not inferred when that line is supported, or when the
+        product also names lines by edition (a version may sit on one of those).
+        """
+        if len(self.version_lines) < len(self.releases) or self.release_for(version):
+            return None
+        key = _version_key(version)
+        if key is None:
+            return None
+        newer = []
+        for release in self.version_lines:
+            line_key = _version_key(release.name)
+            if line_key and _compare(line_key, key[: len(line_key)]) > 0:
+                newer.append((line_key, release))
+        if not newer:
+            return None
+        line_key, nearest = min(newer, key=lambda item: item[0])
+        if not nearest.is_eol:
+            return None
+        name = ".".join(str(part) for part in key[: len(line_key)])
+        return Release(name, True, None, None, False, None, inferred=True)
 
     def knows_major(self, version: str) -> bool:
         """True when a version's major number is one this product's lines use.

@@ -147,8 +147,8 @@ def suggest(
     eol_notes: list[str] = []
     planned = []
     for row in targets:
-        status = _eol_status(row, lookup, eol_notes)
-        planned.append((row, status, _action_ids(_component_of(row), status)))
+        status, retired = _eol_status(row, lookup, eol_notes)
+        planned.append((row, status, _action_ids(_component_of(row), status, retired)))
     for rows, status, action_ids in _merge_identical(planned):
         paths.append(_software_path(rows, platform_context, status, action_ids))
     for row in cve.of_type(PrerequisiteType.CONFIGURATION):
@@ -229,41 +229,59 @@ def _platform_sentence(platform_context: tuple[PlatformContext, ...]) -> str:
     return f" This applies to the affected systems running {names}."
 
 
-def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCoverage | None:
-    """Live EOL check of every affected version, when the row names any."""
+def _eol_status(
+    row: Prerequisite, lookup: EolLookup, notes: list[str]
+) -> tuple[EolCoverage | None, bool]:
+    """Live EOL check of a component: (coverage of its affected versions, retired).
+
+    retired is True when every release line of the product is end of life, so
+    it is removed even when the prerequisite file names no version.
+    """
     versions = row.affected_versions
     component = _component_of(row)
-    if versions is None or component is None or not component.eol_slug or component.discontinued:
-        return None
+    if component is None or not component.eol_slug or component.discontinued:
+        return None, False
     name = _mark(row.label)
     try:
         product = lookup(component.eol_slug)
     except EolUnavailable:
-        notes.append(
-            f"The end-of-life status of {name} could not be checked: "
-            f"endoflife.date could not be reached and there is no earlier copy of its data."
-        )
-        return None
-    if not product.has_version_lines:
-        # Every line is named by edition or branch (11-24h2-e, r580-linux): no EOL check.
-        return None
-    if not product.live:
+        if versions is not None:
+            notes.append(
+                f"The end-of-life status of {name} could not be checked: "
+                f"endoflife.date could not be reached and there is no earlier copy of its data."
+            )
+        return None, False
+    retired = product.retired
+    if not product.live and (versions is not None or retired):
         notes.append(
             f"End-of-life data for {name} is from {product.fetched_at[:10]}, because "
             f"endoflife.date could not be reached for this suggestion."
         )
+    if retired:
+        notes.append(
+            f"Every release line of {name} on endoflife.date is at end of life, so there is "
+            f"no supported version to move to."
+        )
+    if versions is None or not product.has_version_lines:
+        # No version named, or every line is named by edition (11-24h2-e): no line check.
+        return None, retired
 
     # Some lines are named by edition (IE 11-ltsb next to 11): a version that fits
     # no numeric line likely sits on one of those, so it is skipped without a note.
     has_edition_lines = len(product.version_lines) < len(product.releases)
     lines: list[Release] = []
+
+    def add(release: Release | None) -> bool:
+        if release is None:
+            return False
+        if all(release.name != line.name for line in lines):
+            lines.append(release)
+        return True
+
     unmatched = []
     for version in versions.exact_versions:
-        release = product.release_for(version)
-        if release is None:
+        if not add(product.release_for(version) or product.infer_line(version)):
             unmatched.append(version)
-        elif all(release.name != line.name for line in lines):
-            lines.append(release)
     unmatched_ranges = []
     kept_ranges = []
     for span in versions.ranges:
@@ -282,24 +300,27 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
             )
             continue
         bounds = [bound for bound in (span.min, span.max) if bound]
-        if bounds and not any(product.knows_major(bound.version) for bound in bounds):
-            # Neither bound uses a major number of the product's numeric lines
-            # (Windows 10.0.x against the lines 8.1 and 8): the range cannot be placed.
-            unmatched_ranges.append(span)
-            continue
-        matched = product.releases_overlapping(
-            span.min.version if span.min else None,
-            span.min.inclusive if span.min else True,
-            span.max.version if span.max else None,
-            span.max.inclusive if span.max else False,
-        )
-        if not matched:
+        matched: tuple[Release, ...] = ()
+        if not bounds or any(product.knows_major(bound.version) for bound in bounds):
+            # A bound must use a major number of the product's numeric lines
+            # (Windows 10.0.x does not fit the lines 8.1 and 8).
+            matched = product.releases_overlapping(
+                span.min.version if span.min else None,
+                span.min.inclusive if span.min else True,
+                span.max.version if span.max else None,
+                span.max.inclusive if span.max else False,
+            )
+        # The part of the range below every listed line (FortiOS 5.4.x, 5.6.x):
+        # inferred end of life when the nearest newer listed line is.
+        probes = [bound.version for bound in bounds] if not matched else [span.min.version] if span.min else []
+        inferred = [product.infer_line(version) for version in probes]
+        placed = [*matched, *(release for release in inferred if release)]
+        if not placed:
             unmatched_ranges.append(span)
             continue
         kept_ranges.append(span)
-        for release in matched:
-            if all(release.name != line.name for line in lines):
-                lines.append(release)
+        for release in placed:
+            add(release)
 
     noted = () if has_edition_lines else unmatched
     noted_ranges = () if has_edition_lines else unmatched_ranges
@@ -314,23 +335,28 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
             f"endoflife.date, so their end-of-life status is unknown."
         )
     if not lines:
-        return None
-    return EolCoverage(
-        slug=product.slug,
-        lines=newest_first(lines),
-        exact_versions=versions.exact_versions,
-        ranges=tuple(kept_ranges),
-        unmatched_exact=tuple(unmatched),
-        latest_supported=product.latest_supported,
-        fetched_at=product.fetched_at,
-        live=product.live,
+        return None, retired
+    return (
+        EolCoverage(
+            slug=product.slug,
+            lines=newest_first(lines),
+            exact_versions=versions.exact_versions,
+            ranges=tuple(kept_ranges),
+            unmatched_exact=tuple(unmatched),
+            latest_supported=product.latest_supported,
+            fetched_at=product.fetched_at,
+            live=product.live,
+        ),
+        retired,
     )
 
 
 PlannedPath = tuple[Prerequisite, "EolCoverage | None", tuple[str, ...]]
 
 
-def _action_ids(component: SoftwareComponent | None, eol: EolCoverage | None) -> tuple[str, ...]:
+def _action_ids(
+    component: SoftwareComponent | None, eol: EolCoverage | None, retired: bool = False
+) -> tuple[str, ...]:
     """Software actions for one component, in order."""
     if component is not None and component.discontinued:
         # End of life with no successor: removing it is the only fix.
@@ -344,6 +370,9 @@ def _action_ids(component: SoftwareComponent | None, eol: EolCoverage | None) ->
         # services it and it cannot be replaced on its own. An EOL result is shown
         # in the text but adds no option; the OS's own EOL check covers that.
         return ("os-update",)
+    if retired:
+        # Every release line of the product is end of life (endoflife.date).
+        return ("remove-component",)
     if eol is not None and eol.all_eol and eol.latest_supported is None:
         return ("remove-component",)
     if eol is not None and eol.all_eol:

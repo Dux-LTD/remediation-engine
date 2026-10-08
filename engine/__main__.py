@@ -69,7 +69,7 @@ def _eol_to_dict(eol) -> dict | None:
             for span in eol.ranges
         ],
         "lines": [
-            {"name": line.name, "is_eol": line.is_eol, "eol_from": line.eol_from}
+            {"name": line.name, "is_eol": line.is_eol, "eol_from": line.eol_from, "inferred": line.inferred}
             for line in eol.lines
         ],
         "unmatched_exact": list(eol.unmatched_exact),
