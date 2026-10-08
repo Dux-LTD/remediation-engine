@@ -40,7 +40,7 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 1. **Ignore** components (remediation tag `Ignore`, generic catalog entries such as `chromium-browser`) get no path, only a note.
 2. **Whole OS / firmware** (role `os` or `firmware`) next to any other component is context only: the other components are fixed and the OS is named in a note. When only OS / firmware rows remain, each one is a target.
-3. **Routing:** remediation tag `OS` → `firmware-update` when the role is `firmware`, otherwise `os-update`. Any other tag → `software-update`. When the OS was set aside as context (step 2), the OS update is worded for "the relevant operating system", with its name when there is one (IE + Windows → "…for the relevant operating system (`Microsoft Windows`)").
+3. **Routing:** remediation tag `OS` → `firmware-update` when the role is `firmware`, otherwise `os-update`. Any other tag → `software-update`. A component built into the OS (tag `OS`, role `other`: Internet Explorer, scripting engines) gets the OS update only: it cannot be replaced on its own, so there is no replace option, and an EOL result is shown in the text without changing the options. When the OS was set aside as context (step 2), the OS update is worded for "the relevant operating system", with its name when there is one (IE + Windows → "…for the relevant operating system (`Microsoft Windows`)").
 4. **Discontinued** products (`DISCONTINUED` in `defs/def_eol.py`, e.g. Flash) → `remove-component` only.
 5. **End of life**, for components with an `eol_slug` and versions named in the prerequisite file (exact versions and ranges). Each version is placed on its endoflife.date release line:
 
@@ -54,7 +54,7 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 6. **Merging:** software paths that give the same fix become one path that names every component. OS / firmware updates with the same options merge (`xorg-server` and `libXfont2` → one OS update), and a product named twice gets one path. A path with an EOL result stays on its own.
 
-The check runs only when every release line of the product is named by digits and dots (`10.1`, `9`). Products whose lines carry any other character (`11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are skipped, since a version cannot be placed on such a line.
+The check uses only release lines named by digits and dots (`11`, `10.1`). Lines named by edition or branch (`11-ltsb`, `11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are ignored; a product with no numeric line gets no check. A range is placed only when one of its bounds uses a major number of those lines (Windows `10.0.x` does not fit its numeric lines `8.1` and `8`). When the product also has edition-named lines, versions that fit no numeric line are skipped without a note, since they likely sit on an edition line.
 
 A range whose upper bound is more than one major version above the product's newest release line (macOS `< 2021`, taken from "Security Update 2021-002") is not a product version: it is left out of the check, with a note. Release lines are shown newest first; the text names the affected versions, and the page shows the lines as tags (red for end of life).
 

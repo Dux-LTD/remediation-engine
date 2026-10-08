@@ -243,8 +243,8 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
             f"endoflife.date could not be reached and there is no earlier copy of its data."
         )
         return None
-    if not product.named_by_version:
-        # Lines named by edition or branch (11-24h2-e, r580-linux): no EOL check.
+    if not product.has_version_lines:
+        # Every line is named by edition or branch (11-24h2-e, r580-linux): no EOL check.
         return None
     if not product.live:
         notes.append(
@@ -252,6 +252,9 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
             f"endoflife.date could not be reached for this suggestion."
         )
 
+    # Some lines are named by edition (IE 11-ltsb next to 11): a version that fits
+    # no numeric line likely sits on one of those, so it is skipped without a note.
+    has_edition_lines = len(product.version_lines) < len(product.releases)
     lines: list[Release] = []
     unmatched = []
     for version in versions.exact_versions:
@@ -266,7 +269,10 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
         if span.max and product.above_every_line(span.max.version):
             # A bound such as 2021 for macOS (from "Security Update 2021-002") is
             # not a product version; reading it as one would cover every line.
-            newest = newest_first(product.releases)[0].name
+            if has_edition_lines:
+                unmatched_ranges.append(span)
+                continue
+            newest = newest_first(product.version_lines)[0].name
             notes.append(
                 f"Affected versions {_range_phrase(span)} of {name} were left out of the "
                 f"end-of-life check: {_mark(span.max.version)} is above every release line "
@@ -274,7 +280,12 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
                 f"of this product."
             )
             continue
-        kept_ranges.append(span)
+        bounds = [bound for bound in (span.min, span.max) if bound]
+        if bounds and not any(product.knows_major(bound.version) for bound in bounds):
+            # Neither bound uses a major number of the product's numeric lines
+            # (Windows 10.0.x against the lines 8.1 and 8): the range cannot be placed.
+            unmatched_ranges.append(span)
+            continue
         matched = product.releases_overlapping(
             span.min.version if span.min else None,
             span.min.inclusive if span.min else True,
@@ -283,16 +294,20 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
         )
         if not matched:
             unmatched_ranges.append(span)
+            continue
+        kept_ranges.append(span)
         for release in matched:
             if all(release.name != line.name for line in lines):
                 lines.append(release)
 
-    for version in unmatched:
+    noted = () if has_edition_lines else unmatched
+    noted_ranges = () if has_edition_lines else unmatched_ranges
+    for version in noted:
         notes.append(
             f"Version {_mark(version)} of {name} matches no release line on endoflife.date, "
             f"so its end-of-life status is unknown."
         )
-    for span in unmatched_ranges:
+    for span in noted_ranges:
         notes.append(
             f"Affected versions {_range_phrase(span)} of {name} match no release line on "
             f"endoflife.date, so their end-of-life status is unknown."
@@ -319,6 +334,15 @@ def _action_ids(component: SoftwareComponent | None, eol: EolCoverage | None) ->
     if component is not None and component.discontinued:
         # End of life with no successor: removing it is the only fix.
         return ("remove-component",)
+    if (
+        component is not None
+        and component.remediation_tag is RemediationTag.OS
+        and component.role is Role.OTHER
+    ):
+        # Built into the OS (Internet Explorer, scripting engines): the OS update
+        # services it and it cannot be replaced on its own. An EOL result is shown
+        # in the text but adds no option; the OS's own EOL check covers that.
+        return ("os-update",)
     if eol is not None and eol.all_eol and eol.latest_supported is None:
         return ("remove-component",)
     if eol is not None and eol.all_eol:
@@ -391,7 +415,7 @@ def _software_path(
                 its=its,
                 platform=platform,
                 os=os_name,
-                eol=_eol_sentence(eol, key="mixed_replace"),
+                eol=_eol_sentence(eol, name, key="mixed_replace"),
             )
             option = replace(
                 option,
@@ -406,7 +430,7 @@ def _software_path(
                 its=its,
                 platform=platform,
                 os=os_name,
-                eol=_eol_sentence(eol),
+                eol=_eol_sentence(eol, name),
             )
             if eol is not None and not mixed:
                 option = replace(option, condition=None)  # The live check settled it.
@@ -423,7 +447,7 @@ def _software_path(
     )
 
 
-def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
+def _eol_sentence(eol: EolCoverage | None, name: str = "", key: str | None = None) -> str:
     """End-of-life sentence for a software detail, from defs."""
     if eol is None or not eol.lines:
         return ""
@@ -434,7 +458,7 @@ def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
     if latest_release is not None and latest_release.eol_from:
         until = EOL_UNTIL.format(date=latest_release.eol_from)
     values = {
-        "subject": _version_subject(eol),
+        "subject": _version_subject(eol, name),
         "latest": latest,
         "until": until,
         "date": date,
@@ -450,7 +474,7 @@ def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
     return EOL_SENTENCES["mixed"].format(**values)
 
 
-def _version_subject(eol: EolCoverage) -> str:
+def _version_subject(eol: EolCoverage, name: str = "") -> str:
     """Name every affected version the sentence is about."""
     chunks = []
     known = [version for version in eol.exact_versions if version not in eol.unmatched_exact]
@@ -463,7 +487,8 @@ def _version_subject(eol: EolCoverage) -> str:
         chunks.append("versions " + " and ".join(spans))
     verb = "is" if len(known) == 1 and not spans else "are"
     named = " and ".join(chunks) if chunks else "versions"
-    return f"Affected {named} {verb}"
+    product = f"{name} " if name else ""
+    return f"Affected {product}{named} {verb}"
 
 
 def _range_phrase(span: VersionRange) -> str:

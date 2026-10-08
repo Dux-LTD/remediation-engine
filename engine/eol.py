@@ -75,22 +75,36 @@ class ProductReleases:
     live: bool
 
     @property
-    def named_by_version(self) -> bool:
-        """True when every release line is named by digits and dots only (10.1, 9).
+    def version_lines(self) -> tuple[Release, ...]:
+        """Release lines named by digits and dots only (11, 10.1).
 
-        A product with any line name holding another character (11-24h2-e,
-        r580-linux, 13.0-sp3, subscription) names its lines by edition, branch
-        or service pack rather than by version, so an affected version cannot
-        be placed on a line reliably and the product gets no EOL check.
+        Lines named any other way (11-ltsb, 11-24h2-e, r580-linux, 13.0-sp3,
+        subscription) name an edition, branch or service pack, so a version
+        cannot be placed on them. The EOL check uses only these lines.
         """
-        return all(_VERSION_LINE.match(release.name) for release in self.releases)
+        return tuple(release for release in self.releases if _VERSION_LINE.match(release.name))
+
+    @property
+    def has_version_lines(self) -> bool:
+        return bool(self.version_lines)
+
+    def knows_major(self, version: str) -> bool:
+        """True when a version's major number is one this product's lines use.
+
+        The newest major plus one also counts, for a release line endoflife.date
+        has not listed yet. A bound outside that (Windows 10.0.x against the
+        numeric lines 8.1 and 8) cannot be placed on a line.
+        """
+        key = _version_key(version)
+        majors = {k[0] for k in (_version_key(r.name) for r in self.version_lines) if k}
+        return bool(key and majors) and (key[0] in majors or key[0] == max(majors) + 1)
 
     def release_for(self, version: str) -> Release | None:
         """The release cycle one version belongs to (longest name match)."""
         version = _normalize(version)
         matches = [
             release
-            for release in self.releases
+            for release in self.version_lines
             if version == _normalize(release.name)
             or version.startswith(_normalize(release.name) + ".")
         ]
@@ -111,7 +125,7 @@ class ProductReleases:
         """
         overlapping = [
             release
-            for release in self.releases
+            for release in self.version_lines
             if _overlaps(release.name, min_version, min_inclusive, max_version, max_inclusive)
         ]
         owned = [
@@ -136,13 +150,13 @@ class ProductReleases:
         a new release line endoflife.date has not listed yet.
         """
         key = _version_key(version)
-        majors = [k[0] for k in (_version_key(r.name) for r in self.releases) if k]
+        majors = [k[0] for k in (_version_key(r.name) for r in self.version_lines) if k]
         return bool(key and majors) and key[0] > max(majors) + 1
 
     @property
     def latest_supported(self) -> Release | None:
         """Newest supported LTS release cycle, or the newest supported one when no LTS."""
-        supported = [release for release in self.releases if not release.is_eol]
+        supported = [release for release in self.version_lines if not release.is_eol]
         return next((release for release in supported if release.is_lts), None) or next(
             iter(supported), None
         )
