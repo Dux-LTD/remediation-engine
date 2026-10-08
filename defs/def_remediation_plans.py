@@ -5,8 +5,7 @@ single source for every customer-facing word of an action: its title, its
 description, and the detail template the engine fills for a specific CVE.
 
 Detail placeholders (the engine fills them; names arrive already marked):
-  software       {name} component name, {platform} platform sentence or "",
-                 {eol} end-of-life sentence (EOL_SENTENCES) or "",
+  software       {name} component name,
                  {its} "its", or "their" when a path covers several components,
                  {os} " (`OS name`)" when exactly one OS was set aside as context, or ""
   configuration  {name} setting name, {state} state sentence or ""
@@ -54,29 +53,29 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Install the latest operating system update",
         "Install the latest update your operating system vendor has published.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest operating system update for {name} on every affected system.{eol}",
-        detail_on_platform="Install the latest operating system update for the relevant operating system{os} on every affected system.{eol}",
+        detail="Install the latest operating system update for {name} on every affected system.",
+        detail_on_platform="Install the latest operating system update for the relevant operating system{os} on every affected system.",
     ),
     RemediationAction(
         "firmware-update",
         "Install the latest device firmware",
         "Install the latest firmware release from the device vendor. Network appliances and industrial devices are updated on their own schedule, separate from desktop and server operating system patches.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest firmware release the vendor published for {name}.{eol}",
+        detail="Install the latest firmware release the vendor published for {name}.",
     ),
     RemediationAction(
         "software-update",
         "Install the latest product version",
         "Install the latest version the product vendor has published.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest version of {name}.{platform}{eol}",
+        detail="Install the latest version of {name}.",
     ),
     RemediationAction(
         "replace-component",
         "Replace with the latest version",
         "Replace the software with its latest version (the latest LTS release when there is one). Use this when the installed version is no longer supported and gets no fix.",
         ActionCategory.SOFTWARE,
-        detail="Replace {name} with {its} latest version, or the latest LTS release when there is one.{eol}",
+        detail="Replace {name} with {its} latest version, or the latest LTS release when there is one.",
         condition="if this version is no longer supported and the vendor has published no fix",
     ),
     RemediationAction(
@@ -84,23 +83,37 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Remove the unsupported product",
         "Remove the product. The vendor no longer supports it and no newer version exists.",
         ActionCategory.SOFTWARE,
-        detail="Remove {name} from every affected system. The vendor no longer supports it and has no newer version to move to.{eol}",
+        detail="Remove {name} from every affected system. The vendor no longer supports it and has no newer version to move to.",
     ),
 )
 
-# End-of-life sentences for {eol}. {subject} names the affected versions
-# (one exact version, several exact versions, or a range). The release lines
-# themselves are not listed in the text: the page shows them as tags.
+# Software actions that get the platform sentence ("This applies to the affected
+# systems running …") as a bullet of their own.
+PLATFORM_SENTENCE_ACTIONS = frozenset({"software-update"})
+
+# End-of-life sentences of a software option. Each entry is a tuple of
+# sentences; every sentence is its own bullet, after the action sentence.
+# {subject} names the affected versions (exact versions and ranges). The release
+# lines themselves are not listed in the text: the page shows them as tags.
 # {until} is EOL_UNTIL or "" — the date standard support ends for the latest
 # supported release (endoflife.date eolFrom).
-EOL_SENTENCES: dict[str, str] = {
-    "eol": " {subject} at end of life. The {latest_kind} is {latest}{until}, according to {date}.",
-    "eol_no_successor": " {subject} at end of life, and no supported release line is left.",
-    "supported": " {subject} supported. The {latest_kind} is {latest}{until}, according to {date}.",
-    "mixed": " {subject} on both end-of-life and supported release lines. The {latest_kind} is {latest}{until}, according to {date}.",
+EOL_SENTENCES: dict[str, tuple[str, ...]] = {
+    "eol": (
+        "{subject} at end of life.",
+        "The {latest_kind} is {latest}{until}, according to {date}.",
+    ),
+    "eol_no_successor": ("{subject} at end of life, and no supported release line is left.",),
+    "supported": (
+        "{subject} supported.",
+        "The {latest_kind} is {latest}{until}, according to {date}.",
+    ),
+    "mixed": (
+        "{subject} on both end-of-life and supported release lines.",
+        "The {latest_kind} is {latest}{until}, according to {date}.",
+    ),
     # Replace option of a mixed result: the mixed sentence is on the update
     # option already, and the option lists the end-of-life lines it applies to.
-    "mixed_replace": " The {latest_kind} is {latest}{until}, according to {date}.",
+    "mixed_replace": ("The {latest_kind} is {latest}{until}, according to {date}.",),
 }
 # Condition of the replace option when only some affected lines are end of
 # life. The option's eol_lines name those lines; the page shows them as tags.

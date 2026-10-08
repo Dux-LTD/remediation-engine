@@ -22,6 +22,7 @@ from defs.def_remediation_plans import (
     EOL_SENTENCES,
     EOL_UNTIL,
     NETWORK_ACTIONS,
+    PLATFORM_SENTENCE_ACTIONS,
     NETWORK_DIRECTION_WORDS,
     NETWORK_TARGET_LABEL,
     RemediationAction,
@@ -61,6 +62,9 @@ class RemediationOption:
     condition: str | None = None
     # Release lines the condition refers to (shown as tags), newest first.
     eol_lines: tuple[str, ...] = ()
+    # The detail as separate sentences, one bullet each: the action, the
+    # platform, the end-of-life status, the version to move to.
+    detail_parts: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -439,13 +443,12 @@ def _software_path(
     for action_id in action_ids:
         if mixed and action_id == "replace-component":
             # The mixed sentence is on the update option; this one names the EOL lines.
-            option = _option(
+            option = _software_option(
                 ACTIONS_BY_ID[action_id],
+                (platform, *_eol_parts(eol, name, key="mixed_replace")),
                 name=name,
                 its=its,
-                platform=platform,
                 os=os_name,
-                eol=_eol_sentence(eol, name, key="mixed_replace"),
             )
             option = replace(
                 option,
@@ -453,14 +456,13 @@ def _software_path(
                 eol_lines=tuple(line.name for line in eol.eol_lines),
             )
         else:
-            option = _option(
+            option = _software_option(
                 ACTIONS_BY_ID[action_id],
+                (platform, *_eol_parts(eol, name)),
                 on_platform=on_platform,
                 name=name,
                 its=its,
-                platform=platform,
                 os=os_name,
-                eol=_eol_sentence(eol, name),
             )
             if eol is not None and not mixed:
                 option = replace(option, condition=None)  # The live check settled it.
@@ -477,10 +479,23 @@ def _software_path(
     )
 
 
-def _eol_sentence(eol: EolCoverage | None, name: str = "", key: str | None = None) -> str:
-    """End-of-life sentence for a software detail, from defs."""
+def _software_option(
+    action: RemediationAction, extra: tuple[str, ...], on_platform: bool = False, **values: str
+) -> RemediationOption:
+    """A software option whose detail is the action sentence plus extra sentences."""
+    option = _option(action, on_platform=on_platform, **values)
+    if action.id not in PLATFORM_SENTENCE_ACTIONS:
+        extra = extra[1:]  # extra[0] is the platform sentence
+    parts = tuple(part.strip() for part in (option.detail, *extra) if part and part.strip())
+    return replace(option, detail=" ".join(parts), detail_parts=parts)
+
+
+def _eol_parts(
+    eol: EolCoverage | None, name: str = "", key: str | None = None
+) -> tuple[str, ...]:
+    """End-of-life sentences for a software detail, from defs."""
     if eol is None or not eol.lines:
-        return ""
+        return ()
     date = _month_year(eol.fetched_at)
     latest_release = eol.latest_supported
     latest = _mark(latest_release.display(beside_lts_word=latest_release.is_lts)) if latest_release else ""
@@ -495,32 +510,29 @@ def _eol_sentence(eol: EolCoverage | None, name: str = "", key: str | None = Non
         "until": until,
         "date": date,
     }
-    if key is not None:
-        return EOL_SENTENCES[key].format(**values)
-    if eol.all_eol and eol.latest_supported is None:
-        return EOL_SENTENCES["eol_no_successor"].format(**values)
-    if eol.all_eol:
-        return EOL_SENTENCES["eol"].format(**values)
-    if eol.all_supported:
-        return EOL_SENTENCES["supported"].format(**values)
-    return EOL_SENTENCES["mixed"].format(**values)
+    if key is None:
+        if eol.all_eol and eol.latest_supported is None:
+            key = "eol_no_successor"
+        elif eol.all_eol:
+            key = "eol"
+        elif eol.all_supported:
+            key = "supported"
+        else:
+            key = "mixed"
+    return tuple(sentence.format(**values) for sentence in EOL_SENTENCES[key])
 
 
 def _version_subject(eol: EolCoverage, name: str = "") -> str:
     """Name every affected version the sentence is about."""
-    chunks = []
     known = [version for version in eol.exact_versions if version not in eol.unmatched_exact]
-    if len(known) == 1:
-        chunks.append(f"version {_mark(known[0])}")
-    elif known:
-        chunks.append(f"versions {_join_marked(known)}")
-    spans = [_range_phrase(span) for span in eol.ranges]
-    if spans:
-        chunks.append("versions " + " and ".join(spans))
-    verb = "is" if len(known) == 1 and not spans else "are"
-    named = " and ".join(chunks) if chunks else "versions"
+    items = [_mark(version) for version in known] + [_range_phrase(span) for span in eol.ranges]
+    single = len(items) == 1 and len(known) == 1
+    noun = "version" if single else "versions"
     product = f"{name} " if name else ""
-    return f"Affected {product}{named} {verb}"
+    listed = f" {_join(items)}" if items else ""
+    # One list, commas and a single "and": "from 5.4.6 through 5.4.12, from 5.6.3 …
+    # and from 6.0.0 through 6.0.4".
+    return f"Affected {product}{noun}{listed} {'is' if single else 'are'}"
 
 
 def _range_phrase(span: VersionRange) -> str:

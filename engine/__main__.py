@@ -42,6 +42,7 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
                         "title": option.action.title,
                         "description": option.action.description,
                         "detail": option.detail,
+                        "detail_parts": list(option.detail_parts or (option.detail,)),
                         "condition": option.condition,
                         "eol_lines": list(option.eol_lines),
                     }
@@ -110,7 +111,11 @@ def render(plan: RemediationPlan) -> str:
                 eol_names = f": {', '.join(option.eol_lines)}" if option.eol_lines else ""
                 title += f" ({_plain(option.condition)}{eol_names})"
             lines.append(f"   - {title}")
-            lines.append(f"     {_plain(option.detail)}")
+            parts = option.detail_parts or (option.detail,)
+            if len(parts) > 1:
+                lines.extend(f"     • {_plain(part)}" for part in parts)
+            else:
+                lines.append(f"     {_plain(option.detail)}")
 
     if plan.notes:
         lines.append("")

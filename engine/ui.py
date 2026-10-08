@@ -42,6 +42,8 @@ PAGE = """<!DOCTYPE html>
   .option { margin: 0.35rem 0 0.35rem 0.2rem; }
   .option strong { font-weight: 600; color: #6b3f86; }
   .option p { margin: 0.1rem 0 0 1rem; color: #3a342c; }
+  .option ul.parts { margin: 0.1rem 0 0 1rem; padding-left: 1.1rem; color: #3a342c; }
+  .option ul.parts li { margin: 0.1rem 0; }
   code { background: #efe4cc; border-radius: 4px; padding: 0.05rem 0.35rem; font: 0.9em ui-monospace, Menlo, monospace; }
   .condition { font-weight: 400; color: #5c564e; }
   .eol { margin: 0 0 0.45rem 0.2rem; font: 0.82rem/1.4 sans-serif; color: #5c564e; }
@@ -121,7 +123,9 @@ function render(plan) {
     const options = path.options.map((option) => `
       <div class="option">
         <strong>${escape(option.title)}</strong>${option.condition ? ` <span class="condition">(${inline(option.condition)}${(option.eol_lines || []).length ? ": " + option.eol_lines.map((name) => `<span class="line is-eol">${escape(name)}</span>`).join("") : ""})</span>` : ""}
-        <p>${inline(option.detail)}</p>
+        ${(option.detail_parts || []).length > 1
+          ? `<ul class="parts">${option.detail_parts.map((part) => `<li>${inline(part)}</li>`).join("")}</ul>`
+          : `<p>${inline(option.detail)}</p>`}
       </div>`).join("");
     return `<section class="path layer-${escape(path.layer)}">
       <h3>${index + 1}. ${escape(path.layer)} — ${escape(path.target_label)}${path.recommended ? '<span class="badge">recommended</span>' : ""}</h3>
