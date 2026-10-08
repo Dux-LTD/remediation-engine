@@ -6,7 +6,8 @@ description, and the detail template the engine fills for a specific CVE.
 
 Detail placeholders (the engine fills them; names arrive already marked):
   software       {name} component name, {platform} platform sentence or "",
-                 {eol} end-of-life sentence (EOL_SENTENCES) or ""
+                 {eol} end-of-life sentence (EOL_SENTENCES) or "",
+                 {its} "its", or "their" when a path covers several components
   configuration  {name} setting name, {state} state sentence or ""
   network        {service} network service name
 """
@@ -69,7 +70,7 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Replace with the latest version",
         "Replace the software with its latest version (the latest LTS release when there is one). Use this when the installed version is no longer supported and gets no fix.",
         ActionCategory.SOFTWARE,
-        detail="Replace {name} with its latest version, or the latest LTS release when there is one.{eol}",
+        detail="Replace {name} with {its} latest version, or the latest LTS release when there is one.{eol}",
         condition="if this version is no longer supported and the vendor has published no fix",
     ),
     RemediationAction(

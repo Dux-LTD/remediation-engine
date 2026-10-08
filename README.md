@@ -4,6 +4,9 @@ Suggests a remediation plan for CVE from its prerequisite file. An example schem
 
 A plan is a set of alternatives. Any one of them closes the issue on its own. The software fix is currently marked recommended. Configuration and network prerequisites are listed as further alternatives.
 
+## The Engine Process
+The entire process is described [here](https://excalidraw.com/#json=FQtHNDEmKDZu8G_yuKGL3,77tuP9VPx9t4ZoiUQ9LVhA)!
+
 ## Setup
 
 Requires Python 3.10+ and [Poetry](https://python-poetry.org/).
@@ -48,6 +51,8 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 | All supported | the update action only |
 | Some end of life, some supported | update action + `replace-component` with the condition "if you run the `9.0` or `8.5` line" |
 | No version in the file, no `eol_slug`, or no match | update action + conditional `replace-component` (as before) |
+
+6. **Merging:** software paths that give the same fix become one path that names every component. OS / firmware updates with the same options merge (`xorg-server` and `libXfont2` → one OS update), and a product named twice gets one path. A path with an EOL result stays on its own.
 
 The check runs only when every release line of the product is named by digits and dots (`10.1`, `9`). Products whose lines carry any other character (`11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are skipped, since a version cannot be placed on such a line.
 

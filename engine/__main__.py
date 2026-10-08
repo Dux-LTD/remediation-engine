@@ -31,6 +31,7 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
         "paths": [
             {
                 "target_display_id": path.target_display_id,
+                "target_display_ids": list(path.target_display_ids or (path.target_display_id,)),
                 "target_label": path.target_label,
                 "layer": path.layer.value,
                 "recommended": path.recommended,

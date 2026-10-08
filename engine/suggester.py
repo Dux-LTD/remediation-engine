@@ -69,6 +69,8 @@ class RemediationPath:
     options: tuple[RemediationOption, ...]
     recommended: bool = False
     eol: "EolCoverage | None" = None
+    # Every component this path fixes; more than one when identical paths merged.
+    target_display_ids: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -139,9 +141,12 @@ def suggest(
 
     paths: list[RemediationPath] = []
     eol_notes: list[str] = []
+    planned = []
     for row in targets:
         status = _eol_status(row, lookup, eol_notes)
-        paths.append(_software_path(row, platform_context, status))
+        planned.append((row, status, _action_ids(_component_of(row), status)))
+    for rows, status, action_ids in _merge_identical(planned):
+        paths.append(_software_path(rows, platform_context, status, action_ids))
     for row in cve.of_type(PrerequisiteType.CONFIGURATION):
         paths.append(_configuration_path(row))
     for row in cve.of_type(PrerequisiteType.NETWORK_SERVICE):
@@ -290,33 +295,71 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
     )
 
 
-def _software_path(
-    row: Prerequisite,
-    platform_context: tuple[PlatformContext, ...],
-    eol: EolCoverage | None = None,
-) -> RemediationPath:
-    component = _component_of(row)
-    name = _mark(row.label)
-    platform = _platform_sentence(platform_context)
+PlannedPath = tuple[Prerequisite, "EolCoverage | None", tuple[str, ...]]
 
+
+def _action_ids(component: SoftwareComponent | None, eol: EolCoverage | None) -> tuple[str, ...]:
+    """Software actions for one component, in order."""
     if component is not None and component.discontinued:
         # End of life with no successor: removing it is the only fix.
-        action_ids = ["remove-component"]
-    elif eol is not None and eol.all_eol and eol.latest_supported is None:
-        action_ids = ["remove-component"]
-    elif eol is not None and eol.all_eol:
-        action_ids = ["replace-component"]
+        return ("remove-component",)
+    if eol is not None and eol.all_eol and eol.latest_supported is None:
+        return ("remove-component",)
+    if eol is not None and eol.all_eol:
+        return ("replace-component",)
+    # Logic v2 routing: the remediation tag decides OS/firmware update vs
+    # vendor patch; the role decides firmware vs OS update.
+    if component is not None and component.remediation_tag is RemediationTag.OS:
+        update_id = "firmware-update" if component.role is Role.FIRMWARE else "os-update"
     else:
-        # Logic v2 routing: the remediation tag decides OS/firmware update vs
-        # vendor patch; the role decides firmware vs OS update.
-        if component is not None and component.remediation_tag is RemediationTag.OS:
-            update_id = "firmware-update" if component.role is Role.FIRMWARE else "os-update"
+        update_id = "software-update"
+    if eol is not None and eol.all_supported:
+        return (update_id,)
+    return (update_id, "replace-component")
+
+
+# Actions whose fix is the platform update, so every component they cover gets the same one.
+PLATFORM_ACTIONS = frozenset({"os-update", "firmware-update"})
+
+
+def _merge_identical(
+    planned: list[PlannedPath],
+) -> list[tuple[tuple[Prerequisite, ...], "EolCoverage | None", tuple[str, ...]]]:
+    """Merge software paths that would give the same fix.
+
+    - OS / firmware updates with the same actions: one platform update covers
+      every component (xorg-server and libxfont2 -> one OS update).
+    - Rows naming the same product twice: one path.
+    A path with an EOL result stays on its own: its text is about that
+    product's versions.
+    """
+    groups: dict[object, list] = {}
+    order: list[object] = []
+    for index, (row, eol, action_ids) in enumerate(planned):
+        if eol is not None:
+            key: object = ("single", index)
+        elif action_ids[0] in PLATFORM_ACTIONS:
+            key = ("platform", action_ids)
         else:
-            update_id = "software-update"
-        if eol is not None and eol.all_supported:
-            action_ids = [update_id]
-        else:
-            action_ids = [update_id, "replace-component"]
+            key = ("product", row.display_id, action_ids)
+        if key not in groups:
+            groups[key] = [[], eol, action_ids]
+            order.append(key)
+        groups[key][0].append(row)
+    return [(tuple(groups[key][0]), groups[key][1], groups[key][2]) for key in order]
+
+
+def _software_path(
+    rows: tuple[Prerequisite, ...],
+    platform_context: tuple[PlatformContext, ...],
+    eol: EolCoverage | None,
+    action_ids: tuple[str, ...],
+) -> RemediationPath:
+    labels = list(dict.fromkeys(row.label for row in rows))
+    display_ids = tuple(dict.fromkeys(row.display_id for row in rows))
+    name = _join_marked(labels)
+    its = "their" if len(labels) > 1 else "its"
+    platform = _platform_sentence(platform_context)
 
     mixed = eol is not None and not eol.all_eol and not eol.all_supported
     options = []
@@ -326,25 +369,31 @@ def _software_path(
             option = _option(
                 ACTIONS_BY_ID[action_id],
                 name=name,
+                its=its,
                 platform=platform,
                 eol=_eol_sentence(eol, key="mixed_replace"),
             )
             option = replace(option, condition=EOL_CONDITION.format(lines=_or_lines(eol.eol_lines)))
         else:
             option = _option(
-                ACTIONS_BY_ID[action_id], name=name, platform=platform, eol=_eol_sentence(eol)
+                ACTIONS_BY_ID[action_id],
+                name=name,
+                its=its,
+                platform=platform,
+                eol=_eol_sentence(eol),
             )
             if eol is not None and not mixed:
                 option = replace(option, condition=None)  # The live check settled it.
         options.append(option)
     options = tuple(options)
     return RemediationPath(
-        target_display_id=row.display_id,
-        target_label=row.label,
+        target_display_id=display_ids[0],
+        target_label=_join(labels),
         layer=options[0].action.category,
         options=options,
         recommended=True,
         eol=eol,
+        target_display_ids=display_ids,
     )
 
 
