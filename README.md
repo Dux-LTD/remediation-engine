@@ -56,6 +56,10 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 The check uses only release lines named by digits and dots (`11`, `10.1`). Lines named by edition or branch (`11-ltsb`, `11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are ignored; a product with no numeric line gets no check. A range is placed only when one of its bounds uses a major number of those lines (Windows `10.0.x` does not fit its numeric lines `8.1` and `8`). When the product also has edition-named lines, versions that fit no numeric line are skipped without a note, since they likely sit on an edition line. The version to move to is chosen from every supported line, edition-named ones included, and an LTS line is preferred (Office 2016 → "the latest supported LTS version is `2024 LTSC`").
 
+A version on a line endoflife.date does not list (FortiOS `5.4.x`, or `6.1.x`, which never shipped) is inferred end of life when the nearest newer listed line is end of life: the site lists every supported line, so an unlisted one is retired or never existed. It is shown as "not listed, inferred". Nothing is inferred when that newer line is supported (Node.js `21` next to `22` LTS) or when the product also names lines by edition.
+
+A product whose every release line is end of life on endoflife.date gets `remove-component`, with a note, even when the prerequisite file names no version (the same outcome as the static `DISCONTINUED` list).
+
 A range whose upper bound is more than one major version above the product's newest release line (macOS `< 2021`, taken from "Security Update 2021-002") is not a product version: it is left out of the check, with a note. Release lines are shown newest first; the text names the affected versions, and the page shows the lines as tags (red for end of life).
 
 EOL data is read live from the endoflife.date API on every suggestion; nothing is cached. Each successful response is saved to `db/eol_last_seen/` and used only when the API cannot be reached; the plan then notes the date of that data. When there is no saved copy either, the plan notes that the status could not be checked.
