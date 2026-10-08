@@ -128,6 +128,17 @@ class ProductReleases:
         ]
         return tuple(owned)
 
+    def above_every_line(self, version: str) -> bool:
+        """True when a version cannot belong to this product.
+
+        Its major number is more than one above the newest release line's major
+        (2021 for macOS, whose newest line is 27). One major of slack is left for
+        a new release line endoflife.date has not listed yet.
+        """
+        key = _version_key(version)
+        majors = [k[0] for k in (_version_key(r.name) for r in self.releases) if k]
+        return bool(key and majors) and key[0] > max(majors) + 1
+
     @property
     def latest_supported(self) -> Release | None:
         """Newest supported LTS release cycle, or the newest supported one when no LTS."""
@@ -205,6 +216,11 @@ def _write_store(store: Path, record: dict[str, Any]) -> None:
         store.write_text(json.dumps(record), encoding="utf-8")
     except OSError:
         pass  # The fallback copy is best effort; the live answer still stands.
+
+
+def newest_first(releases: tuple[Release, ...] | list[Release]) -> tuple[Release, ...]:
+    """Release lines ordered by version, newest first (27, 26, 15, …, 10.15, 10.0)."""
+    return tuple(sorted(releases, key=lambda release: _version_key(release.name) or (), reverse=True))
 
 
 def _normalize(version: str) -> str:

@@ -45,8 +45,9 @@ PAGE = """<!DOCTYPE html>
   code { background: #efe4cc; border-radius: 4px; padding: 0.05rem 0.35rem; font: 0.9em ui-monospace, Menlo, monospace; }
   .condition { font-weight: 400; color: #5c564e; }
   .eol { margin: 0 0 0.45rem 0.2rem; font: 0.82rem/1.4 sans-serif; color: #5c564e; }
-  .eol .line { display: inline-block; margin: 0 0.3rem 0.2rem 0; padding: 0.1rem 0.45rem; border-radius: 999px; background: #e3eee6; color: #2f6b4f; }
-  .eol .line.is-eol { background: #f3dfd8; color: #8a2b1c; }
+  .line { display: inline-block; margin: 0 0.3rem 0.2rem 0; padding: 0.1rem 0.45rem; border-radius: 999px; background: #e3eee6; color: #2f6b4f; font: 0.82rem/1.4 sans-serif; }
+  .line.is-eol { background: #f3dfd8; color: #8a2b1c; }
+  .condition .line { margin: 0.15rem 0.25rem 0 0; }
   .eol .stale { color: #8a2b1c; font-weight: 600; }
   .notes { margin-top: 0.5rem; }
   .notes strong { color: #8a2b1c; }
@@ -119,7 +120,7 @@ function render(plan) {
   const paths = plan.paths.map((path, index) => {
     const options = path.options.map((option) => `
       <div class="option">
-        <strong>${escape(option.title)}</strong>${option.condition ? ` <span class="condition">(${inline(option.condition)})</span>` : ""}
+        <strong>${escape(option.title)}</strong>${option.condition ? ` <span class="condition">(${inline(option.condition)}${(option.eol_lines || []).length ? ": " + option.eol_lines.map((name) => `<span class="line is-eol">${escape(name)}</span>`).join("") : ""})</span>` : ""}
         <p>${inline(option.detail)}</p>
       </div>`).join("");
     return `<section class="path layer-${escape(path.layer)}">

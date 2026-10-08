@@ -56,6 +56,8 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 The check runs only when every release line of the product is named by digits and dots (`10.1`, `9`). Products whose lines carry any other character (`11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are skipped, since a version cannot be placed on such a line.
 
+A range whose upper bound is more than one major version above the product's newest release line (macOS `< 2021`, taken from "Security Update 2021-002") is not a product version: it is left out of the check, with a note. Release lines are shown newest first; the text names the affected versions, and the page shows the lines as tags (red for end of life).
+
 EOL data is read live from the endoflife.date API on every suggestion; nothing is cached. Each successful response is saved to `db/eol_last_seen/` and used only when the API cannot be reached; the plan then notes the date of that data. When there is no saved copy either, the plan notes that the status could not be checked.
 
 ### Configuration and network

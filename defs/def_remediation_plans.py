@@ -83,23 +83,22 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
 )
 
 # End-of-life sentences for {eol}. {subject} names the affected versions
-# (one exact version, several exact versions, or a range). {lines} names the
-# release lines those versions fall on. {since} is EOL_SINCE or "".
+# (one exact version, several exact versions, or a range). The release lines
+# themselves are not listed in the text: the page shows them as tags.
 # {until} is EOL_UNTIL or "" — the date standard support ends for the latest
 # supported release (endoflife.date eolFrom).
 EOL_SENTENCES: dict[str, str] = {
-    "eol": " {subject} at end of life ({lines}). The latest supported version is {latest}{until}, according to {date}.",
-    "eol_no_successor": " {subject} at end of life ({lines}), and no supported release line is left.",
-    "supported": " {subject} supported ({lines}). The latest supported version is {latest}{until}, according to {date}.",
-    "mixed": " {subject} on both end-of-life lines ({eol_lines}) and supported lines ({supported_lines}). The latest supported version is {latest}{until}, according to {date}.",
+    "eol": " {subject} at end of life. The latest supported version is {latest}{until}, according to {date}.",
+    "eol_no_successor": " {subject} at end of life, and no supported release line is left.",
+    "supported": " {subject} supported. The latest supported version is {latest}{until}, according to {date}.",
+    "mixed": " {subject} on both end-of-life and supported release lines. The latest supported version is {latest}{until}, according to {date}.",
     # Replace option of a mixed result: the mixed sentence is on the update
-    # option already, and EOL_CONDITION names the end-of-life lines.
+    # option already, and the option lists the end-of-life lines it applies to.
     "mixed_replace": " The latest supported version is {latest}{until}, according to {date}.",
 }
 # Condition of the replace option when only some affected lines are end of
-# life. {lines} is "the `9.0` line" or "the `9.0` or `8.5` line".
-EOL_CONDITION = "if you run {lines}, which is at end of life"
-EOL_SINCE = " on {date}"
+# life. The option's eol_lines name those lines; the page shows them as tags.
+EOL_CONDITION = "if you run one of these end-of-life lines"
 EOL_UNTIL = ", supported until {date}"
 
 CONFIGURATION_ACTIONS: tuple[RemediationAction, ...] = (

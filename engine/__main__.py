@@ -43,6 +43,7 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
                         "description": option.action.description,
                         "detail": option.detail,
                         "condition": option.condition,
+                        "eol_lines": list(option.eol_lines),
                     }
                     for option in path.options
                 ],
@@ -105,7 +106,8 @@ def render(plan: RemediationPlan) -> str:
         for option in path.options:
             title = option.action.title
             if option.condition:
-                title += f" ({_plain(option.condition)})"
+                eol_names = f": {', '.join(option.eol_lines)}" if option.eol_lines else ""
+                title += f" ({_plain(option.condition)}{eol_names})"
             lines.append(f"   - {title}")
             lines.append(f"     {_plain(option.detail)}")
 

@@ -19,14 +19,13 @@ from defs.def_remediation_plans import (
     CONFIGURATION_ACTIONS,
     EOL_CONDITION,
     EOL_SENTENCES,
-    EOL_SINCE,
     EOL_UNTIL,
     NETWORK_ACTIONS,
     RemediationAction,
     render_detail,
 )
 
-from .eol import EolUnavailable, ProductReleases, Release, fetch_releases
+from .eol import EolUnavailable, ProductReleases, Release, fetch_releases, newest_first
 from .prerequisites import CvePrerequisites, Prerequisite, PrerequisiteType, VersionRange
 
 # eol_slug -> that product's release cycles; engine.eol.fetch_releases by default.
@@ -57,6 +56,8 @@ class RemediationOption:
     action: RemediationAction
     detail: str
     condition: str | None = None
+    # Release lines the condition refers to (shown as tags), newest first.
+    eol_lines: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -258,7 +259,20 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
         elif all(release.name != line.name for line in lines):
             lines.append(release)
     unmatched_ranges = []
+    kept_ranges = []
     for span in versions.ranges:
+        if span.max and product.above_every_line(span.max.version):
+            # A bound such as 2021 for macOS (from "Security Update 2021-002") is
+            # not a product version; reading it as one would cover every line.
+            newest = newest_first(product.releases)[0].name
+            notes.append(
+                f"Affected versions {_range_phrase(span)} of {name} were left out of the "
+                f"end-of-life check: {_mark(span.max.version)} is above every release line "
+                f"on endoflife.date (the newest is {_mark(newest)}), so it is not a version "
+                f"of this product."
+            )
+            continue
+        kept_ranges.append(span)
         matched = product.releases_overlapping(
             span.min.version if span.min else None,
             span.min.inclusive if span.min else True,
@@ -285,9 +299,9 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
         return None
     return EolCoverage(
         slug=product.slug,
-        lines=tuple(lines),
+        lines=newest_first(lines),
         exact_versions=versions.exact_versions,
-        ranges=versions.ranges,
+        ranges=tuple(kept_ranges),
         unmatched_exact=tuple(unmatched),
         latest_supported=product.latest_supported,
         fetched_at=product.fetched_at,
@@ -373,7 +387,11 @@ def _software_path(
                 platform=platform,
                 eol=_eol_sentence(eol, key="mixed_replace"),
             )
-            option = replace(option, condition=EOL_CONDITION.format(lines=_or_lines(eol.eol_lines)))
+            option = replace(
+                option,
+                condition=EOL_CONDITION,
+                eol_lines=tuple(line.name for line in eol.eol_lines),
+            )
         else:
             option = _option(
                 ACTIONS_BY_ID[action_id],
@@ -397,13 +415,6 @@ def _software_path(
     )
 
 
-def _or_lines(lines: tuple[Release, ...]) -> str:
-    """the `9.0` line, or the `9.0` or `8.5` line."""
-    names = [_mark(line.name) for line in lines]
-    joined = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " or " + names[-1]
-    return f"the {joined} line"
-
-
 def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
     """End-of-life sentence for a software detail, from defs."""
     if eol is None or not eol.lines:
@@ -416,9 +427,6 @@ def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
         until = EOL_UNTIL.format(date=latest_release.eol_from)
     values = {
         "subject": _version_subject(eol),
-        "lines": _line_phrase(eol.lines),
-        "eol_lines": _line_phrase(eol.eol_lines),
-        "supported_lines": _line_phrase(eol.supported_lines),
         "latest": latest,
         "until": until,
         "date": date,
@@ -463,15 +471,6 @@ def _range_phrase(span: VersionRange) -> str:
     if lower and upper:
         return f"{lower} {upper}"
     return lower or upper or "in an open range"
-
-
-def _line_phrase(lines: tuple[Release, ...]) -> str:
-    """9 on 2024-03-31, 10.1."""
-    bits = []
-    for line in lines:
-        since = EOL_SINCE.format(date=line.eol_from) if line.is_eol and line.eol_from else ""
-        bits.append(f"the {_mark(line.name)} line{since}")
-    return _join(bits)
 
 
 def _join_marked(values: list[str]) -> str:
