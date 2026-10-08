@@ -40,7 +40,7 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 1. **Ignore** components (remediation tag `Ignore`, generic catalog entries such as `chromium-browser`) get no path, only a note.
 2. **Whole OS / firmware** (role `os` or `firmware`) next to any other component is context only: the other components are fixed and the OS is named in a note. When only OS / firmware rows remain, each one is a target.
-3. **Routing:** remediation tag `OS` → `firmware-update` when the role is `firmware`, otherwise `os-update`. Any other tag → `software-update`.
+3. **Routing:** remediation tag `OS` → `firmware-update` when the role is `firmware`, otherwise `os-update`. Any other tag → `software-update`. When the OS was set aside as context (step 2), the OS update is worded for "the relevant operating system", with its name when there is one (IE + Windows → "…for the relevant operating system (`Microsoft Windows`)").
 4. **Discontinued** products (`DISCONTINUED` in `defs/def_eol.py`, e.g. Flash) → `remove-component` only.
 5. **End of life**, for components with an `eol_slug` and versions named in the prerequisite file (exact versions and ranges). Each version is placed on its endoflife.date release line:
 
@@ -62,7 +62,7 @@ EOL data is read live from the endoflife.date API on every suggestion; nothing i
 
 ### Configuration and network
 
-Configuration rows get one option, `configuration-change`. Network rows get one option, `restrict-network-reachability`, worded for inbound or outbound traffic.
+Configuration rows get one option, `configuration-change`. Network rows get one option, `restrict-network-reachability`, worded for the direction in the prerequisite file only (`direction: inbound` → incoming connections, `outbound` → outgoing), and the heading names that direction.
 
 ### Static definitions (`defs/`)
 

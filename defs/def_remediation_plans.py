@@ -7,7 +7,8 @@ description, and the detail template the engine fills for a specific CVE.
 Detail placeholders (the engine fills them; names arrive already marked):
   software       {name} component name, {platform} platform sentence or "",
                  {eol} end-of-life sentence (EOL_SENTENCES) or "",
-                 {its} "its", or "their" when a path covers several components
+                 {its} "its", or "their" when a path covers several components,
+                 {os} " (`OS name`)" when exactly one OS was set aside as context, or ""
   configuration  {name} setting name, {state} state sentence or ""
   network        {service} network service name
 """
@@ -31,6 +32,9 @@ class RemediationAction:
     detail           template for one CVE (see placeholders above)
     detail_outbound  network actions only: template when the vulnerable side
                      opens the connection (direction = outbound)
+    detail_on_platform  software actions only: template when the CVE's operating
+                     system was set aside as context (rule 5), so the update
+                     is for that operating system, not the named component
     condition        when the option applies, if not always
     """
 
@@ -41,6 +45,7 @@ class RemediationAction:
     detail: str
     detail_outbound: str | None = None
     condition: str | None = None
+    detail_on_platform: str | None = None
 
 
 SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
@@ -50,6 +55,7 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Install the latest update your operating system vendor has published.",
         ActionCategory.SOFTWARE,
         detail="Install the latest operating system update for {name} on every affected system.{eol}",
+        detail_on_platform="Install the latest operating system update for the relevant operating system{os} on every affected system.{eol}",
     ),
     RemediationAction(
         "firmware-update",
@@ -117,8 +123,8 @@ NETWORK_ACTIONS: tuple[RemediationAction, ...] = (
         "Restrict service network reachability",
         "Limit network access to the affected service so only the systems that need it can use it, and block it from everything else, including the Internet.",
         ActionCategory.NETWORK,
-        detail="Allow {service} to reach the affected systems only from the systems that need it, and block it from everything else, including the Internet.",
-        detail_outbound="Allow the affected systems to open {service} connections only to destinations you trust, and block all other outgoing {service} traffic.",
+        detail="Accept incoming {service} connections on the affected systems only from the systems that need them.",
+        detail_outbound="Let the affected systems open outgoing {service} connections only to destinations you trust.",
     ),
 )
 
@@ -133,7 +139,18 @@ ACTIONS_BY_ID: dict[str, RemediationAction] = {
 }
 
 
-def render_detail(action: RemediationAction, outbound: bool = False, **values: str) -> str:
+def render_detail(
+    action: RemediationAction, outbound: bool = False, on_platform: bool = False, **values: str
+) -> str:
     """Fill an action's detail template for one CVE."""
-    template = action.detail_outbound if outbound and action.detail_outbound else action.detail
+    template = action.detail
+    if outbound and action.detail_outbound:
+        template = action.detail_outbound
+    if on_platform and action.detail_on_platform:
+        template = action.detail_on_platform
     return template.format(**values)
+
+
+# Network path heading: the service and the direction of the connection.
+NETWORK_DIRECTION_WORDS: dict[str, str] = {"inbound": "incoming", "outbound": "outgoing"}
+NETWORK_TARGET_LABEL = "{service} ({direction})"

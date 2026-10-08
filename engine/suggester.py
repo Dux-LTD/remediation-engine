@@ -21,6 +21,8 @@ from defs.def_remediation_plans import (
     EOL_SENTENCES,
     EOL_UNTIL,
     NETWORK_ACTIONS,
+    NETWORK_DIRECTION_WORDS,
+    NETWORK_TARGET_LABEL,
     RemediationAction,
     render_detail,
 )
@@ -374,6 +376,9 @@ def _software_path(
     name = _join_marked(labels)
     its = "their" if len(labels) > 1 else "its"
     platform = _platform_sentence(platform_context)
+    # The OS was set aside as context: the OS update is for that OS, not the component.
+    on_platform = bool(platform_context)
+    os_name = f" ({_mark(platform_context[0].label)})" if len(platform_context) == 1 else ""
 
     mixed = eol is not None and not eol.all_eol and not eol.all_supported
     options = []
@@ -385,6 +390,7 @@ def _software_path(
                 name=name,
                 its=its,
                 platform=platform,
+                os=os_name,
                 eol=_eol_sentence(eol, key="mixed_replace"),
             )
             option = replace(
@@ -395,9 +401,11 @@ def _software_path(
         else:
             option = _option(
                 ACTIONS_BY_ID[action_id],
+                on_platform=on_platform,
                 name=name,
                 its=its,
                 platform=platform,
+                os=os_name,
                 eol=_eol_sentence(eol),
             )
             if eol is not None and not mixed:
@@ -513,19 +521,22 @@ def _network_path(row: Prerequisite) -> RemediationPath:
     options = tuple(
         _option(action, outbound=outbound, service=_mark(service)) for action in NETWORK_ACTIONS
     )
+    direction = NETWORK_DIRECTION_WORDS["outbound" if outbound else "inbound"]
     return RemediationPath(
         target_display_id=row.display_id,
-        target_label=service,
+        target_label=NETWORK_TARGET_LABEL.format(service=service, direction=direction),
         layer=ActionCategory.NETWORK,
         options=options,
     )
 
 
-def _option(action: RemediationAction, outbound: bool = False, **values: str) -> RemediationOption:
+def _option(
+    action: RemediationAction, outbound: bool = False, on_platform: bool = False, **values: str
+) -> RemediationOption:
     """One option: the action, its filled detail, and its condition, all from defs."""
     return RemediationOption(
         action=action,
-        detail=render_detail(action, outbound=outbound, **values),
+        detail=render_detail(action, outbound=outbound, on_platform=on_platform, **values),
         condition=action.condition,
     )
 
