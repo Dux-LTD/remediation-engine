@@ -17,6 +17,7 @@ from defs.def_remediation_plans import (
     ACTIONS_BY_ID,
     ActionCategory,
     CONFIGURATION_ACTIONS,
+    EOL_CONDITION,
     EOL_SENTENCES,
     EOL_SINCE,
     EOL_UNTIL,
@@ -234,6 +235,9 @@ def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCo
             f"endoflife.date could not be reached and there is no earlier copy of its data."
         )
         return None
+    if not product.named_by_version:
+        # Lines named by edition or branch (11-24h2-e, r580-linux): no EOL check.
+        return None
     if not product.live:
         notes.append(
             f"End-of-life data for {name} is from {product.fetched_at[:10]}, because "
@@ -314,12 +318,24 @@ def _software_path(
         else:
             action_ids = [update_id, "replace-component"]
 
-    eol_sentence = _eol_sentence(eol)
+    mixed = eol is not None and not eol.all_eol and not eol.all_supported
     options = []
     for action_id in action_ids:
-        option = _option(ACTIONS_BY_ID[action_id], name=name, platform=platform, eol=eol_sentence)
-        if eol is not None and (eol.all_eol or eol.all_supported):
-            option = replace(option, condition=None)
+        if mixed and action_id == "replace-component":
+            # The mixed sentence is on the update option; this one names the EOL lines.
+            option = _option(
+                ACTIONS_BY_ID[action_id],
+                name=name,
+                platform=platform,
+                eol=_eol_sentence(eol, key="mixed_replace"),
+            )
+            option = replace(option, condition=EOL_CONDITION.format(lines=_or_lines(eol.eol_lines)))
+        else:
+            option = _option(
+                ACTIONS_BY_ID[action_id], name=name, platform=platform, eol=_eol_sentence(eol)
+            )
+            if eol is not None and not mixed:
+                option = replace(option, condition=None)  # The live check settled it.
         options.append(option)
     options = tuple(options)
     return RemediationPath(
@@ -332,7 +348,14 @@ def _software_path(
     )
 
 
-def _eol_sentence(eol: EolCoverage | None) -> str:
+def _or_lines(lines: tuple[Release, ...]) -> str:
+    """the `9.0` line, or the `9.0` or `8.5` line."""
+    names = [_mark(line.name) for line in lines]
+    joined = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " or " + names[-1]
+    return f"the {joined} line"
+
+
+def _eol_sentence(eol: EolCoverage | None, key: str | None = None) -> str:
     """End-of-life sentence for a software detail, from defs."""
     if eol is None or not eol.lines:
         return ""
@@ -351,6 +374,8 @@ def _eol_sentence(eol: EolCoverage | None) -> str:
         "until": until,
         "date": date,
     }
+    if key is not None:
+        return EOL_SENTENCES[key].format(**values)
     if eol.all_eol and eol.latest_supported is None:
         return EOL_SENTENCES["eol_no_successor"].format(**values)
     if eol.all_eol:
