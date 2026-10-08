@@ -49,7 +49,7 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 | All end of life, a supported line exists | `replace-component` only, naming the latest supported version |
 | All end of life, no supported line left | `remove-component` |
 | All supported | the update action only |
-| Some end of life, some supported | update action + `replace-component` with the condition "if you run the `9.0` or `8.5` line" |
+| Some end of life, some supported | update action + `replace-component` with the condition "if you run one of these end-of-life lines" (the lines shown as tags). The text says which affected versions are end of life, which are supported, and which ranges run across both |
 | No version in the file, no `eol_slug`, or no match | update action + conditional `replace-component` (as before) |
 
 6. **Merging:** software paths that give the same fix become one path that names every component. OS / firmware updates with the same options merge (`xorg-server` and `libXfont2` → one OS update), and a product named twice gets one path. A path with an EOL result stays on its own.
