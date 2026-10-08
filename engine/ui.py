@@ -44,6 +44,10 @@ PAGE = """<!DOCTYPE html>
   .option p { margin: 0.1rem 0 0 1rem; color: #3a342c; }
   code { background: #efe4cc; border-radius: 4px; padding: 0.05rem 0.35rem; font: 0.9em ui-monospace, Menlo, monospace; }
   .condition { font-weight: 400; color: #5c564e; }
+  .eol { margin: 0 0 0.45rem 0.2rem; font: 0.82rem/1.4 sans-serif; color: #5c564e; }
+  .eol .line { display: inline-block; margin: 0 0.3rem 0.2rem 0; padding: 0.1rem 0.45rem; border-radius: 999px; background: #e3eee6; color: #2f6b4f; }
+  .eol .line.is-eol { background: #f3dfd8; color: #8a2b1c; }
+  .eol .stale { color: #8a2b1c; font-weight: 600; }
   .notes { margin-top: 0.5rem; }
   .notes strong { color: #8a2b1c; }
   .notes li { margin: 0.2rem 0; }
@@ -60,7 +64,7 @@ PAGE = """<!DOCTYPE html>
 <body>
 <main>
   <h1>Remediation plans</h1>
-  <p class="lead">Enter the path to a prerequisite file. Any one of the plans closes the issue on its own.</p>
+  <p class="lead">Enter the path to a prerequisite file. Any one of the plans closes the issue on its own. Software versions named in the file are checked live against endoflife.date.</p>
   <form id="form">
     <input id="path" type="text" name="path" placeholder="/path/to/cve.yaml" autocomplete="off" required>
     <button type="submit" id="go">Suggest</button>
@@ -97,6 +101,19 @@ function highlight(json) {
   );
 }
 
+function eolSummary(eol) {
+  if (!eol) return "";
+  const lines = eol.lines.map((line) => line.is_eol
+    ? `<span class="line is-eol">${escape(line.name)} · end of life${line.eol_from ? " " + escape(line.eol_from) : ""}</span>`
+    : `<span class="line">${escape(line.name)} · supported</span>`).join("");
+  const latest = eol.latest_supported ? ` Latest supported: <code>${escape(eol.latest_supported)}</code>.` : " No supported line left.";
+  const when = escape(String(eol.fetched_at).slice(0, 10));
+  const source = eol.live
+    ? `Checked live on endoflife.date (${escape(eol.slug)}), ${when}.`
+    : `<span class="stale">endoflife.date unreachable: data from ${when}.</span>`;
+  return `<div class="eol">Affected release lines: ${lines}<br>${latest.trim()} ${source}</div>`;
+}
+
 function render(plan) {
   const score = plan.cvss_score == null ? "" : `<p class="meta">CVSS ${plan.cvss_score}${plan.cvss_vector ? " · " + escape(plan.cvss_vector) : ""}</p>`;
   const paths = plan.paths.map((path, index) => {
@@ -107,6 +124,7 @@ function render(plan) {
       </div>`).join("");
     return `<section class="path layer-${escape(path.layer)}">
       <h3>${index + 1}. ${escape(path.layer)} — ${escape(path.target_label)}${path.recommended ? '<span class="badge">recommended</span>' : ""}</h3>
+      ${eolSummary(path.eol)}
       ${options}
     </section>`;
   }).join("");
