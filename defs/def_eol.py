@@ -7,9 +7,15 @@ DISCONTINUED     display_ids of products that are end-of-life with no successor:
                  the remediation is to remove the product, not to upgrade it.
                  Source: EOL research of 2026-10-04 (remediation benchmark).
 
-Hand-maintained static data; scripts/build_def_components.py merges it into
-defs/def_components.py.
+EOL_API_URL      endoflife.date API v1 product endpoint. Release cycles, EOL
+                 dates and latest versions are never stored here: engine/eol.py
+                 reads them live from this endpoint on every lookup.
+
+Hand-maintained static data; scripts/build_def_components.py merges EOL_SLUGS
+and DISCONTINUED into defs/def_components.py.
 """
+
+EOL_API_URL = "https://endoflife.date/api/v1/products/{slug}"
 
 EOL_SLUGS: dict[str, str] = {
     'activemq': 'apache-activemq',

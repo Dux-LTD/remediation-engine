@@ -34,6 +34,7 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
                 "target_label": path.target_label,
                 "layer": path.layer.value,
                 "recommended": path.recommended,
+                "eol": _eol_to_dict(path.eol),
                 "options": [
                     {
                         "action_id": option.action.id,
@@ -48,6 +49,32 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
             for path in plan.paths
         ],
         "notes": list(plan.notes),
+    }
+
+
+def _eol_to_dict(eol) -> dict | None:
+    """Live EOL check behind a software path, when one ran."""
+    if eol is None:
+        return None
+    return {
+        "slug": eol.slug,
+        "exact_versions": list(eol.exact_versions),
+        "ranges": [
+            {
+                "min": {"version": span.min.version, "inclusive": span.min.inclusive} if span.min else None,
+                "max": {"version": span.max.version, "inclusive": span.max.inclusive} if span.max else None,
+            }
+            for span in eol.ranges
+        ],
+        "lines": [
+            {"name": line.name, "is_eol": line.is_eol, "eol_from": line.eol_from}
+            for line in eol.lines
+        ],
+        "unmatched_exact": list(eol.unmatched_exact),
+        "all_eol": eol.all_eol,
+        "latest_supported": eol.latest_supported.latest if eol.latest_supported else None,
+        "fetched_at": eol.fetched_at,
+        "live": eol.live,
     }
 
 

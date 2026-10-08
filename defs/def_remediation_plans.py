@@ -5,7 +5,8 @@ single source for every customer-facing word of an action: its title, its
 description, and the detail template the engine fills for a specific CVE.
 
 Detail placeholders (the engine fills them; names arrive already marked):
-  software       {name} component name, {platform} platform sentence or ""
+  software       {name} component name, {platform} platform sentence or "",
+                 {eol} end-of-life sentence (EOL_SENTENCES) or ""
   configuration  {name} setting name, {state} state sentence or ""
   network        {service} network service name
 """
@@ -47,28 +48,28 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Install the latest operating system update",
         "Install the latest update your operating system vendor has published.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest operating system update for {name} on every affected system.",
+        detail="Install the latest operating system update for {name} on every affected system.{eol}",
     ),
     RemediationAction(
         "firmware-update",
         "Install the latest device firmware",
         "Install the latest firmware release from the device vendor. Network appliances and industrial devices are updated on their own schedule, separate from desktop and server operating system patches.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest firmware release the vendor published for {name}.",
+        detail="Install the latest firmware release the vendor published for {name}.{eol}",
     ),
     RemediationAction(
         "software-update",
         "Install the latest product version",
         "Install the latest version the product vendor has published.",
         ActionCategory.SOFTWARE,
-        detail="Install the latest version of {name}.{platform}",
+        detail="Install the latest version of {name}.{platform}{eol}",
     ),
     RemediationAction(
         "replace-component",
         "Replace with the latest version",
         "Replace the software with its latest version (the latest LTS release when there is one). Use this when the installed version is no longer supported and gets no fix.",
         ActionCategory.SOFTWARE,
-        detail="Replace {name} with its latest version, or the latest LTS release when there is one.",
+        detail="Replace {name} with its latest version, or the latest LTS release when there is one.{eol}",
         condition="if this version is no longer supported and the vendor has published no fix",
     ),
     RemediationAction(
@@ -76,9 +77,23 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Remove the unsupported product",
         "Remove the product. The vendor no longer supports it and no newer version exists.",
         ActionCategory.SOFTWARE,
-        detail="Remove {name} from every affected system. The vendor no longer supports it and has no newer version to move to.",
+        detail="Remove {name} from every affected system. The vendor no longer supports it and has no newer version to move to.{eol}",
     ),
 )
+
+# End-of-life sentences for {eol}. {subject} names the affected versions
+# (one exact version, several exact versions, or a range). {lines} names the
+# release lines those versions fall on. {since} is EOL_SINCE or "".
+# {until} is EOL_UNTIL or "" — the date standard support ends for the latest
+# supported release (endoflife.date eolFrom).
+EOL_SENTENCES: dict[str, str] = {
+    "eol": " {subject} at end of life ({lines}). The latest supported version is {latest}{until}, according to {date}.",
+    "eol_no_successor": " {subject} at end of life ({lines}), and no supported release line is left.",
+    "supported": " {subject} supported ({lines}). The latest supported version is {latest}{until}, according to {date}.",
+    "mixed": " {subject} on both end-of-life lines ({eol_lines}) and supported lines ({supported_lines}). The latest supported version is {latest}{until}, according to {date}.",
+}
+EOL_SINCE = " on {date}"
+EOL_UNTIL = ", supported until {date}"
 
 CONFIGURATION_ACTIONS: tuple[RemediationAction, ...] = (
     RemediationAction(

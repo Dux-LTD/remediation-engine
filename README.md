@@ -22,6 +22,8 @@ poetry run remediate a.yaml b.yaml
 
 `--json` prints the same plan as one JSON object. Several files print a JSON list.
 
+Every exact version on a software row, and every release line a version range overlaps, is checked live against endoflife.date when that component has an `eol_slug`. If the API cannot be reached, the last successful response in `db/eol_last_seen/` is used and the plan notes its date.
+
 ## Page
 
 ```bash
