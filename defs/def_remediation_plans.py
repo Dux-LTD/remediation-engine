@@ -1,7 +1,8 @@
 """General remediation actions a customer can take.
 
 Software, configuration, and network-layer actions only. Titles and
-descriptions are written for the customer.
+descriptions are written for the customer. EOL_SENTENCES are the end-of-life
+sentences the engine appends when a software row names versions.
 """
 
 from dataclasses import dataclass
@@ -57,7 +58,27 @@ SOFTWARE_ACTIONS: tuple[RemediationAction, ...] = (
         "Move to a supported version or product. No security patch is available because the vendor no longer supports this software.",
         ActionCategory.SOFTWARE,
     ),
+    RemediationAction(
+        "remove-component",
+        "Remove the unsupported product",
+        "Remove the product. The vendor no longer supports it and no newer version exists.",
+        ActionCategory.SOFTWARE,
+    ),
 )
+
+# End-of-life sentences for {eol}. {subject} names the affected versions
+# (one exact version, several exact versions, or a range). {lines} names the
+# release lines those versions fall on. {since} is EOL_SINCE or "".
+# {until} is EOL_UNTIL or "" — the date standard support ends for the latest
+# supported release (endoflife.date eolFrom).
+EOL_SENTENCES: dict[str, str] = {
+    "eol": " {subject} at end of life ({lines}). The latest supported version is {latest}{until}, according to {date}.",
+    "eol_no_successor": " {subject} at end of life ({lines}), and no supported release line is left.",
+    "supported": " {subject} supported ({lines}). The latest supported version is {latest}{until}, according to {date}.",
+    "mixed": " {subject} on both end-of-life lines ({eol_lines}) and supported lines ({supported_lines}). The latest supported version is {latest}{until}, according to {date}.",
+}
+EOL_SINCE = " on {date}"
+EOL_UNTIL = ", supported until {date}"
 
 CONFIGURATION_ACTIONS: tuple[RemediationAction, ...] = (
     RemediationAction(

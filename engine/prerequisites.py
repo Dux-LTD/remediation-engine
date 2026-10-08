@@ -27,6 +27,38 @@ class PrerequisiteType(Enum):
 
 
 @dataclass(frozen=True, slots=True)
+class VersionBound:
+    """One end of a version range."""
+
+    version: str
+    inclusive: bool
+
+
+@dataclass(frozen=True, slots=True)
+class VersionRange:
+    """Versions between two bounds. A missing bound is open."""
+
+    min: VersionBound | None = None
+    max: VersionBound | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class VersionConstraint:
+    """Versions a prerequisite names as affected.
+
+    exact_versions are specific versions. ranges cover every version between
+    their bounds. Both may be set; an empty constraint names no version.
+    """
+
+    exact_versions: tuple[str, ...] = ()
+    ranges: tuple[VersionRange, ...] = ()
+
+    @property
+    def is_empty(self) -> bool:
+        return not self.exact_versions and not self.ranges
+
+
+@dataclass(frozen=True, slots=True)
 class Prerequisite:
     """One prerequisite row of a CVE."""
 
@@ -42,6 +74,25 @@ class Prerequisite:
     def label(self) -> str:
         """Name to show the customer."""
         return self.title or self.display_id.replace("-", " ")
+
+    @property
+    def affected_versions(self) -> VersionConstraint | None:
+        """Every version the prerequisite file names as affected.
+
+        Specific versions stay exact. A range stays a range, including an open
+        bound. A null version means the file does not name one.
+        """
+        version = self.parameters.get("version")
+        if not isinstance(version, dict):
+            return None
+        exact = tuple(str(value) for value in version.get("exact_versions") or () if value)
+        ranges = []
+        for entry in version.get("ranges") or ():
+            if not isinstance(entry, dict):
+                continue
+            ranges.append(VersionRange(min=_bound(entry.get("min")), max=_bound(entry.get("max"))))
+        constraint = VersionConstraint(exact_versions=exact, ranges=tuple(ranges))
+        return None if constraint.is_empty else constraint
 
     @property
     def fixed_version(self) -> str | None:
@@ -85,6 +136,15 @@ class CvePrerequisites:
 
     def of_type(self, *types: PrerequisiteType) -> tuple[Prerequisite, ...]:
         return tuple(row for row in self.prerequisites if row.type in types)
+
+
+def _bound(raw: Any) -> VersionBound | None:
+    if not isinstance(raw, dict):
+        return None
+    version = raw.get("version")
+    if not version:
+        return None
+    return VersionBound(version=str(version), inclusive=bool(raw.get("inclusive", False)))
 
 
 def parse_prerequisites(document: dict[str, Any]) -> CvePrerequisites:

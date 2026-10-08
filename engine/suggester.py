@@ -8,18 +8,27 @@ paths: each path on its own closes the issue, and the customer picks one.
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass
+from datetime import datetime
 
 from defs.def_components import RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
 from defs.def_remediation_plans import (
     ActionCategory,
     CONFIGURATION_ACTIONS,
+    EOL_SENTENCES,
+    EOL_SINCE,
+    EOL_UNTIL,
     NETWORK_ACTIONS,
     REMEDIATION_ACTIONS,
     RemediationAction,
 )
 
-from .prerequisites import CvePrerequisites, Prerequisite, PrerequisiteType
+from .eol import EolUnavailable, ProductReleases, Release, fetch_releases
+from .prerequisites import CvePrerequisites, Prerequisite, PrerequisiteType, VersionRange
+
+# eol_slug -> that product's release cycles; engine.eol.fetch_releases by default.
+EolLookup = Callable[[str], ProductReleases]
 
 def _catalog_key(text: str) -> str:
     """Normalize a display name or kebab id for catalog lookup."""
@@ -91,6 +100,7 @@ class RemediationPath:
     layer: ActionCategory
     options: tuple[RemediationOption, ...]
     recommended: bool = False
+    eol: "EolCoverage | None" = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -100,6 +110,36 @@ class PlatformContext:
     display_id: str
     label: str
     is_firmware: bool
+
+
+@dataclass(frozen=True, slots=True)
+class EolCoverage:
+    """End-of-life status of every version a prerequisite names."""
+
+    slug: str
+    lines: tuple[Release, ...]
+    exact_versions: tuple[str, ...]
+    ranges: tuple[VersionRange, ...]
+    unmatched_exact: tuple[str, ...]
+    latest_supported: Release | None
+    fetched_at: str
+    live: bool
+
+    @property
+    def eol_lines(self) -> tuple[Release, ...]:
+        return tuple(line for line in self.lines if line.is_eol)
+
+    @property
+    def supported_lines(self) -> tuple[Release, ...]:
+        return tuple(line for line in self.lines if not line.is_eol)
+
+    @property
+    def all_eol(self) -> bool:
+        return bool(self.lines) and all(line.is_eol for line in self.lines)
+
+    @property
+    def all_supported(self) -> bool:
+        return bool(self.lines) and all(not line.is_eol for line in self.lines)
 
 
 @dataclass(frozen=True, slots=True)
@@ -114,15 +154,26 @@ class RemediationPlan:
     cvss_vector: str | None = None
 
 
-def suggest(cve: CvePrerequisites) -> RemediationPlan:
-    """Suggest remediation paths for one CVE."""
+def suggest(
+    cve: CvePrerequisites,
+    eol_lookup: EolLookup | None = None,
+) -> RemediationPlan:
+    """Suggest remediation paths for one CVE.
+
+    Every exact version is checked, and every release line a range overlaps is
+    checked. Only components with a named version and an eol_slug get a live
+    EOL check.
+    """
     software_rows = cve.of_type(PrerequisiteType.SOFTWARE_COMPONENT)
     targets, platform_rows, ignored_rows = _split_software_rows(software_rows)
     platform_context = tuple(_platform_context(row) for row in platform_rows)
+    lookup = eol_lookup or fetch_releases
 
     paths: list[RemediationPath] = []
+    eol_notes: list[str] = []
     for row in targets:
-        paths.append(_software_path(row, platform_context))
+        status = _eol_status(row, lookup, eol_notes)
+        paths.append(_software_path(row, platform_context, status))
     for row in cve.of_type(PrerequisiteType.CONFIGURATION):
         paths.append(_configuration_path(row))
     for row in cve.of_type(PrerequisiteType.NETWORK_SERVICE):
@@ -132,7 +183,7 @@ def suggest(cve: CvePrerequisites) -> RemediationPlan:
         cve_id=cve.cve_id,
         paths=tuple(paths),
         platform_context=platform_context,
-        notes=_notes(cve, targets, platform_context, ignored_rows),
+        notes=_notes(cve, targets, platform_context, ignored_rows) + tuple(eol_notes),
         cvss_score=cve.cvss_score,
         cvss_vector=cve.cvss_vector,
     )
@@ -208,49 +259,193 @@ def _platform_sentence(platform_context: tuple[PlatformContext, ...]) -> str:
     return f" This applies to the affected systems running {names}."
 
 
+def _eol_status(row: Prerequisite, lookup: EolLookup, notes: list[str]) -> EolCoverage | None:
+    """Live EOL check of every affected version, when the row names any."""
+    versions = row.affected_versions
+    component = _component_of(row)
+    if versions is None or component is None or not component.eol_slug or component.discontinued:
+        return None
+    name = _mark(row.label)
+    try:
+        product = lookup(component.eol_slug)
+    except EolUnavailable:
+        notes.append(
+            f"The end-of-life status of {name} could not be checked: "
+            f"endoflife.date could not be reached and there is no earlier copy of its data."
+        )
+        return None
+    if not product.live:
+        notes.append(
+            f"End-of-life data for {name} is from {product.fetched_at[:10]}, because "
+            f"endoflife.date could not be reached for this suggestion."
+        )
+
+    lines: list[Release] = []
+    unmatched = []
+    for version in versions.exact_versions:
+        release = product.release_for(version)
+        if release is None:
+            unmatched.append(version)
+        elif all(release.name != line.name for line in lines):
+            lines.append(release)
+    unmatched_ranges = []
+    for span in versions.ranges:
+        matched = product.releases_overlapping(
+            span.min.version if span.min else None,
+            span.min.inclusive if span.min else True,
+            span.max.version if span.max else None,
+            span.max.inclusive if span.max else False,
+        )
+        if not matched:
+            unmatched_ranges.append(span)
+        for release in matched:
+            if all(release.name != line.name for line in lines):
+                lines.append(release)
+
+    for version in unmatched:
+        notes.append(
+            f"Version {_mark(version)} of {name} matches no release line on endoflife.date, "
+            f"so its end-of-life status is unknown."
+        )
+    for span in unmatched_ranges:
+        notes.append(
+            f"Affected versions {_range_phrase(span)} of {name} match no release line on "
+            f"endoflife.date, so their end-of-life status is unknown."
+        )
+    if not lines:
+        return None
+    return EolCoverage(
+        slug=product.slug,
+        lines=tuple(lines),
+        exact_versions=versions.exact_versions,
+        ranges=versions.ranges,
+        unmatched_exact=tuple(unmatched),
+        latest_supported=product.latest_supported,
+        fetched_at=product.fetched_at,
+        live=product.live,
+    )
+
+
 def _software_path(
-    row: Prerequisite, platform_context: tuple[PlatformContext, ...]
+    row: Prerequisite,
+    platform_context: tuple[PlatformContext, ...],
+    eol: EolCoverage | None = None,
 ) -> RemediationPath:
     component = _component_of(row)
     name = _mark(row.label)
     version = _version_sentence(row)
     platform = _platform_sentence(platform_context)
 
-    # Logic v2 routing: the remediation tag decides OS/firmware update vs vendor
-    # patch; the role decides firmware vs OS update.
-    if component is not None and component.remediation_tag is RemediationTag.OS:
-        if component.role is Role.FIRMWARE:
-            action_id = "firmware-update"
-            detail = (
-                f"Install the firmware release the vendor published for {name}. "
-                f"Appliance and operational technology firmware is released on its own "
-                f"schedule, so it is not covered by regular server and desktop patching. {version}"
-            )
-        else:
-            action_id = "os-update"
-            detail = (
-                f"Install the operating system security update for {name} on every "
-                f"affected system. {version}"
-            )
+    if component is not None and component.discontinued:
+        # End of life with no successor: removing it is the only fix.
+        action_ids = ["remove-component"]
     else:
-        action_id = "software-update"
-        detail = f"Install the security update the vendor published for {name}. {version}{platform}"
+        # Logic v2 routing: the remediation tag decides OS/firmware update vs
+        # vendor patch; the role decides firmware vs OS update.
+        if component is not None and component.remediation_tag is RemediationTag.OS:
+            update_id = "firmware-update" if component.role is Role.FIRMWARE else "os-update"
+        else:
+            update_id = "software-update"
+        action_ids = [update_id, "replace-component"]
 
-    options = [RemediationOption(ACTIONS_BY_ID[action_id], detail)]
-    options.append(
-        RemediationOption(
-            ACTIONS_BY_ID["replace-component"],
-            f"Move to a supported version of {name}, or to a product that replaces it.",
-            condition="if this version is no longer supported and the vendor has published no fix",
-        )
+    options = tuple(
+        _option(ACTIONS_BY_ID[action_id], name=name, platform=platform)
+        for action_id in action_ids
     )
     return RemediationPath(
         target_display_id=row.display_id,
         target_label=row.label,
-        layer=ActionCategory.SOFTWARE,
-        options=tuple(options),
+        layer=options[0].action.category,
+        options=options,
         recommended=True,
+        eol=eol,
     )
+
+
+def _eol_sentence(eol: EolCoverage | None) -> str:
+    """End-of-life sentence for a software detail, from defs."""
+    if eol is None or not eol.lines:
+        return ""
+    date = _month_year(eol.fetched_at)
+    latest_release = eol.latest_supported
+    latest = _mark(latest_release.display()) if latest_release else ""
+    until = ""
+    if latest_release is not None and latest_release.eol_from:
+        until = EOL_UNTIL.format(date=latest_release.eol_from)
+    values = {
+        "subject": _version_subject(eol),
+        "lines": _line_phrase(eol.lines),
+        "eol_lines": _line_phrase(eol.eol_lines),
+        "supported_lines": _line_phrase(eol.supported_lines),
+        "latest": latest,
+        "until": until,
+        "date": date,
+    }
+    if eol.all_eol and eol.latest_supported is None:
+        return EOL_SENTENCES["eol_no_successor"].format(**values)
+    if eol.all_eol:
+        return EOL_SENTENCES["eol"].format(**values)
+    if eol.all_supported:
+        return EOL_SENTENCES["supported"].format(**values)
+    return EOL_SENTENCES["mixed"].format(**values)
+
+
+def _version_subject(eol: EolCoverage) -> str:
+    """Name every affected version the sentence is about."""
+    chunks = []
+    known = [version for version in eol.exact_versions if version not in eol.unmatched_exact]
+    if len(known) == 1:
+        chunks.append(f"version {_mark(known[0])}")
+    elif known:
+        chunks.append(f"versions {_join_marked(known)}")
+    spans = [_range_phrase(span) for span in eol.ranges]
+    if spans:
+        chunks.append("versions " + " and ".join(spans))
+    verb = "is" if len(known) == 1 and not spans else "are"
+    named = " and ".join(chunks) if chunks else "versions"
+    return f"Affected {named} {verb}"
+
+
+def _range_phrase(span: VersionRange) -> str:
+    """from 9.0.0 before 10.0, or the open form when a bound is missing."""
+    lower = ""
+    upper = ""
+    if span.min:
+        word = "from" if span.min.inclusive else "after"
+        lower = f"{word} {_mark(span.min.version)}"
+    if span.max:
+        word = "through" if span.max.inclusive else "before"
+        upper = f"{word} {_mark(span.max.version)}"
+    if lower and upper:
+        return f"{lower} {upper}"
+    return lower or upper or "in an open range"
+
+
+def _line_phrase(lines: tuple[Release, ...]) -> str:
+    """9 on 2024-03-31, 10.1."""
+    bits = []
+    for line in lines:
+        since = EOL_SINCE.format(date=line.eol_from) if line.is_eol and line.eol_from else ""
+        bits.append(f"the {_mark(line.name)} line{since}")
+    return _join(bits)
+
+
+def _join_marked(values: list[str]) -> str:
+    return _join([_mark(value) for value in values])
+
+
+def _join(parts: list[str]) -> str:
+    if not parts:
+        return ""
+    if len(parts) == 1:
+        return parts[0]
+    return ", ".join(parts[:-1]) + " and " + parts[-1]
+
+
+def _month_year(fetched_at: str) -> str:
+    """Month and year of the end-of-life check behind this suggestion."""
+    moment = datetime.fromisoformat(fetched_at)
+    return moment.strftime("%B %Y")
 
 
 def _configuration_path(row: Prerequisite) -> RemediationPath:
