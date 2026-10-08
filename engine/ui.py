@@ -110,7 +110,7 @@ function eolSummary(eol) {
   const latest = eol.latest_supported ? ` Latest supported: <code>${escape(eol.latest_supported)}</code>.` : " No supported line left.";
   const when = escape(String(eol.fetched_at).slice(0, 10));
   const source = eol.live
-    ? `Checked live on endoflife.date (${escape(eol.slug)}), ${when}.`
+    ? `Checked live (${escape(eol.slug)}), ${when}.`
     : `<span class="stale">endoflife.date unreachable: data from ${when}.</span>`;
   return `<div class="eol">Affected release lines: ${lines}<br>${latest.trim()} ${source}</div>`;
 }

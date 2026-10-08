@@ -18,6 +18,7 @@ from defs.def_remediation_plans import (
     ActionCategory,
     CONFIGURATION_ACTIONS,
     EOL_CONDITION,
+    EOL_LATEST_KIND,
     EOL_SENTENCES,
     EOL_UNTIL,
     NETWORK_ACTIONS,
@@ -453,13 +454,15 @@ def _eol_sentence(eol: EolCoverage | None, name: str = "", key: str | None = Non
         return ""
     date = _month_year(eol.fetched_at)
     latest_release = eol.latest_supported
-    latest = _mark(latest_release.display()) if latest_release else ""
+    latest = _mark(latest_release.display(beside_lts_word=latest_release.is_lts)) if latest_release else ""
+    latest_kind = EOL_LATEST_KIND[bool(latest_release and latest_release.is_lts)]
     until = ""
     if latest_release is not None and latest_release.eol_from:
         until = EOL_UNTIL.format(date=latest_release.eol_from)
     values = {
         "subject": _version_subject(eol, name),
         "latest": latest,
+        "latest_kind": latest_kind,
         "until": until,
         "date": date,
     }

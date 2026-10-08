@@ -155,8 +155,13 @@ class ProductReleases:
 
     @property
     def latest_supported(self) -> Release | None:
-        """Newest supported LTS release cycle, or the newest supported one when no LTS."""
-        supported = [release for release in self.version_lines if not release.is_eol]
+        """Newest supported LTS release line, or the newest supported one when no LTS.
+
+        Every line counts here, edition-named ones included: the target to move
+        to does not have to be matched to a version (Office 2024 LTSC, IE 11 LTSC).
+        Lines come in API order, newest first.
+        """
+        supported = [release for release in self.releases if not release.is_eol]
         return next((release for release in supported if release.is_lts), None) or next(
             iter(supported), None
         )

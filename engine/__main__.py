@@ -74,7 +74,8 @@ def _eol_to_dict(eol) -> dict | None:
         ],
         "unmatched_exact": list(eol.unmatched_exact),
         "all_eol": eol.all_eol,
-        "latest_supported": eol.latest_supported.latest if eol.latest_supported else None,
+        "latest_supported": eol.latest_supported.display() if eol.latest_supported else None,
+        "latest_supported_is_lts": bool(eol.latest_supported and eol.latest_supported.is_lts),
         "fetched_at": eol.fetched_at,
         "live": eol.live,
     }
