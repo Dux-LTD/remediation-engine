@@ -91,7 +91,13 @@ EOL_SENTENCES: dict[str, str] = {
     "eol_no_successor": " {subject} at end of life ({lines}), and no supported release line is left.",
     "supported": " {subject} supported ({lines}). The latest supported version is {latest}{until}, according to {date}.",
     "mixed": " {subject} on both end-of-life lines ({eol_lines}) and supported lines ({supported_lines}). The latest supported version is {latest}{until}, according to {date}.",
+    # Replace option of a mixed result: the mixed sentence is on the update
+    # option already, and EOL_CONDITION names the end-of-life lines.
+    "mixed_replace": " The latest supported version is {latest}{until}, according to {date}.",
 }
+# Condition of the replace option when only some affected lines are end of
+# life. {lines} is "the `9.0` line" or "the `9.0` or `8.5` line".
+EOL_CONDITION = "if you run {lines}, which is at end of life"
 EOL_SINCE = " on {date}"
 EOL_UNTIL = ", supported until {date}"
 

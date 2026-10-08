@@ -104,7 +104,7 @@ def render(plan: RemediationPlan) -> str:
         for option in path.options:
             title = option.action.title
             if option.condition:
-                title += f" ({option.condition})"
+                title += f" ({_plain(option.condition)})"
             lines.append(f"   - {title}")
             lines.append(f"     {_plain(option.detail)}")
 

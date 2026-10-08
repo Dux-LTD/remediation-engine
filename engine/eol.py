@@ -32,6 +32,9 @@ STORE_DIR = Path(
 
 Fetcher = Callable[[str], dict[str, Any]]
 
+# A release line name made of digits and dots only: 10.1, 9.
+_VERSION_LINE = re.compile(r"^\d+(?:\.\d+)*$")
+
 
 class EolUnavailable(RuntimeError):
     """The API could not be reached and there is no last-seen copy."""
@@ -49,13 +52,14 @@ class Release:
     label: str | None = None
 
     def display(self, *, beside_lts_word: bool = False) -> str:
-        """Name to show a customer. The API label is the display name.
+        """Version to show a customer: the line's latest version (11.0.27),
+        else the API label, else the line name.
 
         beside_lts_word drops a trailing "(LTS)" so a sentence that already
         says LTS does not repeat it: "the latest LTS version is 26.04
         'Resolute Raccoon'", not "... (LTS)".
         """
-        text = self.label or self.latest or self.name
+        text = self.latest or self.label or self.name
         if beside_lts_word:
             text = re.sub(r"\s*\((?i:lts)\)\s*$", "", text).strip()
         return text
@@ -69,6 +73,17 @@ class ProductReleases:
     releases: tuple[Release, ...]
     fetched_at: str
     live: bool
+
+    @property
+    def named_by_version(self) -> bool:
+        """True when every release line is named by digits and dots only (10.1, 9).
+
+        A product with any line name holding another character (11-24h2-e,
+        r580-linux, 13.0-sp3, subscription) names its lines by edition, branch
+        or service pack rather than by version, so an affected version cannot
+        be placed on a line reliably and the product gets no EOL check.
+        """
+        return all(_VERSION_LINE.match(release.name) for release in self.releases)
 
     def release_for(self, version: str) -> Release | None:
         """The release cycle one version belongs to (longest name match)."""
@@ -122,23 +137,6 @@ class ProductReleases:
         )
 
 
-@dataclass(frozen=True, slots=True)
-class EolCheck:
-    """EOL status of one installed version."""
-
-    slug: str
-    installed_version: str
-    release: Release | None
-    latest_supported: Release | None
-    fetched_at: str
-    live: bool
-
-    @property
-    def is_eol(self) -> bool | None:
-        """True / False when the version maps to a cycle, None when it does not."""
-        return None if self.release is None else self.release.is_eol
-
-
 def fetch_releases(
     slug: str, fetcher: Fetcher | None = None, store_dir: Path | None = None
 ) -> ProductReleases:
@@ -153,24 +151,6 @@ def fetch_releases(
     fetched_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     _write_store(store, {"fetched_at": fetched_at, "response": payload})
     return ProductReleases(slug=slug, releases=releases, fetched_at=fetched_at, live=True)
-
-
-def check(
-    slug: str,
-    installed_version: str,
-    fetcher: Fetcher | None = None,
-    store_dir: Path | None = None,
-) -> EolCheck:
-    """EOL status of an installed version of the product behind `slug`."""
-    product = fetch_releases(slug, fetcher=fetcher, store_dir=store_dir)
-    return EolCheck(
-        slug=slug,
-        installed_version=installed_version,
-        release=product.release_for(installed_version),
-        latest_supported=product.latest_supported,
-        fetched_at=product.fetched_at,
-        live=product.live,
-    )
 
 
 def _http_get(url: str) -> dict[str, Any]:

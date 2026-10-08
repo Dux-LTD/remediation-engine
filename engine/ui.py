@@ -102,7 +102,7 @@ function render(plan) {
   const paths = plan.paths.map((path, index) => {
     const options = path.options.map((option) => `
       <div class="option">
-        <strong>${escape(option.title)}</strong>${option.condition ? ` <span class="condition">(${escape(option.condition)})</span>` : ""}
+        <strong>${escape(option.title)}</strong>${option.condition ? ` <span class="condition">(${inline(option.condition)})</span>` : ""}
         <p>${inline(option.detail)}</p>
       </div>`).join("");
     return `<section class="path layer-${escape(path.layer)}">
