@@ -260,7 +260,11 @@ def _split_software_rows(
     - Ignore-tagged rows are set aside first; no remediation is generated for them.
     - A whole OS or firmware (role os / firmware) next to any other remaining
       component is context only: the other components are what gets fixed.
-    - When only whole-OS / firmware rows remain, every one of them is a target.
+    - When only whole-OS / firmware rows remain next to an Ignore-tagged row,
+      the OS stays context and nothing is a target: the vulnerable product is
+      the one the Ignore entry stands for, not the OS (no OS-update fallback).
+    - When only whole-OS / firmware rows remain otherwise, every one of them is
+      a target.
     """
     ignored_rows = tuple(row for row in rows if _is_ignored(row))
     remaining = tuple(row for row in rows if not _is_ignored(row))
@@ -268,6 +272,8 @@ def _split_software_rows(
     other_rows = tuple(row for row in remaining if not _is_whole_os(row))
     if other_rows:
         return other_rows, whole_os_rows, ignored_rows
+    if ignored_rows:
+        return (), whole_os_rows, ignored_rows
     return whole_os_rows, (), ignored_rows
 
 
