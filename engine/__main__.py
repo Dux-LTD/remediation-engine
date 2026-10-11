@@ -10,28 +10,36 @@ from pathlib import Path
 if __package__ in (None, ""):  # running the file directly
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from engine.prerequisites import load_prerequisites
+from engine.catalog_lookup import CatalogLookup, CatalogRecordLookup
+from engine.prerequisites import PrerequisiteType, load_prerequisites
 from engine.suggester import RemediationPlan, suggest
 
 
-def plan_to_dict(plan: RemediationPlan) -> dict:
-    """Machine-readable form of a plan."""
+def plan_to_dict(plan: RemediationPlan, catalog: CatalogLookup | None = None) -> dict:
+    """Machine-readable form of a plan.
+
+    Catalog record ids are resolved live by (display_id, type). A pair that
+    matches two rows contributes null, and the ids are listed under
+    catalog_record_conflicts so neither is bound.
+    """
+    lookup = catalog or CatalogLookup()
+    lookup.prepare(_catalog_pairs(plan))
     return {
         "cve_id": plan.cve_id,
         "cvss_score": plan.cvss_score,
         "cvss_vector": plan.cvss_vector,
         "platform_context": [
-            {
-                "display_id": item.display_id,
-                "label": item.label,
-                "is_firmware": item.is_firmware,
-            }
-            for item in plan.platform_context
+            _platform_to_dict(item, lookup) for item in plan.platform_context
         ],
         "paths": [
             {
                 "target_display_id": path.target_display_id,
                 "target_display_ids": list(path.target_display_ids or (path.target_display_id,)),
+                **_catalog_fields(
+                    lookup,
+                    path.target_display_ids or (path.target_display_id,),
+                    path.catalog_type,
+                ),
                 "target_label": path.target_label,
                 "layer": path.layer.value,
                 "recommended": path.recommended,
@@ -53,6 +61,62 @@ def plan_to_dict(plan: RemediationPlan) -> dict:
         ],
         "notes": list(plan.notes),
     }
+
+
+def _catalog_pairs(plan: RemediationPlan) -> list[tuple[str, PrerequisiteType]]:
+    """Every (display_id, type) the JSON will resolve, so one scan serves them all."""
+    pairs: list[tuple[str, PrerequisiteType]] = []
+    for item in plan.platform_context:
+        if item.catalog_type is not None:
+            pairs.append((item.display_id, item.catalog_type))
+    for path in plan.paths:
+        if path.catalog_type is None:
+            continue
+        display_ids = path.target_display_ids or (path.target_display_id,)
+        pairs.extend((display_id, path.catalog_type) for display_id in display_ids)
+    return pairs
+
+
+def _platform_to_dict(item, lookup: CatalogLookup) -> dict:
+    found = _find(lookup, item.display_id, item.catalog_type)
+    payload = {
+        "display_id": item.display_id,
+        "catalog_record_id": found.record_id,
+        "label": item.label,
+        "is_firmware": item.is_firmware,
+    }
+    if len(found.ids) > 1:
+        payload["catalog_record_conflicts"] = list(found.ids)
+    return payload
+
+
+def _catalog_fields(
+    lookup: CatalogLookup,
+    display_ids: tuple[str, ...],
+    catalog_type: PrerequisiteType | None,
+) -> dict:
+    """One catalog id per display id. Null when the pair is missing or duplicated."""
+    ids: list[str | None] = []
+    conflicts = []
+    for display_id in display_ids:
+        found = _find(lookup, display_id, catalog_type)
+        ids.append(found.record_id)
+        if len(found.ids) > 1:
+            conflicts.append(
+                {"display_id": display_id, "type": found.type, "ids": list(found.ids)}
+            )
+    fields: dict = {"catalog_record_ids": ids}
+    if conflicts:
+        fields["catalog_record_conflicts"] = conflicts
+    return fields
+
+
+def _find(
+    lookup: CatalogLookup, display_id: str, catalog_type: PrerequisiteType | None
+) -> CatalogRecordLookup:
+    if catalog_type is None:
+        return CatalogRecordLookup(display_id, "", ())
+    return lookup.find(display_id, catalog_type)
 
 
 def _eol_to_dict(eol) -> dict | None:
@@ -149,7 +213,8 @@ def main(argv: list[str] | None = None) -> int:
     plans = [suggest(load_prerequisites(path)) for path in args.prerequisite_file]
 
     if args.json:
-        payload = [plan_to_dict(plan) for plan in plans]
+        catalog = CatalogLookup()
+        payload = [plan_to_dict(plan, catalog) for plan in plans]
         print(json.dumps(payload if len(payload) > 1 else payload[0], indent=2))
     else:
         print("\n\n".join(render(plan) for plan in plans))

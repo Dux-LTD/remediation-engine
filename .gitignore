@@ -9,7 +9,9 @@ scripts/__init__.py
 scripts/results/
 engine/__pycache__/
 def/__pycache__/
+results/
 
 remediation-benchmark.html
 remediation_benchmark_per_cve.csv
 skills-lock.json
+prod.op

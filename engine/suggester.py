@@ -79,6 +79,8 @@ class RemediationPath:
     eol: "EolCoverage | None" = None
     # Every component this path fixes; more than one when identical paths merged.
     target_display_ids: tuple[str, ...] = ()
+    # Local prerequisite label: software_component, configuration, or network_service.
+    catalog_type: PrerequisiteType | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -88,6 +90,7 @@ class PlatformContext:
     display_id: str
     label: str
     is_firmware: bool
+    catalog_type: PrerequisiteType | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -211,6 +214,7 @@ def _platform_context(row: Prerequisite) -> PlatformContext:
         display_id=row.display_id,
         label=row.label,
         is_firmware=component is not None and component.role is Role.FIRMWARE,
+        catalog_type=row.type,
     )
 
 
@@ -476,6 +480,7 @@ def _software_path(
         recommended=True,
         eol=eol,
         target_display_ids=display_ids,
+        catalog_type=rows[0].type,
     )
 
 
@@ -581,6 +586,7 @@ def _configuration_path(row: Prerequisite) -> RemediationPath:
         target_label=row.label,
         layer=ActionCategory.CONFIGURATION,
         options=options,
+        catalog_type=row.type,
     )
 
 
@@ -596,6 +602,7 @@ def _network_path(row: Prerequisite) -> RemediationPath:
         target_label=NETWORK_TARGET_LABEL.format(service=service, direction=direction),
         layer=ActionCategory.NETWORK,
         options=options,
+        catalog_type=row.type,
     )
 
 
