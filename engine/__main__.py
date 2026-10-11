@@ -10,7 +10,7 @@ from pathlib import Path
 if __package__ in (None, ""):  # running the file directly
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from engine.catalog_lookup import CatalogLookup, CatalogRecordLookup
+from engine.catalog_lookup import CatalogLookup, CatalogLookupError, CatalogRecordLookup
 from engine.prerequisites import PrerequisiteType, load_prerequisites
 from engine.suggester import RemediationPlan, suggest
 
@@ -214,7 +214,12 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.json:
         catalog = CatalogLookup()
-        payload = [plan_to_dict(plan, catalog) for plan in plans]
+        try:
+            payload = [plan_to_dict(plan, catalog) for plan in plans]
+        except CatalogLookupError as exc:
+            for display_id in exc.display_ids:
+                print(f"{display_id} failed", file=sys.stderr)
+            return 1
         print(json.dumps(payload if len(payload) > 1 else payload[0], indent=2))
     else:
         print("\n\n".join(render(plan) for plan in plans))

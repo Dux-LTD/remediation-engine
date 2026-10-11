@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from engine.prerequisites import load_prerequisites
+from engine.catalog_lookup import CatalogLookupError
 from engine.suggester import suggest
 
 PAGE = """<!DOCTYPE html>
@@ -28,7 +29,7 @@ PAGE = """<!DOCTYPE html>
   input[type=text] { flex: 1; font: inherit; padding: 0.55rem 0.7rem; border: 1px solid #c9c2b6; border-radius: 6px; background: #fff; }
   button { font: 600 0.95rem/1 sans-serif; padding: 0.55rem 1rem; border: 0; border-radius: 6px; background: #1c1915; color: #fff; cursor: pointer; }
   button:disabled { opacity: 0.5; }
-  .error { margin-top: 1rem; color: #8a2b1c; }
+  .error { margin-top: 1rem; color: #8a2b1c; white-space: pre-line; }
   article { margin-top: 2rem; }
   article h2 { font-size: 1.25rem; margin: 0; color: #1d4e89; }
   article .meta { color: #5c564e; margin: 0.15rem 0 1rem; }
@@ -214,6 +215,9 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Enter a path to a prerequisite file.")
             plans = suggest_file(path)
             status, body = 200, {"plans": plans}
+        except CatalogLookupError as problem:
+            failed = "\n".join(f"{display_id} failed" for display_id in problem.display_ids)
+            status, body = 400, {"error": failed or str(problem)}
         except (OSError, ValueError, KeyError, yaml.YAMLError) as problem:
             status, body = 400, {"error": str(problem)}
         encoded = json.dumps(body).encode()

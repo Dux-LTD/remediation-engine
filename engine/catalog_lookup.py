@@ -53,7 +53,14 @@ FETCH_TYPES = frozenset(
 
 
 class CatalogLookupError(RuntimeError):
-    """The catalog could not be queried, or the response was not usable."""
+    """The catalog could not be queried, or the response was not usable.
+
+    display_ids are the names still being resolved when the fetch failed.
+    """
+
+    def __init__(self, message: str, display_ids: tuple[str, ...] = ()) -> None:
+        super().__init__(message)
+        self.display_ids = display_ids
 
 
 @dataclass(frozen=True, slots=True)
@@ -133,7 +140,13 @@ class CatalogLookup:
                 self._seek(scan, type_label, pending)
 
     def _seek(self, scan: _TypeScan, record_type: str, wanted: set[str]) -> None:
-        self._session_jwt()
+        try:
+            self._session_jwt()
+        except CatalogLookupError as exc:
+            raise CatalogLookupError(str(exc), tuple(sorted(wanted))) from exc
+        self._read_until_found(scan, record_type, wanted)
+
+    def _read_until_found(self, scan: _TypeScan, record_type: str, wanted: set[str]) -> None:
         while wanted and not scan.done:
             if scan.total_pages is not None and scan.next_page > scan.total_pages:
                 scan.done = True
@@ -147,7 +160,10 @@ class CatalogLookup:
             if not batch:
                 scan.done = True
                 break
-            fetched = self._fetch_pages(record_type, batch)
+            try:
+                fetched = self._fetch_pages(record_type, batch)
+            except CatalogLookupError as exc:
+                raise CatalogLookupError(str(exc), tuple(sorted(wanted))) from exc
             for page in batch:
                 items, total = fetched[page]
                 for item in items:
