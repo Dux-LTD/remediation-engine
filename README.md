@@ -38,7 +38,7 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 
 ### Software components
 
-1. **Ignore** components (remediation tag `Ignore`, generic catalog entries such as `chromium-browser`) get no path, only a note.
+1. **Ignore** components (remediation tag `Ignore`, generic catalog entries) get no path, only a note. Three groups are expanded first, by the second layer in `defs/def_ignore_expansion.py`: `chromium-browser` → Google Chrome + Microsoft Edge, `web-browser-with-javascript-engine` → Mozilla Firefox + Google Chrome, `malicious-browser-extension-installed` → Google Chrome + Microsoft Edge. The group's row is replaced by those components (without the group's version), and the rest of the flow treats them as if the prerequisite file had named them. A note says which defaults were used.
 2. **Whole OS / firmware** (role `os` or `firmware`) next to any other component is context only: the other components are fixed and the OS is named in a note. When only OS / firmware rows remain, each one is a target.
 3. **Routing:** remediation tag `OS` → `firmware-update` when the role is `firmware`, otherwise `os-update`. Any other tag → `software-update`. A component built into the OS (tag `OS`, role `other`: Internet Explorer, scripting engines) gets the OS update only: it cannot be replaced on its own, so there is no replace option, and an EOL result is shown in the text without changing the options. When the OS was set aside as context (step 2), the OS update is worded for "the relevant operating system", with its name when there is one (IE + Windows → "…for the relevant operating system (`Microsoft Windows`)").
 4. **Discontinued** products (`DISCONTINUED` in `defs/def_eol.py`, e.g. Flash) → `remove-component` only.
@@ -53,6 +53,8 @@ Open `http://127.0.0.1:8000` and enter the path to a prerequisite file. Each sof
 | No version in the file, no `eol_slug`, or no match | update action + conditional `replace-component` (as before) |
 
 6. **Merging:** software paths that give the same fix become one path that names every component. OS / firmware updates with the same options merge (`xorg-server` and `libXfont2` → one OS update), and a product named twice gets one path. A path with an EOL result stays on its own.
+
+Chrome and Firefox (`NO_EOL_CHECK` in `defs/def_eol.py`) get no EOL check at all: no API call, no end-of-life text and no latest supported version, since each of their versions reaches end of life as soon as the next ships. They keep the update option and the conditional replace.
 
 The check uses only release lines named by digits and dots (`11`, `10.1`). Lines named by edition or branch (`11-ltsb`, `11-24h2-e`, `r580-linux`, `13.0-sp3`, `subscription`) are ignored; a product with no numeric line gets no check. A range is placed only when one of its bounds uses a major number of those lines (Windows `10.0.x` does not fit its numeric lines `8.1` and `8`). When the product also has edition-named lines, versions that fit no numeric line are skipped without a note, since they likely sit on an edition line. The version to move to is chosen from every supported line, edition-named ones included, and an LTS line is preferred (Office 2016 → "the latest supported LTS version is `2024 LTSC`").
 

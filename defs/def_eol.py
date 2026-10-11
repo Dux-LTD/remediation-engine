@@ -7,6 +7,8 @@ DISCONTINUED     display_ids of products that are end-of-life with no successor:
                  the remediation is to remove the product, not to upgrade it.
                  Source: EOL research of 2026-10-04 (remediation benchmark).
 
+NO_EOL_CHECK     slugs skipped by the EOL check (rolling-release browsers).
+
 EOL_API_URL      endoflife.date API v1 product endpoint. Release cycles, EOL
                  dates and latest versions are never stored here: engine/eol.py
                  reads them live from this endpoint on every lookup.
@@ -16,6 +18,12 @@ and DISCONTINUED into defs/def_components.py.
 """
 
 EOL_API_URL = "https://endoflife.date/api/v1/products/{slug}"
+
+# endoflife.date slugs that get no EOL check at all (no API call, no end-of-life
+# text, no latest supported version). Chrome and Firefox ship a new version every
+# few weeks and each older one reaches end of life when the next ships, so the
+# check adds nothing but noise and false "retired" results.
+NO_EOL_CHECK: frozenset[str] = frozenset({"chrome", "firefox"})
 
 EOL_SLUGS: dict[str, str] = {
     'activemq': 'apache-activemq',

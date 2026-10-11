@@ -13,6 +13,7 @@ from dataclasses import dataclass, replace
 from datetime import datetime
 
 from defs.def_components import RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
+from defs.def_eol import NO_EOL_CHECK
 from defs.def_ignore_expansion import EXPANSION_NOTE, IGNORE_EXPANSION
 from defs.def_remediation_plans import (
     ACTIONS_BY_ID,
@@ -309,7 +310,12 @@ def _eol_status(
     """
     versions = row.affected_versions
     component = _component_of(row)
-    if component is None or not component.eol_slug or component.discontinued:
+    if (
+        component is None
+        or not component.eol_slug
+        or component.discontinued
+        or component.eol_slug in NO_EOL_CHECK  # rolling-release browsers: no EOL check
+    ):
         return None, False
     name = _mark(row.label)
     try:
