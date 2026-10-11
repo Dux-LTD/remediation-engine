@@ -107,14 +107,21 @@ EOL_SENTENCES: dict[str, tuple[str, ...]] = {
         "{subject} supported.",
         "The {latest_kind} is {latest}{until}, according to {date}.",
     ),
-    "mixed": (
-        "{subject} on both end-of-life and supported release lines.",
-        "The {latest_kind} is {latest}{until}, according to {date}.",
-    ),
+    # Mixed: one status sentence per group from EOL_MIXED_GROUPS comes first.
+    "mixed": ("The {latest_kind} is {latest}{until}, according to {date}.",),
     # Replace option of a mixed result: the mixed sentence is on the update
     # option already, and the option lists the end-of-life lines it applies to.
     "mixed_replace": ("The {latest_kind} is {latest}{until}, according to {date}.",),
 }
+# Status sentences of a mixed result, one bullet per group that has versions:
+# the affected versions on end-of-life lines, on supported lines, and ranges
+# that run across both.
+EOL_MIXED_GROUPS: dict[str, str] = {
+    "eol": "{subject} at end of life.",
+    "supported": "{subject} supported.",
+    "both": "{subject} on both end-of-life and supported release lines.",
+}
+
 # Condition of the replace option when only some affected lines are end of
 # life. The option's eol_lines name those lines; the page shows them as tags.
 EOL_CONDITION = "if you run one of these end-of-life lines"

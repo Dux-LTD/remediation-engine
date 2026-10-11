@@ -33,7 +33,7 @@ def plan_to_dict(plan: RemediationPlan, catalog: CatalogLookup | None = None) ->
         ],
         "paths": [
             {
-                "target_display_id": path.target_display_id,
+                "record_ids": list(path.record_ids),
                 "target_display_ids": list(path.target_display_ids or (path.target_display_id,)),
                 **_catalog_fields(
                     lookup,
