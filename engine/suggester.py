@@ -80,6 +80,8 @@ class RemediationPath:
     eol: "EolCoverage | None" = None
     # Every component this path fixes; more than one when identical paths merged.
     target_display_ids: tuple[str, ...] = ()
+    # Prerequisite row ids this path closes, in the same order as target_display_ids.
+    record_ids: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -440,6 +442,7 @@ def _software_path(
 ) -> RemediationPath:
     labels = list(dict.fromkeys(row.label for row in rows))
     display_ids = tuple(dict.fromkeys(row.display_id for row in rows))
+    record_ids = tuple(dict.fromkeys(row.id for row in rows))
     name = _join_marked(labels)
     its = "their" if len(labels) > 1 else "its"
     platform = _platform_sentence(platform_context)
@@ -485,6 +488,7 @@ def _software_path(
         recommended=True,
         eol=eol,
         target_display_ids=display_ids,
+        record_ids=record_ids,
     )
 
 
@@ -619,6 +623,7 @@ def _configuration_path(row: Prerequisite) -> RemediationPath:
         target_label=row.label,
         layer=ActionCategory.CONFIGURATION,
         options=options,
+        record_ids=(row.id,),
     )
 
 
@@ -634,6 +639,7 @@ def _network_path(row: Prerequisite) -> RemediationPath:
         target_label=NETWORK_TARGET_LABEL.format(service=service, direction=direction),
         layer=ActionCategory.NETWORK,
         options=options,
+        record_ids=(row.id,),
     )
 
 
