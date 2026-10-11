@@ -1,6 +1,6 @@
 # Remediation engine
 
-Suggests a remediation plan for CVE from its prerequisite file. An example scheme is `engine/prereq_scheme.yaml`.
+Suggests a remediation plan for CVE from its prerequisite file. An example scheme is `defs/prereq_scheme.yaml`.
 
 A plan is a set of alternatives. Any one of them closes the issue on its own. The software fix is currently marked recommended. Configuration and network prerequisites are listed as further alternatives.
 
