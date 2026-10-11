@@ -13,6 +13,7 @@ from dataclasses import dataclass, replace
 from datetime import datetime
 
 from defs.def_components import RemediationTag, Role, SOFTWARE_COMPONENTS, SoftwareComponent
+from defs.def_ignore_expansion import EXPANSION_NOTE, IGNORE_EXPANSION
 from defs.def_remediation_plans import (
     ACTIONS_BY_ID,
     ActionCategory,
@@ -150,7 +151,9 @@ def suggest(
     checked. Only components with a named version and an eol_slug get a live
     EOL check.
     """
-    software_rows = cve.of_type(PrerequisiteType.SOFTWARE_COMPONENT)
+    software_rows, expansion_notes = _expand_ignore_groups(
+        cve.of_type(PrerequisiteType.SOFTWARE_COMPONENT)
+    )
     targets, platform_rows, ignored_rows = _split_software_rows(software_rows)
     platform_context = tuple(_platform_context(row) for row in platform_rows)
     lookup = eol_lookup or fetch_releases
@@ -172,10 +175,64 @@ def suggest(
         cve_id=cve.cve_id,
         paths=tuple(paths),
         platform_context=platform_context,
-        notes=_notes(cve, targets, platform_context, ignored_rows) + tuple(eol_notes),
+        notes=tuple(expansion_notes)
+        + _notes(cve, targets, platform_context, ignored_rows)
+        + tuple(eol_notes),
         cvss_score=cve.cvss_score,
         cvss_vector=cve.cvss_vector,
     )
+
+
+def _check_ignore_expansion() -> None:
+    """Every group and every target of IGNORE_EXPANSION must be a catalog component."""
+    for group, targets in IGNORE_EXPANSION.items():
+        for display_id in (group, *targets):
+            if display_id not in SOFTWARE_COMPONENTS:
+                raise ValueError(
+                    f"defs/def_ignore_expansion.py: {display_id!r} is not a component "
+                    f"in defs/def_components.py"
+                )
+
+
+_check_ignore_expansion()
+
+
+def _expand_ignore_groups(
+    rows: tuple[Prerequisite, ...],
+) -> tuple[tuple[Prerequisite, ...], list[str]]:
+    """Replace each Ignore group in IGNORE_EXPANSION with its default components.
+
+    The new rows behave exactly as if the prerequisite file had named those
+    components. The group's version is not carried over: its numbers belong to
+    the group (Chromium), not to each product (Edge has its own versions).
+    A component the file already names is not added twice.
+    """
+    named = {row.display_id for row in rows}
+    expanded: list[Prerequisite] = []
+    notes: list[str] = []
+    for row in rows:
+        targets = IGNORE_EXPANSION.get(row.display_id)
+        if not targets:
+            expanded.append(row)
+            continue
+        parameters = {k: v for k, v in row.parameters.items() if k != "version"}
+        for display_id in targets:
+            if display_id in named:
+                continue
+            named.add(display_id)
+            expanded.append(
+                replace(
+                    row,
+                    id=f"{row.id}:{display_id}",
+                    display_id=display_id,
+                    title=SOFTWARE_COMPONENTS[display_id].display_name,
+                    parameters=parameters,
+                )
+            )
+        group = SOFTWARE_COMPONENTS[row.display_id].display_name
+        products = _join_marked([SOFTWARE_COMPONENTS[t].display_name for t in targets])
+        notes.append(EXPANSION_NOTE.format(group=_mark(group), products=products))
+    return tuple(expanded), notes
 
 
 def _component_of(row: Prerequisite) -> SoftwareComponent | None:

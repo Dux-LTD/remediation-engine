@@ -15,15 +15,23 @@ from engine.prerequisites import PrerequisiteType, load_prerequisites
 from engine.suggester import RemediationPlan, suggest
 
 
-def plan_to_dict(plan: RemediationPlan, catalog: CatalogLookup | None = None) -> dict:
+def plan_to_dict(
+    plan: RemediationPlan,
+    catalog: CatalogLookup | None = None,
+    *,
+    resolve_catalog: bool = True,
+) -> dict:
     """Machine-readable form of a plan.
 
-    Catalog record ids are resolved live by (display_id, type). A pair that
+    Catalog record ids are resolved live by (display_id, type) when
+    resolve_catalog is set. The page leaves that lookup out. A pair that
     matches two rows contributes null, and the ids are listed under
     catalog_record_conflicts so neither is bound.
     """
-    lookup = catalog or CatalogLookup()
-    lookup.prepare(_catalog_pairs(plan))
+    lookup = None
+    if resolve_catalog:
+        lookup = catalog or CatalogLookup()
+        lookup.prepare(_catalog_pairs(plan))
     return {
         "cve_id": plan.cve_id,
         "cvss_score": plan.cvss_score,
@@ -35,10 +43,14 @@ def plan_to_dict(plan: RemediationPlan, catalog: CatalogLookup | None = None) ->
             {
                 "record_ids": list(path.record_ids),
                 "target_display_ids": list(path.target_display_ids or (path.target_display_id,)),
-                **_catalog_fields(
-                    lookup,
-                    path.target_display_ids or (path.target_display_id,),
-                    path.catalog_type,
+                **(
+                    _catalog_fields(
+                        lookup,
+                        path.target_display_ids or (path.target_display_id,),
+                        path.catalog_type,
+                    )
+                    if lookup is not None
+                    else {}
                 ),
                 "target_label": path.target_label,
                 "layer": path.layer.value,
@@ -77,14 +89,16 @@ def _catalog_pairs(plan: RemediationPlan) -> list[tuple[str, PrerequisiteType]]:
     return pairs
 
 
-def _platform_to_dict(item, lookup: CatalogLookup) -> dict:
-    found = _find(lookup, item.display_id, item.catalog_type)
+def _platform_to_dict(item, lookup: CatalogLookup | None) -> dict:
     payload = {
         "display_id": item.display_id,
-        "catalog_record_id": found.record_id,
         "label": item.label,
         "is_firmware": item.is_firmware,
     }
+    if lookup is None:
+        return payload
+    found = _find(lookup, item.display_id, item.catalog_type)
+    payload["catalog_record_id"] = found.record_id
     if len(found.ids) > 1:
         payload["catalog_record_conflicts"] = list(found.ids)
     return payload
